@@ -1,0 +1,57 @@
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+body {
+    background-color: rgb(76, 102, 154);
+}
+
+#logo {
+    width: 130px;
+    height: 125px;
+}
+
+#header-bg {
+    background: url(../img/faded-city-slider.jpg) 100% 100% no-repeat;
+}
+
+#web-header {
+    line-height: 3;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 52px;
+    padding-right: 10%;
+}
+
+#regi-form {
+    background-color: rgba(39, 50, 75, 1);
+    border-radius: 10px;
+}
+
+.rowan {
+    position: absolute;
+    margin: auto;
+    top: 260px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -moz-box-shadow: 1px 8px 6px 1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 8px 6px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 8px 6px 1px rgba(0, 0, 0, 0.5);
+}
+
+.rowtwo {
+    position: absolute;
+    margin: auto;
+    top: 500px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -moz-box-shadow: 1px 8px 6px 1px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 8px 6px 1px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 8px 6px 1px rgba(0, 0, 0, 0.5);
+}
