@@ -1,0 +1,23 @@
+#regi-form {
+    background-color: rgb(51, 66, 93);
+    border-radius: 10px;
+    opacity: .9;
+}
+
+#txtarea {
+    width: 500px;
+}
+
+.radio-background {
+    border: none;
+    background-color: rgb(51, 66, 93);
+}
+
+.bttn {
+    background-color: orange;
+    align-content: center;
+}
+
+.names {
+    height: 60px;
+}

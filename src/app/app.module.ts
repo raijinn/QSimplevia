@@ -10,8 +10,9 @@ import { RegiFormComponent } from './components/regi-form/regi-form.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { MonitorDesignComponent } from './components/monitor-design/monitor-design.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { QRGeneratorComponent } from './components/qrgenerator/qrgenerator.component';
-import { FormControlComponent } from './components/form-control/form-control.component';
+import { FormAngularComponent } from './components/form-angular/form-angular.component';
+import { ModaaalComponent } from './components/trans2/modaaal/modaaal.component';
+
 
 
 @NgModule({
@@ -22,8 +23,8 @@ import { FormControlComponent } from './components/form-control/form-control.com
     RegiFormComponent,
     MonitorDesignComponent,
     DashboardComponent,
-    QRGeneratorComponent,
-    FormControlComponent,
+    FormAngularComponent,
+    ModaaalComponent
   ],
   imports: [
     BrowserModule,

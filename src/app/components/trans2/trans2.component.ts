@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-trans2',
@@ -7,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Trans2Component implements OnInit {
 
+  
   constructor() { }
 
   ngOnInit() {
