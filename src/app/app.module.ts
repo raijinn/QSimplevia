@@ -2,33 +2,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { QRCodeModule } from 'angularx-qrcode'; //QR Code Generator
 import { FormsModule } from '@angular/forms'; //Needed for forms
-import { AppComponent } from './app.component';
-import { Trans1Component } from './components/trans1/trans1.component';
-import { Trans2Component } from './components/trans2/trans2.component';
-import { RegiFormComponent } from './components/regi-form/regi-form.component';
-import { AppRoutingModule } from './/app-routing.module';
-import { MonitorDesignComponent } from './components/monitor-design/monitor-design.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ModaaalComponent } from './components/trans2/modaaal/modaaal.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http'
 
-@NgModule({
+import { AppComponent } from './app.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { MaintenanceComponent } from './admin/maintenance/maintenance.component';
+import { QueueControlComponent } from './teller/queue-control/queue-control.component';
+import { AccountSettingsComponent } from './teller/account-settings/account-settings.component';
+import { LoginComponent } from './home/login/login.component';
+import { AapiTestingComponent } from './aapi-testing/aapi-testing.component';
+
+import { QueueNumService } from './callsWebapi/Queue_Num/queue-num.service'
+
+@NgModule({ 
   declarations: [
     AppComponent,
-    Trans1Component,
-    Trans2Component,
-    RegiFormComponent,
-    MonitorDesignComponent,
     DashboardComponent,
-    ModaaalComponent
+    MaintenanceComponent,
+    QueueControlComponent,
+    AccountSettingsComponent,
+    LoginComponent,
+    AapiTestingComponent
   ],
   imports: [
     BrowserModule,
-    BrowserModule,
     AppRoutingModule,
     QRCodeModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [QueueNumService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

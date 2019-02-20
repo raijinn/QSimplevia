@@ -1,6 +1,51 @@
-<header id="header-bg">
-    <img id="logo" class="float-left ml-5 mt-2 pt-1 mw-100 h-50" src="../assets/img/logo_final.png">
-    <h1 id="web-header" class="text-center">Municipality of General Trias</h1>
-</header>
+<div *ngIf="headerval; then welcomepage; else dashboard"></div>
+
+<ng-template #welcomepage>
+    <!-- cant make haeder background appear, fix later -->
+    <header id="header-bg">
+        <img id="logo" class="float-left ml-5 mw-10 mt-3" src="../assets/img/logo_final.png">
+        <h1 class="text-center pt-4">Municipality of General Trias</h1>
+    </header>
+</ng-template>
+
+<ng-template #dashboard>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light header-bg">
+        <img id="logo" class="float-left ml-5 mw-10" src="../assets/img/logo_final.png">
+
+        <a class="navbar-brand" href="#">
+            <h3 class="mx-3">Municipality of General Trias</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link mx-3" routerLink="/">Queue <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" routerLink="/">Maintenance</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" routerLink="/">Reports</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" routerLink="/account-settings">Account Settings</a>
+                </li>
+                <li class="nav-item mx-3">
+                    <a class="nav-link" routerLink="/" (click)="funktion()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</ng-template>
+
+
+
+<!-- remove this later -->
+<button (click)="headerval = !headerval">switch header</button>
+
 
 <router-outlet></router-outlet>

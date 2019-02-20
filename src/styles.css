@@ -10,22 +10,6 @@ body {
     overflow: hidden;
 }
 
-#logo {
-    width: 130px;
-    height: 125px;
-}
-
-#header-bg {
-    background: url(./assets/img/faded-city-slider.jpg) 100% 100% no-repeat;
-}
-
-#web-header {
-    line-height: 3;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 52px;
-    padding-right: 10%;
-}
-
 body {
     background: url("./assets/img/bg.jpg");
 }
