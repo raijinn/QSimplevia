@@ -23,9 +23,7 @@ const routes: Routes = [
   { path: 'maintenance', component: MaintenanceComponent },
   { path: 'account-settings-teller', component: AccountSettingsTellerComponent },
   { path: 'reports', component: ReportsComponent   },
-  { path: 'queue', component: QueueControlComponent },
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
-
+  { path: 'queue', component: QueueControlComponent }
 ];  
 
 @NgModule({
