@@ -7,7 +7,7 @@ import { QueueNumService } from '../callsWebapi/Queue_Num//queue-num.service'
   styleUrls: ['./aapi-testing.component.css']
 })
 export class AapiTestingComponent implements OnInit {
-
+  objectKeys = Object.keys
   // employees yung nagrereceive ng data na pwede i-interpolate sa view
   public queue_names: any = [];
 

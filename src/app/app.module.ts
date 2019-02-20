@@ -5,15 +5,18 @@ import { FormsModule } from '@angular/forms'; //Needed for forms
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 
+import { QueueNumService } from './callsWebapi/Queue_Num/queue-num.service';
+
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { MaintenanceComponent } from './admin/maintenance/maintenance.component';
 import { QueueControlComponent } from './teller/queue-control/queue-control.component';
-import { AccountSettingsComponent } from './teller/account-settings/account-settings.component';
 import { LoginComponent } from './home/login/login.component';
 import { AapiTestingComponent } from './aapi-testing/aapi-testing.component';
 
-import { QueueNumService } from './callsWebapi/Queue_Num/queue-num.service'
+import { AccountSettingsAdminComponent } from './admin/account-settings-admin/account-settings-admin.component';
+import { AccountSettingsTellerComponent } from './teller/account-settings-teller/account-settings-teller.component';
+import { ReportsComponent } from './admin/reports/reports.component'
 
 @NgModule({ 
   declarations: [
@@ -21,9 +24,11 @@ import { QueueNumService } from './callsWebapi/Queue_Num/queue-num.service'
     DashboardComponent,
     MaintenanceComponent,
     QueueControlComponent,
-    AccountSettingsComponent,
     LoginComponent,
-    AapiTestingComponent
+    AapiTestingComponent,
+    AccountSettingsAdminComponent,
+    AccountSettingsTellerComponent,
+    ReportsComponent
   ],
   imports: [
     BrowserModule,
