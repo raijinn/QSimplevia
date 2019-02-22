@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { QueueNumService } from '../services-webapi/Queue_Num/queue-num.service'
+import { QueueNumService } from '../services-webapi/GDailyQueue/queue-num.service'
 
 @Component({
   selector: 'app-aapi-testing',

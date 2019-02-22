@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { queuedata } from './queuedata';
+import { GDailyQueue } from './queuedata';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +9,11 @@ import { queuedata } from './queuedata';
 
 export class QueueNumService {
   // web server string
-  private _url: string = "https://api.openweathermap.org/data/2.5/weather?lat=14.32675975&lon=120.90618458021615&appid=ef006e1141bb597afc50c0f9278f33e5";
+  private _url: string = "http://192.168.100.16:50870/api/GetDailyQueue";
 
   // eto yung mismong fetch ng db
-  getQueueNames(): Observable<queuedata[]> {
-    return this.http.get<queuedata[]>(this._url);
+  getQueueNames(): Observable<GDailyQueue[]> {
+    return this.http.get<GDailyQueue[]>(this._url);
   }
 
   //instantiate ng http client

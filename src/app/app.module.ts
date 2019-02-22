@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms'; //Needed for forms
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 
-import { QueueNumService } from './services-webapi/Queue_Num/queue-num.service';
+import { QueueNumService } from './services-webapi/GdailyQueue/queue-num.service';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
