@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms'; //Needed for forms
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 
-import { QueueNumService } from './services-webapi/GdailyQueue/queue-num.service';
+
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
@@ -37,7 +37,7 @@ import { ReportsComponent } from './admin/reports/reports.component'
     FormsModule,
     HttpClientModule
   ],
-  providers: [QueueNumService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
