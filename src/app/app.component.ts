@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  public headerval = true;
+  public headerval = false;
 }

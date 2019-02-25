@@ -1,3 +1,30 @@
-<p>
-  maintenance works!
-</p>
+<!-- menu:department, news, events, announcements  -->
+<div class="mx-5">
+    <div class="row">
+        <div class="col-4">
+            <!-- menu -->
+            <div class="btn-group">
+                <button (click)="maintenance='deptmngmt'">Department Management</button>
+                <button (click)="maintenance='newsmngmt'">News Management</button>
+                <button (click)="maintenance='anncemngmt'">Announcements Management</button>
+                <button (click)="maintenance='evntmngmt'">Events Management</button>
+            </div>
+        </div>
+
+        <!-- ng directive para iswitch yung views -->
+        <div class="col-auto mt-4" [ngSwitch]="maintenance">
+            <ng-template *ngSwitchCase="deptmngmt">
+                <h1>ABC</h1>
+            </ng-template>
+            <ng-template *ngSwitchCase="newsmngmt">
+                <h1>CDE</h1>
+            </ng-template>
+            <ng-template *ngSwitchCase="anncemngmt">
+                <h1>EFG</h1>
+            </ng-template>
+            <ng-template *ngSwitchCase="evntmngmt">
+                <h1>EFG</h1>
+            </ng-template>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GetdataService } from '../services-webapi/GetData/getdata.service';
+
 
 @Component({
   selector: 'app-aapi-testing',
@@ -6,23 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aapi-testing.component.css']
 })
 export class AapiTestingComponent implements OnInit {
-  objectKeys = Object.keys
-  // employees yung nagrereceive ng data na pwede i-interpolate sa view
-  // public queue_names: any = [];
-  constructor() {}
+  // constructor() {}
 
-  ngOnInit() {
-
-  }
-  //instantiate ng employee service
-  // constructor(private _queuenameService: QueueNumService) { }
-
-  // subscribe para makuha yung data into employees
   // ngOnInit() {
-  //   this._queuenameService.getQueueNames()
-  //   .subscribe(data => this.queue_names = data);
-  // }
 
+  //employees yung nagrereceive ng data na pwede i-interpolate sa view
+  public Dqueues: any = [];
+  
+  //instantiate ng employee service
+  constructor(private _GetDataService: GetdataService) { }
+
+  //subscribe para makuha yung data into employees
+  ngOnInit() {
+    this._GetDataService.getdailyqData().subscribe(data => this.Dqueues = data);
+  }
+  
 }
 
 //hayaan mo muna

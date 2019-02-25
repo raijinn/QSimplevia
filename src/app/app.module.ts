@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms'; //Needed for forms
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http'
 
-
+import { MonitorDisplayComponent } from './monitor-display/monitor-display.component'
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
@@ -16,7 +16,8 @@ import { AapiTestingComponent } from './aapi-testing/aapi-testing.component';
 
 import { AccountSettingsAdminComponent } from './admin/account-settings-admin/account-settings-admin.component';
 import { AccountSettingsTellerComponent } from './teller/account-settings-teller/account-settings-teller.component';
-import { ReportsComponent } from './admin/reports/reports.component'
+import { ReportsComponent } from './admin/reports/reports.component';
+
 
 @NgModule({ 
   declarations: [
@@ -28,7 +29,8 @@ import { ReportsComponent } from './admin/reports/reports.component'
     AapiTestingComponent,
     AccountSettingsAdminComponent,
     AccountSettingsTellerComponent,
-    ReportsComponent
+    ReportsComponent,
+    MonitorDisplayComponent
   ],
   imports: [
     BrowserModule,

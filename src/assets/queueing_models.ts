@@ -4,3 +4,4 @@ export interface GDailyQueue {
     Queue: number;
     Date: Date;
 }
+

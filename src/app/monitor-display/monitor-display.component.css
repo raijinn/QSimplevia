@@ -1,0 +1,12 @@
+.bluebg {
+    max-width: 80%;
+    max-height: 80%;
+    background-color: rgba( 26, 35, 60, .7);
+    border-radius: 5px;
+}
+
+#queueitem {
+    text-align: center;
+    background-color: #e8e4c9;
+    border-radius: 10px;
+}

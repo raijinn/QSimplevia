@@ -1,0 +1,20 @@
+<div class="mx-5">
+    <h3 class="text-light float-right" id="time">{{ dtime | date:'medium' }}</h3>
+    <!-- lagyan ng dropdown para matest kung working sa lahat ng dept -->
+    <h3 class="text-light">'Department'</h3>
+
+    <div class="bluebg container-fluid my-4 p-3">
+        <div class="row">
+            <!-- yung queue-block na naka *ngFor -->
+            <!-- yung una lang sa stack yung dapat naka now serving hahaha -->
+            <div class="col-3 col-md-3" *ngFor="let queue of queues;index as i">
+                <div class="container m-2" id="queueitem">
+                    <h4>Now Serving</h4>
+                    <h1>{{ queue.Queue }}</h1>
+                </div>
+            </div>
+            <!-- lagyan mo ng limit na hanggang 8 blocks lang yung pwedeng igenerate -->
+            <!-- pati yung websocket aralin na -->
+        </div>
+    </div>
+</div>
