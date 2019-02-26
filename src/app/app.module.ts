@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { QRCodeModule } from 'angularx-qrcode'; //QR Code Generator
-import { FormsModule } from '@angular/forms'; //Needed for forms
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+
+import { FormsModule } from '@angular/forms'; //Needed for forms
+import { FullCalendarModule } from 'ng-fullcalendar';
 
 import { MonitorDisplayComponent } from './monitor-display/monitor-display.component'
 
@@ -35,9 +36,9 @@ import { ReportsComponent } from './admin/reports/reports.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    QRCodeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FullCalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

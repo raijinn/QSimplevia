@@ -5,3 +5,8 @@ export interface GDailyQueue {
     Date: Date;
 }
 
+export interface Apijsontest {
+    id: number;
+    name: string;
+    age: number;
+}

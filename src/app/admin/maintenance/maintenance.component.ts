@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-maintenance',
@@ -6,12 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./maintenance.component.css']
 })
 export class MaintenanceComponent implements OnInit {
+  constructor( ) {
 
-  public maintenance = "deptmngmt";
-
-  constructor() { }
-
-  ngOnInit() {
   }
 
+  ngOnInit() {
+
+  }
 }

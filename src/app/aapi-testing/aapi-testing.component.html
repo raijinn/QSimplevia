@@ -4,25 +4,23 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">QID</th>
-                <th scope="col">DeptID</th>
-                <th scope="col">Date</th>
+                <th scope="col">id</th>
+                <th scope="col">name</th>
+                <th scope="col">age</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let dq of Dqueues; index as i">
                 <th>{{ i + 1 }}</th>
-                <td>{{ dq.QueueId }}</td>
-                <td>{{ dq.DepartmentId }}</td>
-                <td>{{ dq.Queue }}</td>
-                <td>{{ dq.Date | date:'shortDate' }}</td>
+                <td>{{ dq.id }}</td>
+                <td>{{ dq.name }}</td>
+                <td>{{ dq.age }}</td>
             </tr>
         </tbody>
     </table>
     <h1></h1>
 </div>
 <!-- 
-    QueueId: number;
-    DepartmentId: number;
-    Queue: number;
-    Date: Date; -->
+     id: number;
+    name: string;
+    age: number; -->

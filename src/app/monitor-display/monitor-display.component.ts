@@ -12,14 +12,19 @@ export class MonitorDisplayComponent implements OnInit {
 
   public queues: any = [];
 
+  public qdata: any = [];
+
   constructor(private _GetDQDataService: GetDQdataService) {
     setInterval(() => {
       this.dtime = new Date();
-    }, 1);
+      this._GetDQDataService.getdailyqData().subscribe(data =>this.queues = data); 
+    }, 1000);
+
+
   }
 
   ngOnInit() {
-    this._GetDQDataService.getdailyqData().subscribe(data =>this.queues = data); 
+    // this._GetDQDataService.getdailyqData().subscribe(data =>this.queues = data); 
   }
   
 }
