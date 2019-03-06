@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetdataService } from '../services-webapi/GetData/getdata.service';
+import { GetdataService } from '../../assets/services-webapi/GetData/getdata.service'
 
 
 @Component({

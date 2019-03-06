@@ -1,0 +1,18 @@
+.gen-trias {
+    background: url("../../assets/img/bg.jpg");
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+.login {
+    text-align: center;
+    height: 100vh;
+    padding-top: 8%;
+    background-color: #ffe9a5;
+}
+
+.login-container {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}

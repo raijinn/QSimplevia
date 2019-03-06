@@ -11,34 +11,35 @@ import { MonitorDisplayComponent } from './monitor-display/monitor-display.compo
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { MaintenanceComponent } from './admin/maintenance/maintenance.component';
-import { QueueControlComponent } from './teller/queue-control/queue-control.component';
-import { LoginComponent } from './home/login/login.component';
 import { AapiTestingComponent } from './aapi-testing/aapi-testing.component';
-
 import { AccountSettingsAdminComponent } from './admin/account-settings-admin/account-settings-admin.component';
-import { AccountSettingsTellerComponent } from './teller/account-settings-teller/account-settings-teller.component';
 import { ReportsComponent } from './admin/reports/reports.component';
-
+// charts
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({ 
   declarations: [
     AppComponent,
     DashboardComponent,
     MaintenanceComponent,
-    QueueControlComponent,
-    LoginComponent,
     AapiTestingComponent,
     AccountSettingsAdminComponent,
-    AccountSettingsTellerComponent,
     ReportsComponent,
-    MonitorDisplayComponent
+    MonitorDisplayComponent,
+    BarChartComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FullCalendarModule
+    FullCalendarModule,
+    ChartsModule,
+    MDBBootstrapModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

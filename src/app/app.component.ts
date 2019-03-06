@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
-  public headerval = false;
+export class AppComponent  {
+  public headerval = true;
+  // false habang di pa tapos login
 }

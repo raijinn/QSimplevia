@@ -1,48 +1,6 @@
-<div *ngIf="headerval; then welcomepage; else dashboardadmin"></div>
-<!-- palitan ng ng switch pag nag authentication na at nadagdag yung teller view -->
-<ng-template #welcomepage>
+<!-- 
+    show 'login' as default
+    after auth, allow route guard access for admin routes + sidebar
+ -->
 
-    <header id="header-bg">
-        <img id="logo" class="float-left ml-5 mw-10 mt-3" src="../assets/img/logo_final.png">
-        <h1 class="text-center pt-4">Municipality of General Trias</h1>
-    </header>
-</ng-template>
-
-<ng-template #dashboardadmin>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light header-bg">
-        <img id="logo" class="float-left ml-5 mw-10" src="../assets/img/logo_final.png">
-
-        <a class="navbar-brand" href="#">
-            <h3 class="mx-3">Municipality of General Trias</h3>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-             <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link mx-3" routerLink="/dashboard">Dashboard <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" routerLink="/maintenance">Maintenance</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" routerLink="/reports">Reports</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" routerLink="/account-settings-admin">Account Settings</a>
-                </li>
-                <li class="nav-item mx-3">
-                    <a class="nav-link" routerLink="/" (click)="funktion()">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</ng-template>
-
-<!-- remove this later  -->
-<!-- <button (click)="headerval = !headerval">switch header</button> -->
-<!-- disable muna tong switcheroo pag working on components -->
 <router-outlet></router-outlet>

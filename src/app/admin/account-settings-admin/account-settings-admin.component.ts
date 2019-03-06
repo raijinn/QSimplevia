@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-account-settings-admin',
   templateUrl: './account-settings-admin.component.html',
@@ -11,5 +12,5 @@ export class AccountSettingsAdminComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
 }

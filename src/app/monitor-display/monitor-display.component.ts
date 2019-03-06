@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetDQdataService } from '../services-webapi/GetDailyQueue/get-dqdata.service';
+import { GetDQdataService } from '../../assets/services-webapi/GetDailyQueue/get-dqdata.service';
 
 @Component({
   selector: 'app-monitor-display',
@@ -12,19 +12,17 @@ export class MonitorDisplayComponent implements OnInit {
 
   public queues: any = [];
 
-  public qdata: any = [];
-
   constructor(private _GetDQDataService: GetDQdataService) {
     setInterval(() => {
       this.dtime = new Date();
-      this._GetDQDataService.getdailyqData().subscribe(data =>this.queues = data); 
+      this._GetDQDataService.getdailyqData().subscribe(data => this.queues = data);
     }, 1000);
 
 
   }
 
   ngOnInit() {
-    // this._GetDQDataService.getdailyqData().subscribe(data =>this.queues = data); 
+
   }
-  
+
 }

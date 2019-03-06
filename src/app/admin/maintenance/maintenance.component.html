@@ -6,34 +6,103 @@
                 <button class="p-3 rounded-top" (click)="maintenance='department'">Departments</button>
                 <button class="p-3" (click)="maintenance='news'">News</button>
                 <button class="p-3" (click)="maintenance='announcement'">Announcements</button>
-                <button class="p-3 rounded-bottom" (click)="maintenance='events'">Events</button>
+                <button class="p-3" (click)="maintenance='events'">Events</button>
+                <button class="p-3 rounded-bottom" (click)="maintenance='teller'">Tellers</button>
             </div>
         </div>
 
         <!-- ng directive para iswitch yung views -->
-        <div class="container ml-0">
-            <div class="col-auto mt-4" [ngSwitch]="maintenance">
-                <!-- Dept Maintenance -->
-                <div class="mntnc-container" *ngSwitchCase="'department'">
-                    <h1 class="text-light">Manage Departments</h1>
-                </div>
+        <div class="col mt-4" [ngSwitch]="maintenance">
+            <!-- Dept Maintenance -->
+            <div class="container" *ngSwitchCase="'department'">
+                <!-- add -->
+                <div class="row">
+                    <div class="col add-department p-3">
+                        <h1>Manage Departments</h1>
+                        <form class="md-form" #deptForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                            <div class="md-form">
+                                <label for="dept">Department Name</label>
+                                <input mdbInput class="form-control" type="text" name="DepartmentName" [(ngModel)]="passdept.DepartmentName" #name="ngModel" required>
+                            </div>
 
-                <!-- News Maintenance, yung design pati logic neto ibase sa events -->
-                <div class="mntnc-container" *ngSwitchCase="'news'">
-                    <h1 class="text-light">Maintain News</h1>
-                </div>
+                            <div class="md-form">
+                                <input mdbInput class="form-control" type="number" name="Windows" [(ngModel)]="passdept.Windows" #windows="ngModel" min="1">
+                                <label for="wndwcount">No. of Windows</label>
+                            </div>
 
-                <!-- AnnounceMaintenance -->
-                <div class="mntnc-container" *ngSwitchCase="'announcement'">
-                    <h1 class="text-light">Maintain Announcements</h1>
-                </div>
+                            <input type="button" class="btn btn-success float-right" type="submit" value="ADD DEPARTMENT">
+                        </form>
+                    </div>
 
-                <!-- Events Maintenance -->
-                <div class="mntnc-container" *ngSwitchCase="'events'">
-                    <h1 class="text-light">Manage Events</h1>
 
+                    <!-- dept list / update -->
+
+                    <div class="col department pt-3 mx-5">
+                        <h4>Departments</h4>
+                        <table class=" table table-striped ">
+                            <thead>
+                                <tr>
+                                    <th scope="col">DeptId</th>
+                                    <th scope="col">Department Name</th>
+                                    <th scope="col">Windows</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let department of dept; index as i">
+                                    <td>{{ department.DepartmentId }}</td>
+                                    <td>{{ department.DepartmentName }}</td>
+                                    <td>{{ department.Windows }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
+
+
+
+            <!-- News Maintenance, yung design pati logic neto ibase sa events -->
+            <div class="container " *ngSwitchCase=" 'news' ">
+                <h1 class="text-light ">Maintain News</h1>
+            </div>
+
+            <!-- AnnounceMaintenance -->
+            <div class="container " *ngSwitchCase=" 'announcement' ">
+                <h1 class="text-light ">Maintain Announcements</h1>
+            </div>
+
+            <!-- Events Maintenance -->
+            <div class="container " *ngSwitchCase=" 'events' ">
+                <h1 class="text-light ">Manage Events</h1>
+
+            </div>
+            <!-- Teller add -->
+            <div class="container " *ngSwitchCase=" 'teller' ">
+                <h1 class="text-light ">Manage Tellers</h1>
+            </div>
         </div>
+
     </div>
-</div>
+
+
+
+    <!-- form start 
+<form #deptForm="ngForm " (ngSubmit)="onSubmit() ">
+    <h4>Add Department</h4>
+    form values
+    {{ deptForm.value | json }}
+    <hr />
+    component var values    
+    {{ department | json }}
+
+    <div class="md-form ">
+        <input mdbInput type="text " id="department " name="department " class="form-control " [(ngModel)]="department.DepartmentName ">
+        <label for="form1 ">Department Name</label>
+    </div>
+    <div class="md-form ">
+        <input mdbInput type="number " min="1 " id="windownum " name="windows " class="form-control " [(ngModel)]="department.Windows ">
+        <label for="windownum ">No. of Windows</label>
+    </div>
+    <button class="btn btn-success float-right " type="submit ">ADD DEPARTMENT</button>
+</form>
+ form end -->
