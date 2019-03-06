@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { GetDeptDataService } from '../../../assets/services-webapi/GetDepartments/get-dept-data.service';
+import { GetDeptDataService } from '../../services/services-webapi/GetDepartments/get-dept-data.service';
 //partner lagi dapat yung post pati data model
-import { PostDeptsService } from '../../../assets/services-webapi/PostDepartment/post-depts.service'
-import { PDepartments } from '../../../assets/queueing_models';
+import { PostDeptsService } from '../../services/services-webapi/PostDepartment/post-depts.service'
+import { PDepartments } from '../../models/queueing_models';
 
 @Component({
   selector: 'app-maintenance',

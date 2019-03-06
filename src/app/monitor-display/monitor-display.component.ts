@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GetDQdataService } from '../../assets/services-webapi/GetDailyQueue/get-dqdata.service';
+import { GetDQdataService } from '../services/services-webapi/GetDailyQueue/get-dqdata.service';
 
 @Component({
   selector: 'app-monitor-display',

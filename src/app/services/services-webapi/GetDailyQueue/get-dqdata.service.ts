@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { GDailyQueue } from '../../../assets/queueing_models';
+import { GDailyQueue } from '../../../models/queueing_models';
 
 @Injectable({
   providedIn: 'root'

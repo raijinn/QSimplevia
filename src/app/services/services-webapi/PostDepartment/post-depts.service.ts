@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PDepartments } from '../../../assets/queueing_models';
+import { PDepartments } from '../../../models/queueing_models';
 
 @Injectable({
   providedIn: 'root'

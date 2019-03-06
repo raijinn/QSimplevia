@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './services/services-login/guard/auth.guard';
 
-import { AapiTestingComponent } from './aapi-testing/aapi-testing.component';
 import { LoginComponent } from './login/login.component';
 
 //monitor-display
@@ -13,20 +13,20 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { MaintenanceComponent } from './admin/maintenance/maintenance.component';
 import { ReportsComponent } from './admin/reports/reports.component';
 
-const routes: Routes = [
-  { path: 'aapi-testing', component: AapiTestingComponent },
+const routes: Routes = [  
   { path: 'monitor-design', component: MonitorDisplayComponent },
-  { path: 'account-settings-admin', component: AccountSettingsAdminComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'maintenance', component: MaintenanceComponent},
-  { path: 'reports', component: ReportsComponent },
+  { path: 'account-settings-admin', component: AccountSettingsAdminComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'maintenance', component: MaintenanceComponent, canActivate: [AuthGuard]},
+  { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full'}
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule {
 
