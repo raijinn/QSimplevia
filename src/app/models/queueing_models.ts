@@ -4,7 +4,14 @@ export interface Apijsontest {
     name: string;
     age: number;
 }
-
+// for fake back-end 
+export class User {
+    id: number;
+    username: string;
+    password: string;
+    firstName: string;
+    lastName: string;
+}
 // gets
 export interface GDailyQueue {
     QueueId: number;

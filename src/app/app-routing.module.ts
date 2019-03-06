@@ -13,14 +13,14 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { MaintenanceComponent } from './admin/maintenance/maintenance.component';
 import { ReportsComponent } from './admin/reports/reports.component';
 
-const routes: Routes = [  
+const routes: Routes = [
   { path: 'monitor-design', component: MonitorDisplayComponent },
   { path: 'account-settings-admin', component: AccountSettingsAdminComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'maintenance', component: MaintenanceComponent, canActivate: [AuthGuard]},
+  { path: 'maintenance', component: MaintenanceComponent, canActivate: [AuthGuard] },
   { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: 'login', pathMatch: 'full'}
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -17,8 +17,9 @@ import { ReportsComponent } from './admin/reports/reports.component';
 // charts
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+// services
 import { AuthService } from './services/services-login/auth';
-
+import { AuthGuard } from './services/services-login/guard/auth.guard'
 
 @NgModule({ 
   declarations: [
@@ -40,7 +41,7 @@ import { AuthService } from './services/services-login/auth';
     MDBBootstrapModule.forRoot()
   ],
   // include all services inside providers for reusability
-  providers: [AuthService],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
