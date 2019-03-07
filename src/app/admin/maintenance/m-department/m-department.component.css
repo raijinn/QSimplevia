@@ -1,0 +1,43 @@
+.btn-group-vertical button {
+    font-size: 20px;
+    background-color: rgba( 26, 35, 60, .7);
+    border: 3px solid orange;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    height: 25%;
+    display: block;
+    min-width: 180px;
+}
+
+.btn-group-vertical button:not(:last-child) {
+    border-bottom: none;
+    /* Prevent double borders */
+}
+
+.btn-group-vertical button:hover {
+    background-color: rgba(79, 112, 201, 0.7);
+}
+
+.btn-group-vertical button:active {
+    background-color: rgba(79, 112, 201, 0.7);
+}
+
+
+/* department-maintain */
+
+.add-department {
+    background-color: #FFFAFA;
+    border-radius: 10px;
+    min-width: 400px;
+    max-width: 400px;
+    height: 350px;
+}
+
+.department {
+    background-color: #FFFAFA;
+    border-radius: 10px;
+    min-width: 400px;
+    height: 700px;
+    overflow-y: scroll;
+}

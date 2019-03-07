@@ -1,3 +1,45 @@
-<p>
-  m-department works!
-</p>
+<!-- Dept Maintenance -->
+<div class="container">
+    <!-- add -->
+    <div class="row">
+        <div class="col add-department p-3">
+            <h1>Manage Departments</h1>
+            <form class="md-form" #deptForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+                <div class="md-form">
+                    <label for="dept">Department Name</label>
+                    <input mdbInput class="form-control" type="text" name="DepartmentName" [(ngModel)]="passdept.DepartmentName" #name="ngModel" required>
+                </div>
+
+                <div class="md-form">
+                    <input mdbInput class="form-control" type="number" name="Windows" [(ngModel)]="passdept.Windows" #windows="ngModel" min="1">
+                    <label for="wndwcount">No. of Windows</label>
+                </div>
+
+                <input type="button" class="btn btn-success float-right" type="submit" value="ADD DEPARTMENT">
+            </form>
+        </div>
+
+
+        <!-- dept list / update -->
+
+        <div class="col department pt-3 mx-5">
+            <h4>Departments</h4>
+            <table class=" table table-striped ">
+                <thead>
+                    <tr>
+                        <th scope="col">DeptId</th>
+                        <th scope="col">Department Name</th>
+                        <th scope="col">Windows</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let department of dept; index as i">
+                        <td>{{ department.DepartmentId }}</td>
+                        <td>{{ department.DepartmentName }}</td>
+                        <td>{{ department.Windows }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

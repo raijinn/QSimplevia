@@ -7,8 +7,8 @@ export interface Apijsontest {
 // for fake back-end 
 export class User {
     id: number;
-    username: string;
-    password: string;
+    Username: string;
+    Password: string;
     firstName: string;
     lastName: string;
 }
@@ -43,7 +43,7 @@ export class UserLogin {
         username: string,
         password: string,
         IsAdmin: boolean
-    ) {}
+    ) { }
 }
 
 export class PDepartments {

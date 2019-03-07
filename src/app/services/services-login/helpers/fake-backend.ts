@@ -9,25 +9,25 @@ export class FakeBackendInterceptor implements HttpInterceptor {
     constructor() { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        let testUser = { id: 1, username: 'test', password: 'test', firstName: 'Test', lastName: 'User' };
+        let testUser = { id: 1, Username: 'test', Password: 'test', firstName: 'Test', lastName: 'User' };
 
         // wrap in delayed observable to simulate server api call
         return of(null).pipe(mergeMap(() => {
 
             // authenticate
             if (request.url.endsWith('/users/authenticate') && request.method === 'POST') {
-                if (request.body.username === testUser.username && request.body.password === testUser.password) {
+                if (request.body.Username === testUser.Username && request.body.Password === testUser.Password) {
                     // if login details are valid return user details
                     let body = {
                         id: testUser.id,
-                        username: testUser.username,
+                        Username: testUser.Username,
                         firstName: testUser.firstName,
                         lastName: testUser.lastName
                     };
                     return of(new HttpResponse({ status: 200, body }));
                 } else {
                     // else return 400 bad request
-                    return throwError({ error: { message: 'Username or password is incorrect' } });
+                    return throwError({ error: { message: 'Username or Password is incorrect' } });
                 }
             }
 

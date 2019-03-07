@@ -8,7 +8,7 @@ import { PDepartments } from '../../../models/queueing_models';
 
 export class PostDeptsService {
   // web api string
-  private _url: string = 'http://192.168.100.16:50870/api/PostUser';
+  private _url: string = 'http://192.168.100.16:50870/api/PostDepartment';
   
   constructor(private http: HttpClient) { }
 

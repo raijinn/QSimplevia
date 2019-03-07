@@ -8,7 +8,7 @@ Views:
             dropdown option for per department // accordion?
         >Maintenance
             Update(connect to kiosk)
-                >Department Management
+                >Department Management 
                     depname:
                     # of windows:
                             Button[save]->api->save to dept tbl, fetch dept id, save to window tbl, increment window number

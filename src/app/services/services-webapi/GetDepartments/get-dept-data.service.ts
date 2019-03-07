@@ -7,7 +7,7 @@ import { GDepartments } from '../../../models/queueing_models';
   providedIn: 'root'
 })
 export class GetDeptDataService {
-  // web server string
+  // web api string
   private _url: string = "http://192.168.100.16:50870/api/GetDepartments";
 
   //instantiate ng http client
