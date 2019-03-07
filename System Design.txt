@@ -1,0 +1,110 @@
+Views:      
+    !Home Page - Side Nav???(Log In, Contacts, About)
+        login modal + some yada yada intro
+            paglogin-implement agad nung user access 
+    !Admin
+        Dashboard(usual fillers)
+            no. of transactions/day per department
+            dropdown option for per department // accordion?
+        >Maintenance
+            Update(connect to kiosk)
+                >Department Management
+                    depname:
+                    # of windows:
+                            Button[save]->api->save to dept tbl, fetch dept id, save to window tbl, increment window number
+                    Departments Table View:
+                    dept        update
+                News
+                Announcements
+                Events
+                Register Teller(modal form) + generateOTP() // do pag may extra pang oras
+        >Reports
+            Graph(Department Traffic)
+            Total Visits
+            >Queries(naka Search by)
+                printable into pdf
+        Account Settings
+            -Hardcode Admin Details(pero add pa siguro ng component for registration)
+            Update credentials(form)
+            
+
+    !Queue(output ng transaction)
+        live feed
+            "Department:"
+            Container: 
+                List na naka d-flex horizontal: Queue=Department, Number
+                    pag nag next teller, pop na yung first.
+
+Backend = {                  
+    Admin>
+        Login(Auth)
+        Dashboard(GET)
+        Maintenance:
+            Departments(GET/POST/PUT)
+            Announcement(GET/POST/PUT/DELETE)
+            Events(GET/POST/PUT/DELETE)
+            News(GET/POST/PUT/DELETE)
+            Teller(POST(register))
+        Reports(GET)[PRINT]
+        Audit Trail(GET)
+        Account-settings(PUT)
+        Logout(Auth)
+}
+
+Flow
+{
+    News: 1st Page(original): Forms
+    Get Number: 2nd Page(original): Forms
+    Queue Display: Web(Angular)
+}
+
+DB Design>
+    ReportsTbl
+        ReportID: int PK
+        DepartmentID: int FK(Department Table)
+        Date: DateTime
+        Window#: int
+        Transactions: int    
+    Department table   //add department management pag may time pa
+        DepartmentID: int PK
+        DepartName: nvarchar(100)
+        Windows: int
+            paglogin, select dept, assign window by socket 
+    Daily Queue(temp table)
+        QueueID: int PK 
+        DepartmentID: int FK
+        Queue: int
+        Date: int //for validation of queue, if date!=datetoday, then refresh queue
+        CurrentQueue: int   //compare to list if something exists?
+        CustomerQueue: int //list
+    PriorityQueueTbl
+        yada yada
+        cant remember
+        fuk dis brain     
+    User table
+        UserID: int PK
+        Username: nvarchar(100)
+        Password: nvarchar(100)
+        Fname: nvarchar(255)
+        Mname: nvarchar(255)
+        Lname: nvarchar(255)
+        IsAdmin: bit //admin=1 teller=0
+        Email: nvarchar(255)
+    Audit Trail Table 
+        TrailID: int PK
+        UserID: int FK
+        UserActivity: nvarchar(max)
+        CreatedAt: DateTime(auto-generated)
+    EventsTbl 
+        EventsID: int PK
+        Description: nvarchar(max)
+        EventType: int //Event=0 Announcement: 0
+        CreatedAt: Date
+        Image: image (nullable)
+    WindowTbl //maximum number of windows starfrom 1-Max
+        WindowID: int PK
+        WindowNumber: int
+        UserID: int (nullable)
+        DepartmentID: int
+        Date: DateTime
+
