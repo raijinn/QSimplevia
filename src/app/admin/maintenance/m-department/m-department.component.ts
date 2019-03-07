@@ -23,9 +23,8 @@ export class MDepartmentComponent implements OnInit {
 
   ngOnInit() {
     //get call
-    setInterval(() => {this._GetDeptService.getDeptData()
+    this._GetDeptService.getDeptData()
       .subscribe(data => this.dept = data);
-    }, 3000);
   }
 
   // post call
@@ -34,7 +33,9 @@ export class MDepartmentComponent implements OnInit {
       .subscribe(
         data => console.log('Success!', data),
         error => console.error('Error!', error)
-      )
+      );
+
+    alert('DEPARTMENT ' + this.dept.DepartmentName + ' ADDED SUCCESSFULLY!');
   }
 
 }
