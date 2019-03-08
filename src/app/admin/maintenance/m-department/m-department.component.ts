@@ -2,8 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { GetDeptDataService } from '../../../services/services-webapi/GetDepartments/get-dept-data.service';
 //partner lagi dapat yung post pati data model
 import { PostDeptsService } from '../../../services/services-webapi/PostDepartment/post-depts.service';
-import { PDepartments } from '../../../models/queueing_models';
-import { error } from '../../../../../node_modules/@angular/compiler/src/util';
+import { PutDeptService } from '../../../services/services-webapi/UpdateDepartments/put-dept.service';
+import { DelDeptService } from '../../../services/services-webapi/DeleteDepartments/del-dept.service';
+import { PSDepartments } from '../../../models/queueing_models';
 
 @Component({
   selector: 'app-m-department',
@@ -16,26 +17,38 @@ export class MDepartmentComponent implements OnInit {
   //data model for get?
   public dept: any = [];
   // data model for post? 
-  public passdept = new PDepartments('', 0);
+  public passdept = new PSDepartments('', 0);
+  // data model for put????????
+  public _updept: any = [];
 
-  constructor(private _GetDeptService: GetDeptDataService, private _PostDeptService: PostDeptsService) {
-  }
+  constructor(private _GetDeptService: GetDeptDataService, private _PostDeptService: PostDeptsService, private _PutDeptService: PutDeptService, private _DelDeptService: DelDeptService) { }
 
   ngOnInit() {
-    //get call
+    // GET
     this._GetDeptService.getDeptData()
       .subscribe(data => this.dept = data);
   }
 
-  // post call
+  // POST dept
   onSubmit() {
     this._PostDeptService.addDept(this.passdept)
       .subscribe(
-        data => console.log('Success!', data),
+        data => this._GetDeptService.getDeptData()
+          .subscribe(data => this.dept = data),
         error => console.error('Error!', error)
       );
+  }
+  // PUT
+  edit(id: number): any {
 
-    alert('DEPARTMENT ' + this.dept.DepartmentName + ' ADDED SUCCESSFULLY!');
+  }
+  // DELETE
+  delete(id: number): void {
+    this._DelDeptService.delDept(id)
+      .subscribe(
+        _ => this.dept = this.dept.filter(department => department.DepartmentId !== id),
+        error => console.log('error', error)
+      )
   }
 
 }

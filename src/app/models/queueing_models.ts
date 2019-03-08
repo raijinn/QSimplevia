@@ -12,7 +12,8 @@ export class User {
     firstName: string;
     lastName: string;
 }
-// gets
+
+// GET
 export interface GDailyQueue {
     QueueId: number;
     DepartmentId: number;
@@ -37,7 +38,7 @@ export interface GUsers {
     Email: string;
 }
 
-// posts 
+// POST 
 export class UserLogin {
     constructor(
         username: string,
@@ -45,14 +46,18 @@ export class UserLogin {
         IsAdmin: boolean
     ) { }
 }
-
-export class PDepartments {
+export class PSDepartments {
     constructor(
         DepartmentName: String,
         Windows: number
     ) { }
 }
-
+// PUT
+export class PUDepartments {
+    DepartmentId: number;
+    DepartmentName: string;
+    Windows: number;
+}
     // { "id": 12, "name": "Andrew", "age": 12 },
     // { "id": 42, "name": "Bandrew", "age": 23 },
     // { "id": 68, "name": "Candrew", "age": 34 },
