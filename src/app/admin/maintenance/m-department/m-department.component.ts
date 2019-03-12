@@ -18,8 +18,7 @@ export class MDepartmentComponent implements OnInit {
   public dept: any = [];
   // data model for post? 
   public passdept = new PSDepartments('', 0);
-  // data model for put????????
-  public _updept: any = [];
+  // need ba data model for put????????
 
   constructor(private _GetDeptService: GetDeptDataService, private _PostDeptService: PostDeptsService, private _PutDeptService: PutDeptService, private _DelDeptService: DelDeptService) { }
 
@@ -28,7 +27,6 @@ export class MDepartmentComponent implements OnInit {
     this._GetDeptService.getDeptData()
       .subscribe(data => this.dept = data);
   }
-
   // POST dept
   onSubmit() {
     this._PostDeptService.addDept(this.passdept)
@@ -40,7 +38,12 @@ export class MDepartmentComponent implements OnInit {
   }
   // PUT
   edit(id: number): any {
-
+    this._PutDeptService.editDept(id, this.passdept)
+      .subscribe(
+        data => this._GetDeptService.getDeptData()
+          .subscribe(data => this.dept = data),
+        error => console.error('Error!', error)
+      );
   }
   // DELETE
   delete(id: number): void {
@@ -50,5 +53,4 @@ export class MDepartmentComponent implements OnInit {
         error => console.log('error', error)
       )
   }
-
 }

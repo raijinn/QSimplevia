@@ -21,7 +21,7 @@ import { MTellersComponent } from './admin/maintenance/m-tellers/m-tellers.compo
 
 // charts
 import { ChartsModule } from 'ng2-charts';
-import { BarChartComponent } from './charts/bar-chart/bar-chart.component';
+import { BarChartComponent } from './admin/reports/charts/bar-chart/bar-chart.component';
 // services
 import { AuthGuard } from './services/services-login/guard/auth.guard';
 

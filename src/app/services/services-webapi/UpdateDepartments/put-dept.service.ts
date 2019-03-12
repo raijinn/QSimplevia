@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { PUDepartments } from '../../../models/queueing_models';
+import { PSDepartments } from '../../../models/queueing_models';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,8 @@ export class PutDeptService {
 
   constructor(private http: HttpClient) { }
 
-  editDept(dept: PUDepartments){
-    // ginamit yung id para pang determine nung iuupdate
-    return this.http.put(this._url + '/' + dept.DepartmentId, dept);
+  editDept(id: number, dept: PSDepartments) {
+    // ginamit yung id para pang determine kung alin iuupdate
+    return this.http.put(this._url + '/' + id, dept);
   }
 }

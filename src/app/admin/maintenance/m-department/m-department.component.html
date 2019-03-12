@@ -50,13 +50,13 @@
                                         <form class="md-form" #upDeptForm="ngForm" novalidate>
                                             <div class="md-form mb-5">
                                                 <i class="fas fa-building prefix grey-text"></i>
-                                                <input mdbInput type="email" id="deptname" class="form-control validate" name="DepartmentName" [(ngModel)]="_updept.DepartmentName" #name="ngModel" required>
+                                                <input mdbInput type="email" id="deptname" class="form-control validate" name="DepartmentName" [(ngModel)]="passdept.DepartmentName" #name="ngModel" required>
                                                 <label data-error="wrong" data-success="right">Department Name</label>
                                             </div>
 
                                             <div class="md-form mb-4">
                                                 <i class="fas fa-window-restore prefix grey-text"></i>
-                                                <input mdbInput type="number" id="windows" class="form-control validate" name="Windows" [(ngModel)]="_updept.Windows" #windows="ngModel" min="1">
+                                                <input mdbInput type="number" id="windows" class="form-control validate" name="Windows" [(ngModel)]="passdept.Windows" #windows="ngModel" min="1">
                                                 <label data-error="wrong" data-success="right">No. of Windows</label>
                                             </div>
                                         </form>
