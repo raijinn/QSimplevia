@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DelDeptService {
   // web api string
-  private _url: string = "http://192.168.100.16:50870/api/DeleteDepartment";
+  private _url: string = "http://192.168.0.104:50870/api/DeleteDepartment";
 
   //instantiate ng http client
   constructor(private http: HttpClient) { }

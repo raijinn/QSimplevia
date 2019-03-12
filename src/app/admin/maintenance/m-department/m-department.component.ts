@@ -5,6 +5,7 @@ import { PostDeptsService } from '../../../services/services-webapi/PostDepartme
 import { PutDeptService } from '../../../services/services-webapi/UpdateDepartments/put-dept.service';
 import { DelDeptService } from '../../../services/services-webapi/DeleteDepartments/del-dept.service';
 import { PSDepartments } from '../../../models/queueing_models';
+import * as $ from "jquery";
 
 @Component({
   selector: 'app-m-department',
@@ -53,4 +54,5 @@ export class MDepartmentComponent implements OnInit {
         error => console.log('error', error)
       )
   }
+
 }

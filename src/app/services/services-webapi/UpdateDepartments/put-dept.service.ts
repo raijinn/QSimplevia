@@ -7,7 +7,7 @@ import { PSDepartments } from '../../../models/queueing_models';
 })
 export class PutDeptService {
   // web api string
-  private _url: string = 'http://192.168.100.16:50870/api/PutDepartment';
+  private _url: string = 'http://192.168.0.104:50870/api/PutDepartment';
 
   constructor(private http: HttpClient) { }
 
