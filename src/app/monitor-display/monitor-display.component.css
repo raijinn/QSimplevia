@@ -10,3 +10,12 @@
     background-color: #e8e4c9;
     border-radius: 10px;
 }
+
+#logo {
+    width: 150px;
+    height: 145px;
+}
+
+#headerbg {
+    background-image: url(../../assets/img/faded-city-slider.jpg) 100% 100% no-repeat;
+}

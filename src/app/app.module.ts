@@ -14,16 +14,16 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AccountSettingsAdminComponent } from './admin/account-settings-admin/account-settings-admin.component';
 import { ReportsComponent } from './admin/reports/reports.component';
 import { MDepartmentComponent } from './admin/maintenance/m-department/m-department.component';
-import { MNewsComponent } from './admin/maintenance/m-news/m-news.component';
 import { MAnnouncementsComponent } from './admin/maintenance/m-announcements/m-announcements.component';
 import { MEventsComponent } from './admin/maintenance/m-events/m-events.component';
 import { MTellersComponent } from './admin/maintenance/m-tellers/m-tellers.component'
-
+import { NavigationComponent } from './navigation/navigation.component';
 // charts
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './admin/reports/charts/bar-chart/bar-chart.component';
-// services
+// auth service
 import { AuthGuard } from './services/services-login/guard/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -35,10 +35,10 @@ import { AuthGuard } from './services/services-login/guard/auth.guard';
     BarChartComponent,
     LoginComponent,
     MDepartmentComponent,
-    MNewsComponent,
     MAnnouncementsComponent,
     MEventsComponent,
-    MTellersComponent
+    MTellersComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
