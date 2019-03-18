@@ -37,6 +37,16 @@ export interface GUsers {
     IsAdmin: boolean;
     Email: string;
 }
+//GET FOR TELLER
+export interface GTeller {
+    FirstName: string,
+    MiddleName: string,
+    LastName: string,
+    Email: string,
+    Username: string,
+    Password: string
+}
+
 
 // POST || PUT
 export class UserLogin {
@@ -52,6 +62,13 @@ export class PSDepartments {
         Windows: number
     ) { }
 }
+//POST LOGIN
+export class PostLogin {
+    constructor(
+        username: string,
+        password: string
+    ) { }
+}
 
     // { "id": 12, "name": "Andrew", "age": 12 },
     // { "id": 42, "name": "Bandrew", "age": 23 },
@@ -59,3 +76,15 @@ export class PSDepartments {
     // { "id": 76, "name": "Andrew", "age": 12 },
     // { "id": 86, "name": "Bandrew", "age": 23 },
     // { "id": 22, "name": "Candrew", "age": 34 }
+
+//POST FOR TELLER
+export class PostTeller {
+    constructor(
+        public FirstName: string,
+        public MiddleName: string,
+        public LastName: string,
+        public Email: string,
+        public Username: string,
+        public Password: string
+    ) {}
+}

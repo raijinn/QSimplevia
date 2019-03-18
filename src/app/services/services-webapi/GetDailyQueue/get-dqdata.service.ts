@@ -8,7 +8,11 @@ import { GDailyQueue } from '../../../models/queueing_models';
 })
 export class GetDQdataService {
   // web server string
+<<<<<<< HEAD
   private _url: string = "http://192.168.100.16:50870/api/GetWebDailyQueue";
+=======
+  private _url: string = "http://192.168.100.16:50870/api/GetDailyQueue";
+>>>>>>> 69004860694ba5576e1e1f7df3a11922f76d0d72
 
   //instantiate ng http client
   constructor(private http: HttpClient) { }
