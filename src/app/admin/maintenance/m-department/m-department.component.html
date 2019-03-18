@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col add-department p-3">
             <h1>Manage Departments</h1>
-            <form class="md-form" #deptForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+            <form class="md-form" g (ngSubmit)="onSubmit()" novalidate>
                 <div class="md-form">
                     <label for="dept">Department Name</label>
                     <input mdbInput class="form-control" type="text" name="DepartmentName" [(ngModel)]="passdept.DepartmentName" #name="ngModel" required>
@@ -18,7 +18,7 @@
                 <input type="button" class="btn btn-success float-right" type="submit" value="ADD DEPARTMENT">
             </form>
         </div>
-z
+        z
 
         <!-- dept list / update -->
 
@@ -38,7 +38,7 @@ z
                         <td>{{ department.DepartmentId }}</td>
                         <td>{{ department.DepartmentName }}</td>
                         <td>{{ department.Windows }}</td>
-                        <td><button type="button" data-toggle="modal" data-target="#editDeptForm" class="btn btn-warning rounded">EDIT</button>
+                        <td><button type="button" data-toggle="modal" data-target="#editDeptForm" class="btn btn-warning rounded" (click)="throwId(department.DepartmentId)">EDIT</button>
                             <!-- modalstart -->
                             <div class="modal fade" id="editDeptForm" tabindex="-1" role="modal" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -63,7 +63,7 @@ z
                                                 <!-- submit -->
                                                 <div class="modal-footer d-flex justify-content-end">
                                                     <button type="button" data-dismiss="modal" class="btn btn-secondary" aria-label="Close">Cancel</button>
-                                                    <button type="button" data-dismiss="modal" class="btn btn-success" (click)="edit(department.DepartmentId)">Update</button>
+                                                    <button type="button" data-dismiss="modal" class="btn btn-success" (click)="edit()">Update</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -79,4 +79,4 @@ z
             </table>
         </div>
     </div>
-</div>
+</div>5t

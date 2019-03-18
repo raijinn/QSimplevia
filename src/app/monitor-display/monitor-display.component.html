@@ -1,8 +1,8 @@
 <header id="header-bg">
-    <img id="logo" class="float-left ml-5 mt-2 pt-1 mw-100 h-50" src="../assets/img/logo_final.png">
-    <h1 id="web-header" class="text-center">Municipality of General Trias</h1>
+    <img id="logo" class="float-left ml-5" src="../assets/img/logo_final.png">
+    <h1 id="web-header" class="text-center pt-3">Municipality of General Trias</h1>
 </header>
-
+<br>
 <div class="mx-5 mt-2">
     <h3 class="text-light float-right" id="time">{{ dtime | date:'medium' }}</h3>
     <!-- lagyan ng dropdown para matest kung working sa lahat ng dept -->
@@ -11,14 +11,14 @@
     <div class="bluebg container-fluid my-4 p-3">
         <div class="row mr-2">
             <!-- yung queue-block na naka *ngFor -->
-            <!-- yung una lang sa stack yung dapat naka now serving hahaha -->
             <div class="col-3 col-md-3" *ngFor="let queue of queues;index as i">
-                <div class="container m-2 p-4" id="queueitem">
+                <div class="container m-2 p-4" id="queueitem" *ngIf="queue.IsActive">
                     <h4>Now Serving</h4>
+                    <p>{{ queue.DepartmentName }}</p>
                     <h1>{{ queue.Queue }}</h1>
                 </div>
             </div>
-            <!-- lagyan mo ng limit na hanggang 8 blocks lang yung pwedeng igenerate -->
+            <!-- ngif lagyan mo ng limit na hanggang 16 blocks lang yung pwedeng igenerate -->
         </div>
     </div>
 </div>

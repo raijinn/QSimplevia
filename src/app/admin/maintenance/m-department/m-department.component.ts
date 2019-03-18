@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { GetDeptDataService } from '../../../services/services-webapi/GetDepartments/get-dept-data.service';
+import { DeptDataService } from '../../../services/services-webapi/GetDepartments/dept-data.service';
 //partner lagi dapat yung post pati data model
-import { PostDeptsService } from '../../../services/services-webapi/PostDepartment/post-depts.service';
-import { PutDeptService } from '../../../services/services-webapi/UpdateDepartments/put-dept.service';
-import { DelDeptService } from '../../../services/services-webapi/DeleteDepartments/del-dept.service';
+
 import { PSDepartments } from '../../../models/queueing_models';
 
 @Component({
@@ -16,42 +14,48 @@ export class MDepartmentComponent implements OnInit {
   public maintenance = "department";
   //data model for get?
   public dept: any = [];
-  // data model for post? 
+  // data model for post/put? 
   public passdept = new PSDepartments('', 0);
-  // need ba data model for put????????
+  
+  // var for passing id into modal
+  public tableid: number;
 
-  constructor(private _GetDeptService: GetDeptDataService, private _PostDeptService: PostDeptsService, private _PutDeptService: PutDeptService, private _DelDeptService: DelDeptService) { }
+  constructor(private _DeptService: DeptDataService) { }
 
   ngOnInit() {
     // GET
-    this._GetDeptService.getDeptData()
+    this._DeptService.getDeptData()
       .subscribe(data => this.dept = data);
   }
+
+  throwId(id: number) {
+    this.tableid = id;
+  }
+
   // POST dept
   onSubmit() {
-    this._PostDeptService.addDept(this.passdept)
+    this._DeptService.addDept(this.passdept)
       .subscribe(
-        data => this._GetDeptService.getDeptData()
+        data => this._DeptService.getDeptData()
           .subscribe(data => this.dept = data),
         error => console.error('Error!', error)
       );
   }
   // PUT
-  edit(id: number): any {
-    this._PutDeptService.editDept(id, this.passdept)
+  edit(): any {
+    this._DeptService.editDept(this.tableid, this.passdept)
       .subscribe(
-        data => this._GetDeptService.getDeptData()
+        data => this._DeptService.getDeptData()
           .subscribe(data => this.dept = data),
         error => console.error('Error!', error)
       );
   }
   // DELETE
   delete(id: number): void {
-    this._DelDeptService.delDept(id)
+    this._DeptService.delDept(id)
       .subscribe(
         _ => this.dept = this.dept.filter(department => department.DepartmentId !== id),
         error => console.log('error', error)
       )
   }
-
 }
