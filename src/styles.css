@@ -12,3 +12,19 @@ body {
     background: url("./assets/img/bg.jpg");
     background-size: cover;
 }
+
+/* Jeff (*/
+#logo {
+    width: 80px;
+    min-width: 80px;
+    min-height: 80px;
+    height: 80px;
+}
+
+#header-bg {
+    background: url(./assets/img/faded-city-slider.jpg) 100% 100% no-repeat;
+}
+
+#web-header {
+    font-size: 52px;
+}

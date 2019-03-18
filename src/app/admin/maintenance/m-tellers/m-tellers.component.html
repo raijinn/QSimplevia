@@ -1,3 +1,143 @@
-<p>
-  m-tellers works!
-</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Teller</title>
+</head>
+<body>
+
+<header id="header-bg">
+  <div class="row">
+      <div class="col-md-2">
+          <img id="logo" class="img-thumbnail rounded-circle mx-auto d-block m-2 p-2" src="../assets/img/logo_final.png">
+      </div>
+      <div class="col-md-7">
+          <h1 id="web-header" class="display-1 mt-1 pt-3 ml-0 pl-0 text-right">Municipality of General Trias</h1>
+      </div>
+  </div>
+</header>
+
+<div class="main">
+  <div class="container">
+  <br>
+  <div class="opac">
+  <div class="child">
+  <h3 style="text-align:center;font-weight:bold">TELLER</h3> 
+  <br>
+  
+  <form #tellerForm="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-row mb-4">
+
+              <div class="col">
+                      <div class="input-group flex-nowrap">
+                      <div class="form-group">                    
+                          <input type="text" class="form-control" name="FirstName" placeholder="First Name"
+                          aria-label="namef" aria-describedby="addon-wrapping"
+                          #namef="ngModel"
+                          [class.is-invalid]="namef.invalid && namef.touched
+                          [(ngModel)]="passTeller.FirstName" required>
+                          <!-- [class.is-invalid]="namef.invalid && namef.touched"
+                          <div *ngIf="namef.invalid && namef.touched"> </div> -->
+                          <small class="text-danger" [class.d-none]="namef.valid || namef.untouched">Required</small>
+                      </div> 
+                      </div>
+              </div>
+              
+              <div class="col">
+                      <div class="input-group flex-nowrap">
+                      <div class="form-group">             
+                          <input type="text" class="form-control" name="MiddleName" placeholder="Middle Name"
+                          aria-label="namem" aria-describedby="addon-wrapping"
+                          #namem="ngModel"
+                          [class.is-invalid]="namem.invalid && namem.touched"
+                          [(ngModel)]="passTeller.MiddleName" required>
+                          <small class="text-danger" [class.d-none]="namem.valid || namem.untouched">Required</small>
+                      </div>
+                      </div>
+              </div>
+
+              <div class="col">
+                      <div class="input-group flex-nowrap">
+                      <div class="form-group">        
+                          <input type="text" class="form-control" name="LastName" placeholder="Last Name"
+                          aria-label="namel" aria-describedby="addon-wrapping"
+                          #namel="ngModel"
+                          [class.is-invalid]="namel.invalid && namel.touched"
+                          [(ngModel)]="passTeller.LastName" required>
+                          <small class="text-danger" [class.d-none]="namel.valid || namel.untouched">Required</small>
+                      </div>
+                      </div>
+              </div>
+          
+      </div>
+
+              <div class="form-group">
+              <div class="input-group flex-nowrap">
+                  <div class="input-group-prepend">
+                       <span class="input-group-text" id="addon-wrapping">@</span>
+                  </div>
+                  <input type="email" class="form-control" name="emailname" placeholder="Email" 
+                  aria-label="mailE" aria-describedby="addon-wrapping"
+                  #mailE="ngModel"
+                  [class.is-invalid]="mailE.invalid && mailE.touched"
+                  [(ngModel)]="passTeller.Email" required>
+                  <small class="text-danger" [class.d-none]="mailE.valid || mailE.untouched">Required</small>
+              </div>
+              </div>
+
+          <br>
+
+              <div class="form-group">
+              <div class="input-group flex-nowrap">
+                  <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fa fa-user" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="text" class="form-control" name="uname" placeholder="Username"
+                   aria-label="User" aria-describedby="addon-wrapping"
+                   #User="ngModel"
+                   [class.is-invalid]="User.invalid && User.touched"
+                   [(ngModel)]="passTeller.Username" required>
+                   <small class="text-danger" [class.d-none]="User.valid || User.untouched">Required</small>
+              </div>
+              </div>
+
+          <br>
+              <div class="form-group">
+              <div class="input-group flex-nowrap">
+                  <div class="input-group-prepend">
+                        <span class="input-group-text" id="addon-wrapping"><i class="fa fa-key" aria-hidden="true"></i></span>
+                  </div>
+                  <input type="password" class="form-control" name="psw" id="psw" placeholder="Password" 
+                  aria-label="Pass" aria-describedby="addon-wrapping"
+                  #Pass="ngModel"
+                  [class.is-invalid]="Pass.invalid && Pass.touched"
+                  [(ngModel)]="passTeller.Password" required>
+                  <small class="text-danger" [class.d-none]="Pass.valid || Pass.untouched"> Required</small>
+                  
+                  <br>    
+              </div>
+              </div>
+              <input type="checkbox" onchange="document.getElementById('psw').type = this.checked ? 'text' : 'password'"> Show password
+          <br>
+          <br>
+          <div style="text-align:center">
+              <button [disabled]="tellerForm.form.invalid" class="btn btn-info" type="submit">Sign up</button>
+          </div>
+  </form>
+          <br>
+          <br>
+          <div class="center">
+              <p>Already have an account?</p>
+              <input type="button" class="btn btn-info" type="submit" value="Log In">
+          </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  <br>
+
+</body>
+</html>
