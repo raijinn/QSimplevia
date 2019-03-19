@@ -24,6 +24,7 @@ import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './admin/reports/charts/bar-chart/bar-chart.component';
 // services
 import { AuthGuard } from './services/services-login/guard/auth.guard';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AuthGuard } from './services/services-login/guard/auth.guard';
     MNewsComponent,
     MAnnouncementsComponent,
     MEventsComponent,
-    MTellersComponent
+    MTellersComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
