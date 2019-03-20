@@ -5,16 +5,14 @@
     <div class="row">
         <div class="col add-department p-3">
             <h1>Manage Departments</h1>
-            <form class="md-form" g (ngSubmit)="onSubmit()" novalidate>
+            <form class="md-form" (ngSubmit)="onSubmit()" novalidate>
                 <div class="md-form">
                     <label for="dept">Department Name</label>
-                    <input mdbInput class="form-control" type="text" name="DepartmentName"
-                        [(ngModel)]="passdept.DepartmentName" #name="ngModel" required>
+                    <input mdbInput class="form-control" type="text" name="DepartmentName" [(ngModel)]="passdept.DepartmentName" #name="ngModel" required>
                 </div>
 
                 <div class="md-form">
-                    <input mdbInput class="form-control" type="number" name="Windows" [(ngModel)]="passdept.Windows"
-                        #windows="ngModel" min="1">
+                    <input mdbInput class="form-control" type="number" name="Windows" [(ngModel)]="passdept.Windows" #windows="ngModel" min="1">
                     <label for="wndwcount">No. of Windows</label>
                 </div>
                 <input type="button" class="btn btn-success float-right" type="submit" value="ADD DEPARTMENT">
@@ -40,52 +38,42 @@
                         <td>{{ department.DepartmentId }}</td>
                         <td>{{ department.DepartmentName }}</td>
                         <td>{{ department.Windows }}</td>
-                        <td><button type="button" data-toggle="modal" data-target="#editDeptForm"
-                                class="btn btn-warning rounded" (click)="throwId(department.DepartmentId)">EDIT</button>
-                            <!-- modalstart -->
-                            <div class="modal fade" id="editDeptForm" tabindex="-1" role="modal"
-                                aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <!-- header -->
-                                        <div class="modal-header">
-                                            <h4 class="modal-title w-100 font-weight-bold">Edit Department</h4>
-                                        </div>
-                                        <!-- modal form -->
-                                        <div class="modal-body mx-3" id="editDeptConfForm">
-                                            <form class="md-form" #upDeptForm="ngForm" novalidate>
-                                                <div class="md-form mb-5">
-                                                    <i class="fas fa-building prefix grey-text"></i>
-                                                    <input mdbInput type="email" class="form-control validate"
-                                                        name="DepartmentName" [(ngModel)]="passdept.DepartmentName"
-                                                        required>
-                                                    <label data-error="wrong" data-success="right">Department
+                        <td><button type="button" data-toggle="modal" data-target="#editDeptForm" class="btn btn-warning rounded" (click)="throwId(department.DepartmentId)">EDIT</button></td>
+                        <!-- lagyan confirmation modal  -->
+                        <td><button type="button" class="btn btn-danger rounded" (click)="delete(department.DepartmentId)">DELETE</button></td>
+                        <!-- modalstart -->
+                        <div class="modal fade" id="editDeptForm" tabindex="-1" role="modal" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <!-- header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title w-100 font-weight-bold">Edit Department</h4>
+                                    </div>
+                                    <!-- modal form -->
+                                    <div class="modal-body mx-3" id="editDeptConfForm">
+                                        <form class="md-form" #upDeptForm="ngForm" novalidate>
+                                            <div class="md-form mb-5">
+                                                <i class="fas fa-building prefix grey-text"></i>
+                                                <input mdbInput type="email" class="form-control validate" name="DepartmentName" [(ngModel)]="passdept.DepartmentName" required>
+                                                <label data-error="wrong" data-success="right">Department
                                                         Name</label>
-                                                </div>
-                                                <div class="md-form mb-4">
-                                                    <i class="fas fa-window-restore prefix grey-text"></i>
-                                                    <input mdbInput type="number" class="form-control validate"
-                                                        name="Windows" [(ngModel)]="passdept.Windows" min="1">
-                                                    <label data-error="wrong" data-success="right">No. of
+                                            </div>
+                                            <div class="md-form mb-4">
+                                                <i class="fas fa-window-restore prefix grey-text"></i>
+                                                <input mdbInput type="number" class="form-control validate" name="Windows" [(ngModel)]="passdept.Windows" min="1">
+                                                <label data-error="wrong" data-success="right">No. of
                                                         Windows</label>
-                                                </div>
-                                                <!-- submit -->
-                                                <div class="modal-footer d-flex justify-content-end">
-                                                    <button type="button" data-dismiss="modal" class="btn btn-secondary"
-                                                        aria-label="Close">Cancel</button>
-                                                    <button type="button" data-dismiss="modal" class="btn btn-success"
-                                                        (click)="edit()">Update</button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                            <!-- submit -->
+                                            <div class="modal-footer d-flex justify-content-end">
+                                                <button type="button" data-dismiss="modal" class="btn btn-secondary" aria-label="Close">Cancel</button>
+                                                <button type="button" data-dismiss="modal" class="btn btn-success" (click)="edit()">Update</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
-                        <td><button type="button" data-toggle="modal" data-target="#editDeptForm"
-                                class="btn btn-warning rounded">EDIT</button></td>
-                        <!-- lagyan confirmation modal  -->
-                        <td><button type="button" class="btn btn-danger rounded"
-                                (click)="delete(department.DepartmentId)">DELETE</button></td>
+                        </div>
                 </tbody>
             </table>
         </div>
