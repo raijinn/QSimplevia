@@ -3,7 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './services/services-login/guard/auth.guard';
 
 import { LoginComponent } from './login/login.component';
-
+//page not found
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 //monitor-display
 import { MonitorDisplayComponent } from './monitor-display/monitor-display.component'
 
@@ -26,8 +27,9 @@ const routes: Routes = [
   { path: 'maintenance/events', component: MEventsComponent }, // canActivate: [AuthGuard] },
   { path: 'maintenance/tellers', component: MTellersComponent }, // canActivate: [AuthGuard] },
   { path: 'reports', component: ReportsComponent }, // canActivate: [AuthGuard] },
+  { path: 'pagenotfound', component: PagenotfoundComponent },
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '', pathMatch: 'full' }
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 ];
 
 @NgModule({

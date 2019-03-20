@@ -24,6 +24,7 @@ import { BarChartComponent } from './admin/reports/charts/bar-chart/bar-chart.co
 // services
 import { AuthGuard } from './services/services-login/guard/auth.guard';
 import { NavigationComponent } from './navigation/navigation.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     MAnnouncementsComponent,
     MEventsComponent,
     MTellersComponent,
-    NavigationComponent
+    NavigationComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,
