@@ -25,6 +25,7 @@ import { BarChartComponent } from './admin/reports/charts/bar-chart/bar-chart.co
 import { AuthGuard } from './services/services-login/guard/auth.guard';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { AuditTrailComponent } from './admin/audit-trail/audit-trail.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
     MEventsComponent,
     MTellersComponent,
     NavigationComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    AuditTrailComponent
   ],
   imports: [
     BrowserModule,

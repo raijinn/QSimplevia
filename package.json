@@ -25,6 +25,7 @@
         "@fortawesome/angular-fontawesome": "^0.3.0",
         "@fortawesome/fontawesome-free": "~5.6.3",
         "@types/chart.js": "^2.7.40",
+        "angular-base64-upload": "^0.1.23",
         "angular-bootstrap-md": "^7.4.1",
         "angularx-qrcode": "^1.5.2",
         "bootstrap": "^4.2.1",

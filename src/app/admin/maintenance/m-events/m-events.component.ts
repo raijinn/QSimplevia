@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./m-events.component.css']
 })
 export class MEventsComponent implements OnInit {
-
+  
+  _eventType = true;
   constructor() { }
 
   ngOnInit() {
