@@ -7,8 +7,6 @@ import { GDepartments, PSDepartments } from '../../../models/queueing_models';
   providedIn: 'root'
 })
 export class DeptDataService {
-  // web api string
-  private _url: string = "";
 
   //instantiate ng http client
   constructor(private http: HttpClient) { }

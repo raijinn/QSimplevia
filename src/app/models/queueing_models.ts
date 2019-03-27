@@ -26,7 +26,7 @@ export interface GDepartments {
     Windows: number;
 }
 
-// POST FOR DEPTS
+// POST || PUT FOR DEPTS
 export class PSDepartments {
     constructor(
         DepartmentName: String,
@@ -35,15 +35,21 @@ export class PSDepartments {
 }
 
 // GET FOR ANNOUNCEMENTS|EVENTS
-export class GAnnouncements {
+export interface GAnnouncements {
     EventId: number;
     Description: string;
     EventType: boolean;
     CreatedAt: Date;
-    Image: ImageBitmap;
+    Image: Blob;
 }
 
 // POST || PUT FOR ANNOUNCEMENTS|EVENTS
+export class PSAnnouncements {
+    constructor(
+        Description: string,
+        EventType: boolean
+    ){}
+}
 
 //GET FOR TELLER
 export interface GTeller {

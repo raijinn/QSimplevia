@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DeptDataService } from '../../../services/services-webapi/GetDepartments/dept-data.service';
 import { GetDQdataService } from '../../../services/services-webapi/GetDailyQueue/get-dqdata.service';
-//partner lagi dapat yung post pati data model
-
+//data model
 import { PSDepartments } from '../../../models/queueing_models';
 
 @Component({

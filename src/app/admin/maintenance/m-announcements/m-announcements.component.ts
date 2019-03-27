@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { GetAnnouncementDataService } from '../../../services/services-webapi/GetAnnouncements/get-announcement-data.service'
+import { GetAnnouncementDataService, } from '../../../services/services-webapi/GetAnnouncements/get-announcement-data.service'
+// data model
+import { PSAnnouncements } from '../../../models/queueing_models';
+
 @Component({
   selector: 'app-m-announcements',
   templateUrl: './m-announcements.component.html',
@@ -8,35 +11,47 @@ import { GetAnnouncementDataService } from '../../../services/services-webapi/Ge
 export class MAnnouncementsComponent implements OnInit {
   // pass this along with the form inputs
   _eventType = false;
-  
+
   public announcements: any = [];
+  public passAnnounce = new PSAnnouncements('', false);
 
-  // this whole block right here is for file preview
+// [start] file preview
+imgURL: any;
   public imagePath;
-  imgURL: any;
   public message: string;
-  preview(files) {
-    if (files.length === 0)
-      return;
-    var mimeType = files[0].type;
-    if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
-      return;
-    }
-    var reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) => {
-      this.imgURL = reader.result;
-    }
+preview(files) {
+  if (files.length === 0)
+    return;
+  var mimeType = files[0].type;
+  if (mimeType.match(/image\/*/) == null) {
+    this.message = "Only images are supported.";
+    return;
   }
-
-  constructor(private _GetAnnounceService: GetAnnouncementDataService) { }
-
-  ngOnInit() {
-    this._GetAnnounceService.getAnnouncement()
-    .subscribe(data => this.announcements = data)
+  var reader = new FileReader();
+  this.imagePath = files;
+  reader.readAsDataURL(files[0]);
+  reader.onload = (_event) => {
+    this.imgURL = reader.result;
   }
+}
+// [end] file preview
 
-  
+constructor(private _GetAnnounceService: GetAnnouncementDataService) { }
+
+ngOnInit() {
+  this._GetAnnounceService.getAnnouncement()
+    .subscribe(data => this.announcements = data);
+
+    
+}
+
+onSubmit() {
+  this._GetAnnounceService.addAnnouncement(this.passAnnounce)
+    .subscribe(
+      data => this._GetAnnounceService.getAnnouncement()
+        .subscribe(data => this.announcements = data),
+      error => console.error('Error!', error)
+    );
+}
+
 }
