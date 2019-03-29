@@ -15,8 +15,12 @@ export class MonitorDisplayComponent implements OnInit {
   constructor(private _GetDQDataService: GetDQdataService) {
     setInterval(() => {
       this.dtime = new Date();
-      this._GetDQDataService.getdailyqData().subscribe(data => this.queues = data);
+      this._GetDQDataService.getdailyqData()
+      .subscribe(
+        data => this.queues = data
+      );
     }, 1000);
+
 
 
   }

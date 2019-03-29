@@ -17,6 +17,7 @@ export interface GDailyQueue {
     DepartmentId: number;
     Queue: number;
     Date: Date;
+    IsActive: boolean;
 }
 
 // GET FOR DEPARTMENTS
@@ -47,7 +48,8 @@ export interface GAnnouncements {
 export class PSAnnouncements {
     constructor(
         Description: string,
-        EventType: boolean
+        EventType: boolean,
+        Image: string
     ){}
 }
 

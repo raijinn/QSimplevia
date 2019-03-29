@@ -2,7 +2,7 @@
 <br>
 <div class="mx-5 mt-2">
     <h3 class="text-light float-right" id="time">{{ dtime | date:'medium' }}</h3>
-    <!-- lagyan ng dropdown sa lahat ng dept -->
+    <!-- lagyan ng dropdown para sa lahat ng dept -->
     <h3 class="text-light">Queue(Live Feed)</h3>
 
     <div class="bluebg container-fluid my-4 p-3">
@@ -10,9 +10,9 @@
             <!-- yung queue-block na naka *ngFor -->
             <div class="col-3 col-md-3" *ngFor="let queue of queues;index as i">
                 <div *ngIf="i<16">
-                    <!-- habang testing wag muna ilagay to *ngIf="queue.IsActive" -->
+                    <!-- reset yung index para hindi naka hide lang yung block -->
                     <div class="container m-2 p-4" id="queueitem" *ngIf="queue.IsActive">
-                        <h4 *ngIf="i<1">Now Serving</h4>
+                        <h4 *ngIf="queue.IsActive">Now Serving</h4>
                         <!-- gawing per department-->
                         <p>{{ queue.DepartmentName }}</p>
                         <h1>{{ queue.Queue }}</h1>

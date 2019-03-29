@@ -10,7 +10,7 @@ import { PSDepartments } from '../../../models/queueing_models';
   styleUrls: ['./m-department.component.css']
 })
 export class MDepartmentComponent implements OnInit {
-  //data model for get?
+ 
   public dept: any = [];
   // data model for post/put? 
   public passdept = new PSDepartments('', 0);
