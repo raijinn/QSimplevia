@@ -49,7 +49,7 @@ export class PSAnnouncements {
     constructor(
         Description: string,
         EventType: boolean,
-        Image: string
+
     ){}
 }
 

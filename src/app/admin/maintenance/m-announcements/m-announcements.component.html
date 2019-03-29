@@ -9,7 +9,7 @@
                 <div class="md-form">
                     <i class="fas fa-envelope-open-text prefix"></i>
                     <label for="dept">Announcement Description</label>
-                    <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description" [(ngModel)]="passAnnouncement.Description" #Description="ngModel" required></textarea>
+                    <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description" #Description="ngModel" [(ngModel)]="passAnnounce.Description" required></textarea>
                 </div>
 
                 <!-- add image -->
@@ -22,12 +22,9 @@
                 </div>
                 <!-- announcement value dapat false -->
                 <div>
-                    <input type="hidden" name="EventType" #EventType="ngModel" [(ngModel)]="passAnnounce.EventType" value="false">
+                    <input type="hidden" name="EventType" #EventType="ngModel" [(ngModel)]="passAnnounce.EventType">
                 </div>
                 <!-- base64 image pass to form -->
-                <div>
-                    <input type="hidden" name="Image" #Image="ngModel" [(ngModel)]="passAnnounce.Image">
-                </div>
                 <input type="button" class="btn btn-success float-right" type="submit" value="ADD ANNOUNCEMENT">
             </form>
         </div>

@@ -3,6 +3,7 @@ import { GetAnnouncementDataService, } from '../../../services/services-webapi/G
 // data model
 import { PSAnnouncements } from '../../../models/queueing_models';
 
+
 @Component({
   selector: 'app-m-announcements',
   templateUrl: './m-announcements.component.html',
@@ -14,11 +15,11 @@ export class MAnnouncementsComponent implements OnInit {
   //data model for get?x  
   public announcements: any = [];
   // data model for post/put? 
-  public passAnnounce = new PSAnnouncements('', false, '');
+  public passAnnounce = new PSAnnouncements('', false);
 
   // [start] file preview
   // imgURL contains the converted base64string
-  imgURL: any;
+  public imgURL: any;
   public imagePath;
   public message: string;
   preview(files) {
