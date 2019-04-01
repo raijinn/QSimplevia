@@ -8,24 +8,25 @@ import { GDepartments, PSDepartments } from '../../../models/queueing_models';
 })
 export class DeptDataService {
 
+  readonly tempIP = "http://192.168.100.16:50870/api";
   //instantiate ng http client
   constructor(private http: HttpClient) { }
   
   getDeptData(): Observable<GDepartments[]>{
-    return this.http.get<GDepartments[]>('http://192.168.100.16:50870/api/GetDepartments');
+    return this.http.get<GDepartments[]>(this.tempIP + '/GetDepartments');
   }
 
   addDept(dept: PSDepartments) {
-    return this.http.post('http://192.168.100.16:50870/api/PostDepartment', dept);
+    return this.http.post(this.tempIP + '/PostDepartment', dept);
   }
 
   editDept(id: number, dept: PSDepartments) {
     // ginamit yung id para pang determine kung alin iuupdate
-    return this.http.put('http://192.168.100.16:50870/api/PutDepartment' + '/' + id, dept);
+    return this.http.put(this.tempIP + '/PutDepartment' + '/' + id, dept);
   }
 
   delDept(id: number) {
-    return this.http.delete('http://192.168.100.16:50870/api/DeleteDepartment' + '/' + id);
+    return this.http.delete(this.tempIP + '/DeleteDepartment' + '/' + id);
   }
 }
 
