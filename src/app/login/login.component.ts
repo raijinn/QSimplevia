@@ -20,47 +20,47 @@ import { Users } from '../models/queueing_models';
 export class LoginComponent implements OnInit {
 
   constructor(private service: LoginServiceService,
-              private toastr: ToastrService,
-              private _router: Router) { }
+    private toastr: ToastrService,
+    private _router: Router) { }
 
   ngOnInit() {
     this.resetForm();
   }
 
-  _list : Users[];
+  _list: Users[];
 
-  resetForm(form? : NgForm){
-    if(form != null)
-    form.resetForm();
+  resetForm(form?: NgForm) {
+    if (form != null)
+      form.resetForm();
     this.service.formData = {
-      UserId : null,
-      Username : '',
-      Password : '',
-      FName : '',
-      MName : '',
-      LName : '',
-      Email : '',
-      IsAdmin : false,
-      DepartmentId : null
+      UserId: null,
+      Username: '',
+      Password: '',
+      FName: '',
+      MName: '',
+      LName: '',
+      Email: '',
+      IsAdmin: false,
+      DepartmentId: null
     }
   }
 
-  onSubmit(form: NgForm){
+  onSubmit(form: NgForm) {
     this.onLogin(form);
   }
 
-  onLogin(form : NgForm){
+  onLogin(form: NgForm) {
     this.service.postLogin(form.value).subscribe(res => {
-     this.resetForm();
-     this._list = res as Users[];
-     if(this._list.length < 1){
-       this.toastr.error('Email or Password is incorrect','Login Failed');
-     }
-     else{
-       this.toastr.success('Login successful', 'Login Success');
-       this._router.navigate(['/maintenance/announcements']);
-     }
+      this.resetForm();
+      this._list = res as Users[];
+      if (this._list.length < 1) {
+        this.toastr.error('Email or Password is incorrect', 'Login Failed');
+      }
+      else {
+        this.toastr.success('Login successful', 'Login Success');
+        this._router.navigate(['/maintenance/announcements']);
+      }
     });
-   }
+  }
 
 }

@@ -29,6 +29,7 @@ import { AuthGuard } from './services/services-login/guard/auth.guard';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { AuditTrailComponent } from './admin/audit-trail/audit-trail.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AuditTrailComponent } from './admin/audit-trail/audit-trail.component';
     MTellersComponent,
     NavigationComponent,
     PagenotfoundComponent,
-    AuditTrailComponent
+    AuditTrailComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

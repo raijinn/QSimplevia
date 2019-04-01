@@ -16,17 +16,13 @@ export class MonitorDisplayComponent implements OnInit {
     setInterval(() => {
       this.dtime = new Date();
       this._GetDQDataService.getdailyqData()
-      .subscribe(
-        data => this.queues = data
-      );
+        .subscribe(
+          data => this.queues = data.filter(queues => queues.Status !== 2)
+        )
     }, 1000);
-
-
-
   }
 
   ngOnInit() {
-
   }
 
 }

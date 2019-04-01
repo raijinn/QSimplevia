@@ -1,4 +1,38 @@
 <app-navigation></app-navigation>
-<p>
-  board works!
-</p>
+
+<div class="container-fluid bg-white rounded my-2 py-2">
+  <div class="row my-1">
+    <div class="card-deck">
+    <div class="col-md-4">
+        <div class="card">
+          <div class="card-header">Current Queue Number</div>
+            <div class="card-body">
+                <ul class="list-group" *ngFor="let variable of uDept; index as i"><!--Ilagay ung count ng today to monthly kasi d pa dynamic to-->
+                    <li class="list-group-item py-0"><i class="fas fa-calendar-day"></i>
+                      {{variable.DepartmentName}}<span class="badge badge-dark float-right">43</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            Monthly Department Count
+          </div>
+            <div class="card-body">
+                <app-bar-chart></app-bar-chart>
+            </div>
+          </div>
+    </div>
+    </div>
+  </div>
+  <div class="row my-1">
+    <div class="col-md-6"><!--Current count this month by every department/ COMPARISON-->
+      
+    </div>
+    <div class="col-md-6">
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

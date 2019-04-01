@@ -1,25 +1,29 @@
-<div id="header-bg">ICODE NA LANG YUNG HEADERs</div>
-<br>
-<div class="mx-5 mt-2">
-    <h3 class="text-light float-right" id="time">{{ dtime | date:'medium' }}</h3>
-    <!-- lagyan ng dropdown para sa lahat ng dept -->
-    <h3 class="text-light">Queue(Live Feed)</h3>
+<div id="header-bg"><img src="../../assets/img/mg_kiosk_header.png" height="123px;" width="100%;">
+    <div class="mx-5 mt-2">
+        <h3 class="text-light float-right" id="time">{{ dtime | date:'medium' }}</h3>
 
-    <div class="bluebg container-fluid my-4 p-3">
-        <div class="row mr-2">
-            <!-- yung queue-block na naka *ngFor -->
-            <div class="col-3 col-md-3" *ngFor="let queue of queues;index as i">
-                <div *ngIf="i<16">
-                    <!-- reset yung index para hindi naka hide lang yung block -->
-                    <div class="container m-2 p-4" id="queueitem" *ngIf="queue.Status===0 || queue.Status===1">
-                        <h4 *ngIf="queue.Status===1">Now Serving</h4>
-                        <!-- gawing per department-->
-                        <p>{{ queue.DepartmentName }}</p>
-                        <h1>{{ queue.Queue }}</h1>
+        <!-- lagyan ng dropdown sa lahat ng dept -->
+        <h3 class="text-light">Queue(Live Feed)</h3>
+        <div class="bluebg container-fluid my-4 p-3">
+            <div class="container-fluid"></div>
+            <div class="row mr-2">
+                <!-- yung queue-block na naka *ngFor -->
+                <div class="col-3 col-md-3" *ngFor="let queue of queues;index as i">
+                    <div *ngIf="i<12">
+                        <!-- habang testing wag muna ilagay to *ngIf="queue.IsActive" -->
+                        <div class="container m-2 p-4" id="queueitem" *ngIf="queue.Status===0 || queue.Status===1">
+                            <div class="panel panel-blue">
+                                <h5 *ngIf="queue.Status===1">Now Serving</h5>
+                                <!-- gawing per department-->
+                                <p>{{ queue.DepartmentName }}</p>
+                                <h1>{{ queue.Queue }}</h1>
+                            </div>
+                        </div>
                     </div>
+                    <!--punta na ng list pag sumobra ng 16-->
                 </div>
             </div>
-            <!--punta na ng list pag sumobra ng 16-->
         </div>
     </div>
 </div>
+<app-footer></app-footer>

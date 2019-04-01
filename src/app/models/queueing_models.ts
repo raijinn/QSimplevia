@@ -1,5 +1,4 @@
 
-
 //user model -- for login
 export class Users {
     UserId:number;
@@ -12,8 +11,6 @@ export class Users {
     Email:string;
     DepartmentId:number;
 }
-
-
 
 // GET USERS
 export interface GUsers {
@@ -33,7 +30,7 @@ export interface GDailyQueue {
     DepartmentId: number;
     Queue: number;
     Date: Date;
-    IsActive: boolean;
+    Status: number;
 }
 
 // GET FOR DEPARTMENTS
@@ -77,7 +74,18 @@ export interface GTeller {
     Password: string
 }
 
-// POST || PUT FOR TELLER
+export class PostTeller {
+    constructor(
+        FirstName: string,
+        MiddleName: string,
+        LastName: string,
+        Email: string,
+        Username: string,
+        Password: string
+        ) { }
+}
+
+// delete this
 export class UserLogin {
     constructor(
         username: string,
