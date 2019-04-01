@@ -18,6 +18,9 @@ import { MAnnouncementsComponent } from './admin/maintenance/m-announcements/m-a
 import { MEventsComponent } from './admin/maintenance/m-events/m-events.component';
 import { MTellersComponent } from './admin/maintenance/m-tellers/m-tellers.component'
 
+//Toastr
+import { ToastrModule } from 'ngx-toastr';
+
 // charts
 import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './admin/reports/charts/bar-chart/bar-chart.component';
@@ -50,7 +53,8 @@ import { AuditTrailComponent } from './admin/audit-trail/audit-trail.component';
     FormsModule,
     HttpClientModule,
     ChartsModule,
-    MDBBootstrapModule.forRoot()
+    MDBBootstrapModule.forRoot(),
+    ToastrModule.forRoot()
   ],
   // include all services inside providers for reusability
   providers: [AuthGuard],

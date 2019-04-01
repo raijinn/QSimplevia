@@ -1,4 +1,20 @@
 
+
+//user model -- for login
+export class Users {
+    UserId:number;
+    Username:string;
+    Password:string;
+    FName:string;
+    MName:string;
+    LName:string;
+    IsAdmin:boolean;
+    Email:string;
+    DepartmentId:number;
+}
+
+
+
 // GET USERS
 export interface GUsers {
     UserID: number;
