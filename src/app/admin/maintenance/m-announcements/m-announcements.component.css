@@ -16,9 +16,9 @@
     .announcement {
         background-color: #FFFAFA;
         border-radius: 10px;
-        min-width: 400px;
         height: 700px;
-        overflow-y: scroll;
+        min-width: 700px;
+        overflow-x: scroll;
     }
     
     #preview-before-upload {
@@ -29,5 +29,4 @@
     #imagepreview {
         object-fit: fill;
         max-width: 100%;
-        ;
     }

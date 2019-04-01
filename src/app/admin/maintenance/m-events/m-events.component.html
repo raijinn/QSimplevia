@@ -1,4 +1,91 @@
 <app-navigation></app-navigation>
-<p>
-  m-events works!
-</p>
+<!-- Manage Announcements -->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col add-announce p-3">
+            <h2>Manage Events</h2>
+            <form class="md-form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+                <!-- event description -->
+                <div class="md-form">
+                    <i class="fas fa-envelope-open-text prefix"></i>
+                    <label for="desc_a">Event Description</label>
+                    <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description" #Description="ngModel" [(ngModel)]="_GetAnnounceService.passAnnounceForm" required></textarea>
+                </div>
+
+                <!-- add image -->
+                <div class="file-upload-wrapper md-form">
+                    <span style="color:red;" *ngIf="message">{{message}}</span>
+                    <input #file type="file" accept='image/*' (change)=" preview(file.files)">
+                    <div>
+                        <img id="imagepreview" [src]="imgURL" class="mt-2" height="200" *ngIf="imgURL">
+                    </div>
+                </div>
+                <input class="btn btn-success float-right" type="submit" value="ADD CONTENT">
+            </form>
+        </div>
+
+
+        <!-- announcement table -->
+        <div class="col announcement pt-3 mx-1 ml-4">
+            <h4 class="text-center">Events</h4>
+            <table class="table container-fluid table-striped ">
+                <thead>
+                    <tr>
+                        <th scope="col">Event Id</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">CreatedAt</th>
+                        <th scope="col">Image Preview</th>
+                        <th colspan="2" class="text-center">Maintenance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let announce of announcements; index as i">
+                        <td>{{ announce.EventId }}</td>
+                        <td>{{ announce.Description }}</td>
+                        <td>{{ announce.CreatedAt | date: 'medium' }}</td>
+                        <td><img class="img-thumbnail" src="data:image/jpeg;base64,{{ announce.Image }}" /></td>
+                        <td><button type="button" data-toggle="modal" data-target="#editAnnounceForm" class="btn btn-warning rounded" (click)="throwId(announce.EventId)">EDIT</button></td>
+                        <!-- lagyan confirmation modal  -->
+                        <td><button type="button" class="btn btn-danger rounded" (click)="delete(announce.EventId)">DELETE</button></td>
+                        <div class="modal fade" id="editAnnounceForm" tabindex="-1" role="modal" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <!-- header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title w-100 font-weight-bold">Edit Announcement</h4>
+                                    </div>
+                                    <!-- modal form -->
+                                    <div class="modal-body mx-3" id="editAnnounceForm">
+                                        <form class="md-form" #form="ngForm" novalidate>
+                                            <!-- event description -->
+                                            <div class="md-form">
+                                                <i class="fas fa-envelope-open-text prefix"></i>
+                                                <label for="desc_a">Announcement Description</label>
+                                                <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description" #Description="ngModel" [(ngModel)]="_GetAnnounceService.passAnnounceForm" required></textarea>
+                                            </div>
+
+                                            <!-- add image -->
+                                            <div class="file-upload-wrapper md-form">
+                                                <span style="color:red;" *ngIf="message">{{message}}</span>
+                                                <input #file type="file" accept='image/*' (change)="preview(file.files)">
+                                                <div>
+                                                    <img id="imagepreview" [src]="imgURL" class="mt-2" height="200" *ngIf="imgURL">
+                                                </div>
+                                            </div>
+
+                                            <!-- base64 image pass to form -->
+                                            <div class="modal-footer d-flex justify-content-end">
+                                                <button type="button" data-dismiss="modal" class="btn btn-secondary" aria-label="Close">Cancel</button>
+                                                <button type="button" data-dismiss="modal" class="btn btn-success" (click)="edit(form)">Update</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

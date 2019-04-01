@@ -13,8 +13,7 @@ import { AccountSettingsAdminComponent } from './admin/account-settings-admin/ac
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { MAnnouncementsComponent } from './admin/maintenance/m-announcements/m-announcements.component'; // admin-side/maintenance
 import { MDepartmentComponent } from './admin/maintenance/m-department/m-department.component'; // admin-side/maintenance
-import { MEventsComponent } from './admin/maintenance/m-events/m-events.component'; // admin-side/maintenance
-
+import { MEventsComponent } from './admin/maintenance/m-events/m-events.component';
 import { MTellersComponent } from './admin/maintenance/m-tellers/m-tellers.component'; // admin-side/maintenance
 import { ReportsComponent } from './admin/reports/reports.component';
 
@@ -24,7 +23,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent }, // canActivate: [AuthGuard] },
   { path: 'maintenance/announcements', component: MAnnouncementsComponent }, // canActivate: [AuthGuard] },
   { path: 'maintenance/departments', component: MDepartmentComponent }, // canActivate: [AuthGuard] },
-  { path: 'maintenance/events', component: MEventsComponent }, // canActivate: [AuthGuard] },
+  { path: 'maintenance/events', component: MEventsComponent },
   { path: 'maintenance/tellers', component: MTellersComponent }, // canActivate: [AuthGuard] },
   { path: 'reports', component: ReportsComponent }, // canActivate: [AuthGuard] },
   { path: 'pagenotfound', component: PagenotfoundComponent },

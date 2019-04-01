@@ -10,13 +10,11 @@ import { NgForm } from '../../../../../node_modules/@angular/forms';
   styleUrls: ['./m-announcements.component.css']
 })
 export class MAnnouncementsComponent implements OnInit {
-  // pass this along with the form inputs
-  _eventType = false;
+
   //data model for get?x  
   public announcements: any = [];
-  // data model for post/put? 
-  // public passAnnounce = new PSAnnouncements('', false,'');
-
+  // var for passing id into modal
+  public eventId: number;
   // [start] file preview
   // imgURL contains the converted base64string
   public imgURL: any;
@@ -43,31 +41,56 @@ export class MAnnouncementsComponent implements OnInit {
 
   ngOnInit() {
     this._GetAnnounceService.getAnnouncement()
-      .subscribe(data => this.announcements = data)
+      .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== true)  
+    );
   }
 
-  resetForm(form? : NgForm){
-    if(form != null)
-    form.resetForm();
-    this._GetAnnounceService.passAnnounceForm = {
-      Description: '',
-      EventType: false,
-      Image: ''
-    }
+  resetForm(form?: NgForm) {
+    if (form != null)
+      form.resetForm();
+    this.imgURL = '';
+    this.imagePath = '';
+  }
+
+  throwId(id: number, bDisabled) {
+    this.eventId = id;
+    console.log(id)
   }
 
   onSubmit(form: NgForm) {
     var index = this.imgURL.indexOf(',');
-    var base64str
+    var base64str = this.imgURL.slice(index + 1)
     form.value.EventType = false;
-    form.value.Image = 
+    form.value.Image = base64str;
     this._GetAnnounceService.addAnnouncement(form.value)
       .subscribe(
         data => this._GetAnnounceService.getAnnouncement()
-          .subscribe(data => this.announcements = data),
+        .subscribe(data => this.announcements = data.filter),
         error => console.error('Error!', error)
       );
+    this.resetForm(form)
   }
 
+  edit(form: NgForm) {
+    console.log(form.value)
+    var index = this.imgURL.indexOf(',');
+    var base64str = this.imgURL.slice(index + 1)
+    form.value.EventType = false;
+    form.value.Image = base64str;
+    this._GetAnnounceService.editAnnouncement(this.eventId, form.value)
+      .subscribe(
+        data => this._GetAnnounceService.getAnnouncement()
+        .subscribe(data => this.announcements = data),
+        error => console.error('Error!', error)
+      );
+    this.resetForm(form)
+  }
+  delete(id: number): void {
+    this._GetAnnounceService.delAnnouncement(id)
+      .subscribe(
+        _ => this.announcements = this.announcements.filter(announcement => announcement.EventId !== id),
+        error => console.log('error', error)
+      )
+  }
 }
 

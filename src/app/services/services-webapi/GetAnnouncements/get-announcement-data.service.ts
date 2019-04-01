@@ -7,7 +7,8 @@ import { GAnnouncements, PSAnnouncements } from '../../../models/queueing_models
   providedIn: 'root'
 })
 export class GetAnnouncementDataService {
-
+  // magkasama na yung events + announcements
+  
   passAnnounceForm: PSAnnouncements;
 
   constructor(private http: HttpClient) { }
