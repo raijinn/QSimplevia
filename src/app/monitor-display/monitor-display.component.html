@@ -11,8 +11,8 @@
             <div class="col-3 col-md-3" *ngFor="let queue of queues;index as i">
                 <div *ngIf="i<16">
                     <!-- reset yung index para hindi naka hide lang yung block -->
-                    <div class="container m-2 p-4" id="queueitem" *ngIf="queue.IsActive">
-                        <h4 *ngIf="queue.IsActive">Now Serving</h4>
+                    <div class="container m-2 p-4" id="queueitem" *ngIf="queue.Status===0 || queue.Status===1">
+                        <h4 *ngIf="queue.Status===1">Now Serving</h4>
                         <!-- gawing per department-->
                         <p>{{ queue.DepartmentName }}</p>
                         <h1>{{ queue.Queue }}</h1>

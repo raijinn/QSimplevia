@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpBackend } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { GAnnouncements, PSAnnouncements } from '../../../models/queueing_models';
 
@@ -7,6 +7,8 @@ import { GAnnouncements, PSAnnouncements } from '../../../models/queueing_models
   providedIn: 'root'
 })
 export class GetAnnouncementDataService {
+
+  passAnnounceForm: PSAnnouncements;
 
   constructor(private http: HttpClient) { }
 
@@ -21,8 +23,6 @@ export class GetAnnouncementDataService {
   editAnnouncement(id: number, announcements: PSAnnouncements) {
     return this.http.put('http://192.168.100.16:50870/api/PutEvent' + '/' + id, announcements);
   }
-
-  
 
   delAnnouncement(id: number) {
     return this.http.delete('http://192.168.100.16:50870/api/DeleteEvent' + '/' + id);

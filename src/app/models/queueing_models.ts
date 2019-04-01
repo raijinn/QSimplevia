@@ -46,11 +46,9 @@ export interface GAnnouncements {
 
 // POST || PUT FOR ANNOUNCEMENTS|EVENTS
 export class PSAnnouncements {
-    constructor(
-        Description: string,
-        EventType: boolean,
-
-    ){}
+    Description: string;
+    EventType: boolean;
+    Image: string;
 }
 
 //GET FOR TELLER

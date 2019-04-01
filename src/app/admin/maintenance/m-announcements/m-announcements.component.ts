@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GetAnnouncementDataService, } from '../../../services/services-webapi/GetAnnouncements/get-announcement-data.service'
 // data model
-import { PSAnnouncements } from '../../../models/queueing_models';
+import { NgForm } from '../../../../../node_modules/@angular/forms';
 
 
 @Component({
@@ -15,7 +15,7 @@ export class MAnnouncementsComponent implements OnInit {
   //data model for get?x  
   public announcements: any = [];
   // data model for post/put? 
-  public passAnnounce = new PSAnnouncements('', false);
+  // public passAnnounce = new PSAnnouncements('', false,'');
 
   // [start] file preview
   // imgURL contains the converted base64string
@@ -46,8 +46,22 @@ export class MAnnouncementsComponent implements OnInit {
       .subscribe(data => this.announcements = data)
   }
 
-  onSubmit() {
-    this._GetAnnounceService.addAnnouncement(this.passAnnounce)
+  resetForm(form? : NgForm){
+    if(form != null)
+    form.resetForm();
+    this._GetAnnounceService.passAnnounceForm = {
+      Description: '',
+      EventType: false,
+      Image: ''
+    }
+  }
+
+  onSubmit(form: NgForm) {
+    var index = this.imgURL.indexOf(',');
+    var base64str
+    form.value.EventType = false;
+    form.value.Image = 
+    this._GetAnnounceService.addAnnouncement(form.value)
       .subscribe(
         data => this._GetAnnounceService.getAnnouncement()
           .subscribe(data => this.announcements = data),
@@ -56,3 +70,4 @@ export class MAnnouncementsComponent implements OnInit {
   }
 
 }
+
