@@ -41,6 +41,7 @@
     "ngx-toastr": "^10.0.2",
     "popper.js": "^1.14.6",
     "rxjs": "^6.4.0",
+    "toastr": "^2.1.4",
     "zone.js": "~0.8.29"
   },
   "devDependencies": {
