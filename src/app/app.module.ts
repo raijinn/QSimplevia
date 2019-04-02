@@ -28,7 +28,6 @@ import { BarChartComponent } from './admin/reports/charts/bar-chart/bar-chart.co
 import { AuthGuard } from './services/services-login/guard/auth.guard';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { AuditTrailComponent } from './admin/audit-trail/audit-trail.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
@@ -45,9 +44,8 @@ import { FooterComponent } from './footer/footer.component';
     MEventsComponent,
     MTellersComponent,
     NavigationComponent,
-    PagenotfoundComponent,
-    AuditTrailComponent,
-    FooterComponent
+    FooterComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+<app-navigation></app-navigation>
 <div class="container my-5">
     <!-- add -->
     <div class="row">
@@ -11,14 +12,10 @@
                     <div class="col">
                         <div class="input-group flex-nowrap">
                             <div class="form-group">
-                                <input type="text" id="FnameF" class="form-control" name="FName"
-                                    placeholder="First Name" aria-label="namef" aria-describedby="addon-wrapping"
-                                    #namef="ngModel" [class.is-invalid]="namef.invalid && namef.touched"
-                                    [(ngModel)]="passTeller.Fname" required>
+                                <input type="text" id="FnameF" class="form-control" name="FName" placeholder="First Name" aria-label="namef" aria-describedby="addon-wrapping" #namef="ngModel" [class.is-invalid]="namef.invalid && namef.touched" [(ngModel)]="passTeller.Fname" required>
                                 <!-- [class.is-invalid]="namef.invalid && namef.touched"
                                             <div *ngIf="namef.invalid && namef.touched"> </div> -->
-                                <small class="text-danger"
-                                    [class.d-none]="namef.valid || namef.untouched">Required</small>
+                                <small class="text-danger" [class.d-none]="namef.valid || namef.untouched">Required</small>
                             </div>
                         </div>
                     </div>
@@ -26,12 +23,8 @@
                     <div class="col">
                         <div class="input-group flex-nowrap">
                             <div class="form-group">
-                                <input type="text" id="MnameM" class="form-control" name="MName"
-                                    placeholder="Middle Name" aria-label="namem" aria-describedby="addon-wrapping"
-                                    #namem="ngModel" [class.is-invalid]="namem.invalid && namem.touched"
-                                    [(ngModel)]="passTeller.Mname" required>
-                                <small class="text-danger"
-                                    [class.d-none]="namem.valid || namem.untouched">Required</small>
+                                <input type="text" id="MnameM" class="form-control" name="MName" placeholder="Middle Name" aria-label="namem" aria-describedby="addon-wrapping" #namem="ngModel" [class.is-invalid]="namem.invalid && namem.touched" [(ngModel)]="passTeller.Mname" required>
+                                <small class="text-danger" [class.d-none]="namem.valid || namem.untouched">Required</small>
                             </div>
                         </div>
                     </div>
@@ -39,12 +32,8 @@
                     <div class="col">
                         <div class="input-group flex-nowrap">
                             <div class="form-group">
-                                <input type="text" id="LnameL" class="form-control" name="LName" placeholder="Last Name"
-                                    aria-label="namel" aria-describedby="addon-wrapping" #namel="ngModel"
-                                    [class.is-invalid]="namel.invalid && namel.touched" [(ngModel)]="passTeller.Lname"
-                                    required>
-                                <small class="text-danger"
-                                    [class.d-none]="namel.valid || namel.untouched">Required</small>
+                                <input type="text" id="LnameL" class="form-control" name="LName" placeholder="Last Name" aria-label="namel" aria-describedby="addon-wrapping" #namel="ngModel" [class.is-invalid]="namel.invalid && namel.touched" [(ngModel)]="passTeller.Lname" required>
+                                <small class="text-danger" [class.d-none]="namel.valid || namel.untouched">Required</small>
                             </div>
                         </div>
                     </div>
@@ -56,9 +45,8 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="addon-wrapping">@</span>
                         </div>
-                        <input type="email" id="EmailE" class="form-control" name="Email" placeholder="Email"
-                            aria-label="mailE" aria-describedby="addon-wrapping" #mailE="ngModel" minlength="10"
-                            [class.is-invalid]="mailE.invalid && mailE.touched" [(ngModel)]="passTeller.Email" required>
+                        <input type="email" id="EmailE" class="form-control" name="Email" placeholder="Email" aria-label="mailE" aria-describedby="addon-wrapping" #mailE="ngModel" minlength="10" [class.is-invalid]="mailE.invalid && mailE.touched" [(ngModel)]="passTeller.Email"
+                            required>
                         <small class="text-danger" [class.d-none]="mailE.valid || mailE.untouched">Required</small>
                     </div>
                 </div>
@@ -71,9 +59,7 @@
                             <span class="input-group-text" id="addon-wrapping"><i class="fa fa-user"
                                     aria-hidden="true"></i></span>
                         </div>
-                        <input type="text" id="UserU" class="form-control" name="Username" placeholder="Username"
-                            aria-label="User" aria-describedby="addon-wrapping" minlength="10" #User="ngModel"
-                            [class.is-invalid]="User.invalid && User.touched" [(ngModel)]="passTeller.Username"
+                        <input type="text" id="UserU" class="form-control" name="Username" placeholder="Username" aria-label="User" aria-describedby="addon-wrapping" minlength="10" #User="ngModel" [class.is-invalid]="User.invalid && User.touched" [(ngModel)]="passTeller.Username"
                             required>
                         <small class="text-danger" [class.d-none]="User.valid || User.untouched">Required</small>
                     </div>
@@ -86,17 +72,14 @@
                             <span class="input-group-text" id="addon-wrapping"><i class="fa fa-key"
                                     aria-hidden="true"></i></span>
                         </div>
-                        <input type="password" class="form-control" name="Password" id="psw" placeholder="Password"
-                            aria-label="Pass" aria-describedby="addon-wrapping" minlength="10" #Pass="ngModel"
-                            [class.is-invalid]="Pass.invalid && Pass.touched" [(ngModel)]="passTeller.Password"
+                        <input type="password" class="form-control" name="Password" id="psw" placeholder="Password" aria-label="Pass" aria-describedby="addon-wrapping" minlength="10" #Pass="ngModel" [class.is-invalid]="Pass.invalid && Pass.touched" [(ngModel)]="passTeller.Password"
                             required>
                         <small class="text-danger" [class.d-none]="Pass.valid || Pass.untouched"> Required</small>
 
                         <br>
                     </div>
                 </div>
-                <input type="checkbox"
-                    onchange="document.getElementById('psw').type = this.checked ? 'text' : 'password'"> Show password
+                <input type="checkbox" onchange="document.getElementById('psw').type = this.checked ? 'text' : 'password'"> Show password
                 <br>
                 <br>
                 <div style="text-align:center">
@@ -138,29 +121,23 @@
                         <td>{{ teller.Username }}</td>
                         <td>{{ teller.Password }}</td>
                         <td>{{ teller.Email }}</td>
-                        <td>{{ teller.FName }}
-                            {{ teller.MName }}
-                            {{ teller.LName }}</td>
+                        <td>{{ teller.FName }} {{ teller.MName }} {{ teller.LName }}</td>
                         <td>{{ teller.DepartmentId }} </td>
 
                         <!-- (click)="throwId(teller.UserId)"-->
-                        <td><button type="button" data-toggle="modal" data-target="#editTellerForm"
-                                class="btn btn-warning rounded" (click)="throwId(teller.UserId)">EDIT</button></td>
-                        <td><button type="button" class="btn btn-danger rounded"
-                                (click)="delete(teller.UserId)">DELETE</button></td>
+                        <td><button type="button" data-toggle="modal" data-target="#editTellerForm" class="btn btn-warning rounded" (click)="throwId(teller.UserId)">EDIT</button></td>
+                        <td><button type="button" class="btn btn-danger rounded" (click)="delete(teller.UserId)">DELETE</button></td>
 
                         <!--  (click)="delete(teller.UserID)" -->
 
                         <!--Edit Modal-->
                         <!-- lagyan confirmation modal  -->
-                        <div class="modal fade" id="editTellerForm" tabindex="-1" role="modal"
-                            aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="editTellerForm" tabindex="-1" role="modal" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <h4 class="modal-title w-100 font-weight-bold">Edit Department</h4>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close"><span aria-hidden="true">&times;</span> </button>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span> </button>
                                     </div>
                                     <div class="modal-body mx-3">
                                         <form class="md-form" #upDeptForm="ngForm" novalidate>
@@ -168,8 +145,7 @@
                                             <div class="form-row mb-4">
                                                 <div class="col">
                                                     <div class="md-form mb-5">
-                                                        <input mdbInput type="text" class="form-control validate"
-                                                            name="Fname" [(ngModel)]="passTeller.Fname" required>
+                                                        <input mdbInput type="text" class="form-control validate" name="Fname" [(ngModel)]="passTeller.Fname" required>
                                                         <label data-error="wrong" data-success="right">First
                                                             Name</label>
                                                     </div>
@@ -177,8 +153,7 @@
 
                                                 <div class="col">
                                                     <div class="md-form mb-4">
-                                                        <input mdbInput type="text" class="form-control validate"
-                                                            name="Mname" [(ngModel)]="passTeller.Mname" required>
+                                                        <input mdbInput type="text" class="form-control validate" name="Mname" [(ngModel)]="passTeller.Mname" required>
                                                         <label data-error="wrong" data-success="right">Middle
                                                             Name</label>
                                                     </div>
@@ -186,36 +161,30 @@
 
                                                 <div class="col">
                                                     <div class="md-form mb-5">
-                                                        <input mdbInput type="text" class="form-control validate"
-                                                            name="Lname" [(ngModel)]="passTeller.Lname" required>
+                                                        <input mdbInput type="text" class="form-control validate" name="Lname" [(ngModel)]="passTeller.Lname" required>
                                                         <label data-error="wrong" data-success="right">Last Name</label>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <div class="md-form mb-4">
-                                                <input mdbInput type="email" class="form-control validate" name="Email"
-                                                    [(ngModel)]="passTeller.Email" required>
+                                                <input mdbInput type="email" class="form-control validate" name="Email" [(ngModel)]="passTeller.Email" required>
                                                 <label data-error="wrong" data-success="right">Email</label>
                                             </div>
 
                                             <div class="md-form mb-5">
-                                                <input mdbInput type="text" class="form-control validate"
-                                                    name="Username" [(ngModel)]="passTeller.Username" required>
+                                                <input mdbInput type="text" class="form-control validate" name="Username" [(ngModel)]="passTeller.Username" required>
                                                 <label data-error="wrong" data-success="right">Username</label>
                                             </div>
 
                                             <div class="md-form mb-4">
-                                                <input mdbInput type="password" class="form-control validate"
-                                                    name="Password" [(ngModel)]="passTeller.Password" required>
+                                                <input mdbInput type="password" class="form-control validate" name="Password" [(ngModel)]="passTeller.Password" required>
                                                 <label data-error="wrong" data-success="right">Password</label>
                                             </div>
 
                                             <div class="modal-footer d-flex justify-content-end">
-                                                <button type="button" data-dismiss="modal" class="btn btn-secondary"
-                                                    aria-label="Close">Cancel</button>
-                                                <button type="button" data-dismiss="modal" class="btn btn-success"
-                                                    (click)="edit(teller.UserId)">Update</button>
+                                                <button type="button" data-dismiss="modal" class="btn btn-secondary" aria-label="Close">Cancel</button>
+                                                <button type="button" data-dismiss="modal" class="btn btn-success" (click)="edit(teller.UserId)">Update</button>
                                                 <button class="btn btn-info" type="reset">Reset</button>
                                             </div>
 

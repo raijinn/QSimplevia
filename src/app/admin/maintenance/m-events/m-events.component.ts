@@ -40,7 +40,7 @@ export class MEventsComponent implements OnInit {
   ngOnInit() {
     this._GetAnnounceService.getAnnouncement()
       .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== false)
-  );
+      );
   }
 
   resetForm(form?: NgForm) {
@@ -58,14 +58,14 @@ export class MEventsComponent implements OnInit {
   onSubmit(form: NgForm) {
     var index = this.imgURL.indexOf(',');
     var base64str = this.imgURL.slice(index + 1)
-    form.value.EventType = false;
+    form.value.EventType = true;
     form.value.Image = base64str;
     this._GetAnnounceService.addAnnouncement(form.value)
       .subscribe(
         data => this._GetAnnounceService.getAnnouncement()
-        .subscribe(data => this.announcements = data.filter(res => this.announcements.EventType !== false)),
-        error => console.error('Error!', error)
-      );
+          .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== false),
+            error => console.error('Error!', error)
+          ));
     this.resetForm(form)
   }
 
@@ -78,7 +78,7 @@ export class MEventsComponent implements OnInit {
     this._GetAnnounceService.editAnnouncement(this.eventId, form.value)
       .subscribe(
         data => this._GetAnnounceService.getAnnouncement()
-        .subscribe(data => this.announcements = data.filter(res => this.announcements.EventType !== false)),
+          .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== false)),
         error => console.error('Error!', error)
       );
     this.resetForm(form)
