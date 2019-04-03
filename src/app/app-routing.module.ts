@@ -24,7 +24,9 @@ const routes: Routes = [
   { path: 'maintenance/announcements', component: MAnnouncementsComponent }, // canActivate: [AuthGuard] },
   { path: 'maintenance/departments', component: MDepartmentComponent }, // canActivate: [AuthGuard] },
   { path: 'maintenance/events', component: MEventsComponent }, // canActivate: [AuthGuard] },
+  { path: 'maintenance/tellers', component: MTellersComponent }, // canActivate: [AuthGuard] },
   { path: 'reports', component: ReportsComponent }, // canActivate: [AuthGuard] },
+  
   { path: 'pagenotfound', component: PagenotfoundComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' }

@@ -1,53 +1,49 @@
-/* Style the sidebar - fixed full height */
+/* The sidebar menu */
 
-.sidebar {
-    height: 100%;
-    width: 160px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    padding-top: 16px;
-    padding-right: 5px;
+.sidenav {
+  height: 100%;
+  /* Full-height: remove this if you want "auto" height */
+  width: 17%;
+  /* Set the width of the sidebar */
+  position: fixed;
+  /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1;
+  /* Stay on top */
+  top: 0;
+  /* Stay at the top */
+  left: 0;
+  background-color: darkgreen
+  /* Black */
 }
 
-
-/* Style sidebar links */
-
-.sidebar a {
-    margin: 8px 16px 8px 16px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #818181;
-    display: block;
+hr {
+  border: none;
+  height: 3px;
+  /* Set the hr color */
+  background-color: rgba( 26, 35, 60, 1);
+  /* Modern Browsers */
 }
 
+/* The navigation menu links */
 
-/* Style links on mouse-over */
-
-.sidebar a:hover {
-    color: #f1f1f1;
+.sidenav p {
+  padding: 5%;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
 }
 
-
-/* Style the main content */
-
-.main {
-    margin-left: 160px;
-    /* Same as the width of the sidenav */
-    padding: 0px 10px;
+.sidenav a {
+  padding: 5%;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
 }
 
+/* When you mouse over the navigation links, change their color */
 
-/* Add media queries for small screens (when the height of the screen is less than 450px, add a smaller padding and font-size) */
-
-@media screen and (max-height: 450px) {
-    .sidebar {
-        padding-top: 15px;
-    }
-    .sidebar a {
-        font-size: 18px;
-    }
+.sidenav a:hover {
+  color: cyan;
 }

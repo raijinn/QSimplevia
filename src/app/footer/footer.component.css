@@ -1,12 +1,11 @@
-    
-.footer {
-    /* clear: both; */
-    /* position: absolute; */
-    background-color: rgba( 26, 35, 60, .7);
-    text-align: center;
-    color: rgb(175, 167, 166);
-    overflow: hidden;
-    bottom: 0;
-    width: 100%;
-  position: fixed;
+    .footer {
+      /* clear: both; */
+      /* position: absolute; */
+      background-color: rgba( 26, 35, 60, 1);
+      text-align: center;
+      color: rgb(175, 167, 166);
+      overflow: hidden;
+      bottom: 0;
+      width: 100%;
+      position: fixed;
     }

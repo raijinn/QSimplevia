@@ -29,6 +29,8 @@ import { AuthGuard } from './services/services-login/guard/auth.guard';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FooterComponent } from './footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { FooterComponent } from './footer/footer.component';
     FormsModule,
     HttpClientModule,
     ChartsModule,
+    BrowserAnimationsModule,
     MDBBootstrapModule.forRoot(),
     ToastrModule.forRoot()
   ],

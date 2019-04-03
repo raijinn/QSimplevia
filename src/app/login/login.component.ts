@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
+    document.body.style.paddingLeft= "";
   }
 
   _list: Users[];
@@ -58,7 +59,7 @@ export class LoginComponent implements OnInit {
       }
       else {
         this.toastr.success('Login successful', 'Login Success');
-        this._router.navigate(['/maintenance/announcements']);
+        this._router.navigate(['/dashboard']);
       }
     });
   }
