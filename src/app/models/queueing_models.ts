@@ -4,7 +4,7 @@ export interface Apijsontest {
     name: string;
     age: number;
 }
-// for fake back-end 
+// for fake back-end
 export class User {
     id: number;
     Username: string;
@@ -31,11 +31,12 @@ export interface GUsers {
     UserID: number;
     Username: string;
     Password: string;
-    Fname: string;
-    Mname: string;
-    Lname: string;
+    FName: string;
+    MName: string;
+    LName: string;
     IsAdmin: boolean;
     Email: string;
+    DepartmentId : number;
 }
 //GET FOR TELLER
 export interface GTeller {
@@ -44,7 +45,7 @@ export interface GTeller {
     LastName: string,
     Email: string,
     Username: string,
-    Password: string
+    Password: string,
 }
 
 
@@ -63,13 +64,14 @@ export class PSDepartments {
     ) { }
 }
 //POST LOGIN
+/*
 export class PostLogin {
     constructor(
         username: string,
         password: string
     ) { }
 }
-
+*/
     // { "id": 12, "name": "Andrew", "age": 12 },
     // { "id": 42, "name": "Bandrew", "age": 23 },
     // { "id": 68, "name": "Candrew", "age": 34 },
@@ -78,13 +80,16 @@ export class PostLogin {
     // { "id": 22, "name": "Candrew", "age": 34 }
 
 //POST FOR TELLER
+//change to Fname,Mname,Lname
 export class PostTeller {
     constructor(
-        public FirstName: string,
-        public MiddleName: string,
-        public LastName: string,
+        public Fname: string,
+        public Mname: string,
+        public Lname: string,
         public Email: string,
         public Username: string,
-        public Password: string
+        public Password: string,
+        public IsAdmin: boolean,
+        public DepartmendId: number
     ) {}
 }

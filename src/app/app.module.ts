@@ -4,6 +4,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // queue-display
 import { MonitorDisplayComponent } from './monitor-display/monitor-display.component'
@@ -24,6 +25,7 @@ import { ChartsModule } from 'ng2-charts';
 import { BarChartComponent } from './admin/reports/charts/bar-chart/bar-chart.component';
 // services
 import { AuthGuard } from './services/services-login/guard/auth.guard';
+import { RegisterComponent } from './login/login/register/register.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ import { AuthGuard } from './services/services-login/guard/auth.guard';
     MNewsComponent,
     MAnnouncementsComponent,
     MEventsComponent,
-    MTellersComponent
+    MTellersComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { AuthGuard } from './services/services-login/guard/auth.guard';
     FormsModule,
     HttpClientModule,
     ChartsModule,
-    MDBBootstrapModule.forRoot()
+    ReactiveFormsModule,
+    MDBBootstrapModule.forRoot(),
   ],
   // include all services inside providers for reusability
   providers: [AuthGuard],

@@ -16,6 +16,7 @@ import { MEventsComponent } from './admin/maintenance/m-events/m-events.componen
 import { MNewsComponent } from './admin/maintenance/m-news/m-news.component'; // admin-side/maintenance
 import { MTellersComponent } from './admin/maintenance/m-tellers/m-tellers.component'; // admin-side/maintenance
 import { ReportsComponent } from './admin/reports/reports.component';
+import { RegisterComponent } from './login/login/register/register.component';
 
 const routes: Routes = [
   { path: 'monitor-design', component: MonitorDisplayComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'maintenance/tellers', component: MTellersComponent }, // canActivate: [AuthGuard] },
   { path: 'reports', component: ReportsComponent }, // canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent},
   { path: '', redirectTo: '', pathMatch: 'full' }
 ];
 

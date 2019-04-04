@@ -1,0 +1,115 @@
+<div class="login-container">
+  <div class="row equal">
+      <div class="col gen-trias">
+          <img class="mt-5" src="../assets/img/logo_final.png" height="400" weight="400">
+          <h1 class="text-light font-weight-bold">CITY OF <br> GENERAL TRIAS</h1>
+      </div>
+      <div class="col login">
+          <!-- Not all followed
+              1. name to formControlName
+              2. [formGroup]? and (ngSubmit)
+              3. md-form to form-group?
+              4. <div> required </div>?
+              5. remove form class="md-form p-5"?
+              6 #InLogForm="ngForm"
+              7. [[ngModel]]="passlogin.(var)"
+              8. remove display-1 mt-2 from h4 class
+          -->
+          <form #LoginForm="ngForm" (ngSubmit)="onSubmit()">
+              <p class="h2 mb-4 text-center">Sign up</p>
+
+              <div class="form-row mb-4">
+                
+                <!-- FIRST NAME -->
+                <div class="col">
+                  <div class="form-group md-form">
+                    <input mdbInput class="form-control mb-4" type="text" name="FName"
+                    placeholder="First Name"
+                    [(ngModel)]="passlogin.FName" 
+                    [ngClass]="{ 'is-invalid': submitted && f.FName.errors }" required>
+                    <div *ngIf="submitted && f.FName.errors" class="invalid-feedback">
+                        <div *ngIf="f.FName.errors.required">Email is required</div>
+                    </div>
+                  </div>        
+                </div>
+                
+                <!-- MIDDLE NAME -->
+                <div class="col">
+                  <div class="form-group md-form">
+                    <input mdbInput class="form-control mb-4" type="text" name="MName"
+                    placeholder="Middle Name"
+                    [(ngModel)]="passlogin.MName" 
+                    [ngClass]="{ 'is-invalid': submitted && f.MName.errors }" required>
+                    <div *ngIf="submitted && f.MName.errors" class="invalid-feedback">
+                        <div *ngIf="f.MName.errors.required">Email is required</div>
+                    </div>
+                  </div>       
+                </div>
+  
+                <!-- LAST NAME -->
+                <div class="col">
+                  <div class="form-group md-form">
+                    <input mdbInput class="form-control mb-4" type="text" name="LName"
+                    placeholder="Last Name"
+                    [(ngModel)]="passlogin.LName" 
+                    [ngClass]="{ 'is-invalid': submitted && f.LName.errors }" required>
+                    <div *ngIf="submitted && f.LName.errors" class="invalid-feedback">
+                        <div *ngIf="f.LName.errors.required">Email is required</div>
+                    </div>
+                  </div>
+                </div>
+            
+        </div>
+
+              <!-- EMAIL -->
+              <div class="form-group md-form">
+                <input mdbInput class="form-control mb-4" type="text" name="email"
+                placeholder="Email"
+                [(ngModel)]="passlogin.email" 
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" required>
+                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">Email is required</div>
+                </div>
+              </div>
+
+              <!-- USERNAME -->
+              <div class="form-group md-form">
+                  <input mdbInput class="form-control mb-4" type="text" name="username"
+                  placeholder="Username"
+                  [(ngModel)]="passlogin.username" 
+                  [ngClass]="{ 'is-invalid': submitted && f.username.errors }" required>
+                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                      <div *ngIf="f.username.errors.required">Username is required</div>
+                  </div>
+              </div>
+
+              <!-- PASSWORD -->
+              <div class="form group md-form">
+                  <input mdbInput class="form-control mb-4" type="password" name="password"
+                  placeholder="Password"
+                  [(ngModel)]="passlogin.password" 
+                  [ngClass]="{ 'is-invalid': submitted && f.Password.errors }" required>
+                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                  </div>
+              </div>
+
+              <div class="d-flex flex-row-reverse">
+                  <div>
+                      <a href="">Forgot password?</a>
+                  </div>
+              </div>
+
+              <div class="form-group md-form">
+                  <button [disabled]="LoginForm.form.invalid" class="btn btn-primary">Sign up</button>
+              </div>
+
+              <div class="text-center">
+                  <p>Already a member?
+                      <a href="">Log In</a>
+                  </p>
+              </div>
+          </form>
+      </div>
+  </div>
+</div>

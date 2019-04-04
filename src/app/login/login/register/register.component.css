@@ -1,0 +1,27 @@
+.gen-trias {
+    background: url("/src/assets/img/bg.jpg");
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+.login {
+    text-align: center;
+    height: 100vh;
+    padding-top: 5%;
+    background-color: #fff4e0;
+}
+
+.login-container {
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+@media screen and (max-width: 1000px) {
+    .login {
+        text-align: center;
+        height: 100vh;
+        padding-top: 20%;
+        background-color: #fff4e0;
+    }
+}

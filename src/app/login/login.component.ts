@@ -3,13 +3,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../services/services-login/auth/authentication.service'
-import { PostLogin } from '../models/queueing_models';
+import { UserLogin, PostTeller } from '../models/queueing_models';
 
+import { PutTellerService } from '../services/services-webapi/UpdateTeller/put-teller.service';
 
 /** 
  1. imports
  2. constructor
  3. ngOnInit
+----
+ 4. public passlogin
+ 5. constructor private login
  */
 
 @Component({
@@ -19,7 +23,12 @@ import { PostLogin } from '../models/queueing_models';
 })
 export class LoginComponent implements OnInit {
 
-  public passlogin = new PostLogin('','');
+  public passlogin = new UserLogin('','',false);
+  //public passlogin2
+  //public passlogin2 = new PostTeller('','','','','','');
+
+  //put public anyLogin: any [];
+  public anyLogin: any [];
 
   loginForm: FormGroup;
   loading = false;
@@ -31,7 +40,10 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService) {}
+    private authenticationService: AuthenticationService,
+    private _PutTellerService: PutTellerService
+    
+    ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -69,4 +81,14 @@ onSubmit() {
               this.loading = false;
           });
 }
+//register modal
+/*
+register(){
+  this._PutTellerService.addTeller(this.passlogin2)
+  .subscribe(
+    data => this._PutTellerService.getTellerData()
+      .subscribe(data => this.anyLogin = data),
+    error => console.error('Error!', error)
+  );
+} */
 }

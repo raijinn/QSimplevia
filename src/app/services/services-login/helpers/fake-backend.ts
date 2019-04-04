@@ -30,7 +30,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return throwError({ error: { message: 'Username or Password is incorrect' } });
                 }
             }
-
+ 
             // get users
             if (request.url.endsWith('/users') && request.method === 'GET') {
                     // check for fake auth token in header and return users if valid, this security 
