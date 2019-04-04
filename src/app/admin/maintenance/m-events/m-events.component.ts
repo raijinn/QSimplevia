@@ -28,7 +28,7 @@ export class MEventsComponent implements OnInit {
     }
     var reader = new FileReader();
     this.imagePath = files;
-    reader.readAsDataURL(files[0]);
+    reader.readAsDataURL(files[0]);   
     reader.onload = (_event) => {
       this.imgURL = reader.result;
     }

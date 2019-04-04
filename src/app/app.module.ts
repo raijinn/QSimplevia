@@ -29,7 +29,8 @@ import { AuthGuard } from './services/services-login/guard/auth.guard';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FooterComponent } from './footer/footer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReportContentComponent } from './admin/report-content/report-content.component'
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     MTellersComponent,
     NavigationComponent,
     FooterComponent,
-    PagenotfoundComponent
+    PagenotfoundComponent,
+    ReportContentComponent
   ],
   imports: [
     BrowserModule,

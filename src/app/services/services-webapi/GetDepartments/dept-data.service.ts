@@ -8,7 +8,7 @@ import { GDepartments, PSDepartments } from '../../../models/queueing_models';
 })
 export class DeptDataService {
 
-  readonly tempIP = "http://localhost:50870/api";
+  readonly tempIP = "http://192.168.100.16:50870/api/";
   //instantiate ng http client
   constructor(private http: HttpClient) { }
   

@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
         this.toastr.error('Email or Password is incorrect', 'Login Failed');
       }
       else {
-        this.toastr.success('Login successful', 'Login Success');
+        this.toastr.success('Login successful', 'errich u succ');
         this._router.navigate(['/dashboard']);
       }
     });

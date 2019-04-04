@@ -9,7 +9,7 @@ import { GAnnouncements, PSAnnouncements } from '../../../models/queueing_models
 export class GetAnnouncementDataService {
   // magkasama na yung events + announcements
 
-  readonly tempIP = "http://localhost:50870/api";
+  readonly tempIP = "http://192.168.100.16:50870/api/";
 
   passAnnounceForm: PSAnnouncements;
 

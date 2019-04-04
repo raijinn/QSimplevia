@@ -1,189 +1,34 @@
 <app-navigation></app-navigation>
-<div class="container-fluid bg-white rounded my-2">
+<div class="container rounded my-2">
     <div class="row">
-        <div class="col-md-12 m-2 pt-2">
-            <!-- Nav buttons, gawing compatible sa dynamic data -->
-            <ul class="nav nav-pills nav-justify nav-fill" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="pill" href="#dept1">dept1</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#dept2">dept2</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#dept3">dept3</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#dept4">dept4</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#dept5">dept5</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#dept6">dept6</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#dept7">dept7</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="pill" href="#dept8">dept8</a>
+        <!---->
+        <div class="col-md-12 pt-2 m-2">
+            <ul class="nav nav-tabs nav-justify nav-fill" role="tablist">
+                <!--for loop ng tabs so ung backend neto nsa reportcomponent
+                -->
+                <li class="nav-item" *ngFor="let variable of uDept; index as i">
+                    <a class="nav-link" data-toggle="pill" href="#{{variable.DepartmentId}}">{{variable.DepartmentName}}</a>
                 </li>
             </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div id="dept1" class="container-fluid tab-pane active"><br>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4><i class="fas fa-calendar-day"></i> Today<span class="badge badge-dark float-right">43</span></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4><i class="fas fa-calendar-week"></i> Weekly<span class="badge badge-secondary float-right">253</span></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4><i class="fas fa-calendar-alt"></i> Monthly<span class="badge badge-secondary float-right">385</span></h4>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4><i class="far fa-calendar"></i> Yearly<span class="badge badge-secondary float-right">1922</span></h4>
-                                </div>
-                            </div>
-                        </div>
+            <div class="tab-content" *ngFor="let uwu of uDept; index as i">
+                <div *ngIf="i > 0; then active else regular"></div>
+                <ng-template #active>
+
+                    <div class="container-fluid tab-pane active">
+                        <app-report-content></app-report-content>
+                        <!--Hiniwalay ko kasi para lumabas ung active. di kasi lumalabas pag d active
+                            nsa reportcontent ung data d2. pede nman na wla na ung ngIf tanggalin mo nlang ung active kasi mag ooverlap sila
+                        -->
                     </div>
-                    <div class="row">
-                        <div class="col-sm-7 mt-4">
-                            <div class="card">
-                                <div class="card-header">
-                                    Chart
-                                </div>
-                                <div class="card-body">
-                                    <app-bar-chart></app-bar-chart>
-                                </div>
-                                <div class="card-footer text-muted">
-                                    Updated a long long time ago
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 mt-4">
-                            <!--Create a GET for the data-->
-                            <!--Replace with <li *ngFor="let item of items; index as i; trackBy: trackByFn">...</li>-->
-                            <div class="card">
-                                <div class="card-header">Table</div>
-                                <div class="card-body">
-                                    <div class="table-responsive">
-                                        <table class="table table-striped table-sm">
-                                            <thead class="thead-dark">
-                                                <tr>
-                                                    <th>#</th>
-                                                    <th>Header</th>
-                                                    <th>Header</th>
-                                                    <th>Header</th>
-                                                    <th>Header</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>1,001</td>
-                                                    <td>Lorem</td>
-                                                    <td>ipsum</td>
-                                                    <td>dolor</td>
-                                                    <td>sit</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,002</td>
-                                                    <td>amet</td>
-                                                    <td>consectetur</td>
-                                                    <td>adipiscing</td>
-                                                    <td>elit</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,003</td>
-                                                    <td>Integer</td>
-                                                    <td>nec</td>
-                                                    <td>odio</td>
-                                                    <td>Praesent</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,003</td>
-                                                    <td>libero</td>
-                                                    <td>Sed</td>
-                                                    <td>cursus</td>
-                                                    <td>ante</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,004</td>
-                                                    <td>dapibus</td>
-                                                    <td>diam</td>
-                                                    <td>Sed</td>
-                                                    <td>nisi</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,005</td>
-                                                    <td>Nulla</td>
-                                                    <td>quis</td>
-                                                    <td>sem</td>
-                                                    <td>at</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,006</td>
-                                                    <td>nibh</td>
-                                                    <td>elementum</td>
-                                                    <td>imperdiet</td>
-                                                    <td>Duis</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,007</td>
-                                                    <td>sagittis</td>
-                                                    <td>ipsum</td>
-                                                    <td>Praesent</td>
-                                                    <td>mauris</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,008</td>
-                                                    <td>Fusce</td>
-                                                    <td>nec</td>
-                                                    <td>tellus</td>
-                                                    <td>sed</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,009</td>
-                                                    <td>augue</td>
-                                                    <td>semper</td>
-                                                    <td>porta</td>
-                                                    <td>Mauris</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>1,010</td>
-                                                    <td>massa</td>
-                                                    <td>Vestibulum</td>
-                                                    <td>lacinia</td>
-                                                    <td>arcu</td>
-                                                </tr>
-                                            
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                                <div class="card-footer text-muted">
-                                    Updated a long long time ago
-                                </div>
-                            </div>
-                        </div>
+                </ng-template>
+                <ng-template #inactive>
+                    <div class="container-fluid tab-pane">
+                        <app-report-content></app-report-content>
                     </div>
-                </div>
+                </ng-template>
             </div>
+            <!--Delete dis para d doble-->
+            <app-report-content></app-report-content>
         </div>
     </div>
 </div>
