@@ -13,22 +13,17 @@
                 </div>
 
                 <div class="md-form">
-                    <label fokr="">Password</label>
+                    <label for="">Password</label>
                     <input mdbInput class="form-control mb-4" type="password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" required>
                 </div>
 
-                <!-- <div class="d-flex flex-row-reverse">
+                <div class="d-flex flex-row-reverse">
                     <div>
                         <a href="">Forgot password?</a>
                     </div>
-                </div> -->
+                </div>
 
                 <button class="btn btn-info btn-block my-4" type="submit" [disabled]="form.invalid">Sign in</button>
-                <!-- <div class="text-center">
-                    <p>Not a member?
-                        <a href="">Register</a>
-                    </p>
-                </div> -->
             </form>
         </div>
     </div>

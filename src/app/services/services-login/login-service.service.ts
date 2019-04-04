@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Users } from 'src/app/models/queueing_models';
+import { Observable } from '../../../../node_modules/rxjs';
 
 @Injectable({
   providedIn: 'root'

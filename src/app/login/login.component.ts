@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
-    document.body.style.paddingLeft= "";
+    document.body.style.paddingLeft = "";
   }
 
   _list: Users[];
@@ -46,22 +46,31 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  onSubmit(form: NgForm) {
-    this.onLogin(form);
-  }
 
-  onLogin(form: NgForm) {
+
+
+  onSubmit(form: NgForm) {
     this.service.postLogin(form.value).subscribe(res => {
-      this.resetForm();
       this._list = res as Users[];
       if (this._list.length < 1) {
         this.toastr.error('Email or Password is incorrect', 'Login Failed');
       }
       else {
-        this.toastr.success('Login successful', 'errich u succ');
+        this.toastr.success('errich u succ', 'Log In Success');
         this._router.navigate(['/dashboard']);
+        localStorage.setItem('user-settings', JSON.stringify(this._list));
       }
+      this.resetForm()
     });
   }
 
 }
+
+
+
+
+
+
+
+
+
