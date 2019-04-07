@@ -31,7 +31,9 @@ export class MEventsComponent implements OnInit {
     reader.readAsDataURL(files[0]);   
     reader.onload = (_event) => {
       this.imgURL = reader.result;
+     
     }
+    
   }
   // [end] file preview
 

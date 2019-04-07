@@ -7,7 +7,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient) { }
 
   login(username: string, password: string) {
-    return this.http.post<any>(`${config.apiUrl}/users/authenticate`, { username, password })
+    return this.http.post<any>('https://localhost:50870/api/PostLogin', { username, password })
       .pipe(map(user => {
         // login successful if there's a user in the response
         if (user) {
@@ -16,7 +16,6 @@ export class AuthenticationService {
           user.authdata = window.btoa(username + ':' + password);
           localStorage.setItem('currentUser', JSON.stringify(user));
         }
-
         return user;
       }));
   }

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Users } from 'src/app/models/queueing_models';
-import { Observable } from '../../../../node_modules/rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ export class LoginServiceService {
 
   formData: Users;
 
-  readonly rootUrl = "http://192.168.100.16:50870/api/";
+  readonly rootUrl = "http://localhost:50870/api/";
 
 
   constructor(private http: HttpClient) { }

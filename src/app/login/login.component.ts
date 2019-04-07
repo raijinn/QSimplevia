@@ -5,13 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Users } from '../models/queueing_models';
 
-
-/** 
- 1. imports
- 2. constructor
- 3. ngOnInit
- */
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -46,19 +39,19 @@ export class LoginComponent implements OnInit {
     }
   }
 
-
-
-
   onSubmit(form: NgForm) {
     this.service.postLogin(form.value).subscribe(res => {
       this._list = res as Users[];
       if (this._list.length < 1) {
         this.toastr.error('Email or Password is incorrect', 'Login Failed');
       }
+      else if (this._list[0].IsAdmin === false) {
+        this.toastr.error('You are not an administrator', 'ACcess Denied');
+      }
       else {
-        this.toastr.success('errich u succ', 'Log In Success');
+        this.toastr.success('Welcome, ' + this._list[0].FName, 'Log In Success');
         this._router.navigate(['/dashboard']);
-        localStorage.setItem('user-settings', JSON.stringify(this._list));
+        localStorage.setItem('CurrentUser', JSON.stringify(this._list));
       }
       this.resetForm()
     });

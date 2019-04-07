@@ -19,14 +19,13 @@ import { ReportsComponent } from './admin/reports/reports.component';
 
 const routes: Routes = [
   { path: 'monitor-design', component: MonitorDisplayComponent },
-  { path: 'account-settings-admin', component: AccountSettingsAdminComponent }, // canActivate: [AuthGuard] },
-  { path: 'dashboard', component: DashboardComponent }, // canActivate: [AuthGuard] },
-  { path: 'maintenance/announcements', component: MAnnouncementsComponent }, // canActivate: [AuthGuard] },
-  { path: 'maintenance/departments', component: MDepartmentComponent }, // canActivate: [AuthGuard] },
-  { path: 'maintenance/events', component: MEventsComponent }, // canActivate: [AuthGuard] },
-  { path: 'maintenance/tellers', component: MTellersComponent }, // canActivate: [AuthGuard] },
-  { path: 'reports', component: ReportsComponent }, // canActivate: [AuthGuard] },
-  
+  { path: 'account-settings-admin', component: AccountSettingsAdminComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'maintenance/announcements', component: MAnnouncementsComponent, canActivate: [AuthGuard] },
+  { path: 'maintenance/departments', component: MDepartmentComponent, canActivate: [AuthGuard] },
+  { path: 'maintenance/events', component: MEventsComponent, canActivate: [AuthGuard] },
+  { path: 'maintenance/tellers', component: MTellersComponent, canActivate: [AuthGuard] },
+  { path: 'reports', component: ReportsComponent, canActivate: [AuthGuard] },
   { path: 'pagenotfound', component: PagenotfoundComponent },
   { path: 'login', component: LoginComponent },
   { path: '', redirectTo: 'login', pathMatch: 'full' }

@@ -1,27 +1,14 @@
-
-//user model -- for login
+// ADMIN LOGIN(post)
 export class Users {
-    UserId:number;
-    Username:string;
-    Password:string;
-    FName:string;
-    MName:string;
-    LName:string;
-    IsAdmin:boolean;
-    Email:string;
-    DepartmentId:number;
-}
-
-// GET USERS
-export interface GUsers {
-    UserID: number;
+    UserId: number;
     Username: string;
     Password: string;
-    Fname: string;
-    Mname: string;
-    Lname: string;
+    FName: string;
+    MName: string;
+    LName: string;
     IsAdmin: boolean;
     Email: string;
+    DepartmentId: number;
 }
 
 // GET FOR WEB DQ
@@ -66,14 +53,18 @@ export class PSAnnouncements {
 
 //GET FOR TELLER
 export interface GTeller {
-    FirstName: string;
-    MiddleName: string;
-    LastName: string;
-    Email: string,
-    Username: string,
-    Password: string
+    UserId: number;
+    Username: string;
+    Password: string;
+    FName: string;
+    MName: string;
+    LName: string;
+    IsAdmin: boolean;
+    Email: string;
+    DepartmentId: number;
 }
 
+// POST || PUT FOR TELLERS
 export class PostTeller {
     constructor(
         FirstName: string,
@@ -81,17 +72,11 @@ export class PostTeller {
         LastName: string,
         Email: string,
         Username: string,
-        Password: string
-        ) { }
-}
-
-// delete this
-export class UserLogin {
-    constructor(
-        username: string,
-        password: string,
-        IsAdmin: boolean
+        Password: string,
+        IsAdmin: boolean,
+        Department: number
     ) { }
 }
+
 
 

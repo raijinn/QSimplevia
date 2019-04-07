@@ -9,7 +9,8 @@
                 <div class="md-form">
                     <i class="fas fa-envelope-open-text prefix"></i>
                     <label for="desc_a">Event Description</label>
-                    <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description" #Description="ngModel" [(ngModel)]="_GetAnnounceService.passAnnounceForm" required></textarea>
+                    <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description"
+                        #Description="ngModel" [(ngModel)]="_GetAnnounceService.passAnnounceForm" required></textarea>
                 </div>
 
                 <!-- add image -->
@@ -31,7 +32,7 @@
             <table class="table container-fluid table-striped ">
                 <thead>
                     <tr>
-                        <th scope="col">Event Id</th>
+                        <th scope="col">Event #</th>
                         <th scope="col">Description</th>
                         <th scope="col">CreatedAt</th>
                         <th scope="col">Image Preview</th>
@@ -40,14 +41,17 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let announce of announcements; index as i">
-                        <td>{{ announce.EventId }}</td>
+                        <td>{{ i+1 }}</td>
                         <td>{{ announce.Description }}</td>
                         <td>{{ announce.CreatedAt | date: 'medium' }}</td>
                         <td><img class="img-thumbnail" src="data:image/jpeg;base64,{{ announce.Image }}" /></td>
-                        <td><button type="button" data-toggle="modal" data-target="#editAnnounceForm" class="btn btn-warning rounded" (click)="throwId(announce.EventId)">EDIT</button></td>
+                        <td><button type="button" data-toggle="modal" data-target="#editAnnounceForm"
+                                class="btn btn-warning rounded" (click)="throwId(announce.EventId)">EDIT</button></td>
                         <!-- lagyan confirmation modal  -->
-                        <td><button type="button" class="btn btn-danger rounded" (click)="delete(announce.EventId)">DELETE</button></td>
-                        <div class="modal fade" id="editAnnounceForm" tabindex="-1" role="modal" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <td><button type="button" class="btn btn-danger rounded"
+                                (click)="delete(announce.EventId)">DELETE</button></td>
+                        <div class="modal fade" id="editAnnounceForm" tabindex="-1" role="modal"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <!-- header -->
@@ -61,22 +65,29 @@
                                             <div class="md-form">
                                                 <i class="fas fa-envelope-open-text prefix"></i>
                                                 <label for="desc_a">Announcement Description</label>
-                                                <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description" #Description="ngModel" [(ngModel)]="_GetAnnounceService.passAnnounceForm" required></textarea>
+                                                <textarea id="desc_a" class="md-textarea form-control" rows="3"
+                                                    name="Description" #Description="ngModel"
+                                                    [(ngModel)]="_GetAnnounceService.passAnnounceForm"
+                                                    required></textarea>
                                             </div>
 
                                             <!-- add image -->
                                             <div class="file-upload-wrapper md-form">
                                                 <span style="color:red;" *ngIf="message">{{message}}</span>
-                                                <input #file type="file" accept='image/*' (change)="preview(file.files)">
+                                                <input #file type="file" accept='image/*'
+                                                    (change)="preview(file.files)">
                                                 <div>
-                                                    <img id="imagepreview" [src]="imgURL" class="mt-2" height="200" *ngIf="imgURL">
+                                                    <img id="imagepreview" [src]="imgURL" class="mt-2" height="200"
+                                                        *ngIf="imgURL">
                                                 </div>
                                             </div>
 
                                             <!-- base64 image pass to form -->
                                             <div class="modal-footer d-flex justify-content-end">
-                                                <button type="button" data-dismiss="modal" class="btn btn-secondary" aria-label="Close">Cancel</button>
-                                                <button type="button" data-dismiss="modal" class="btn btn-success" (click)="edit(form)">Update</button>
+                                                <button type="button" data-dismiss="modal" class="btn btn-secondary"
+                                                    aria-label="Close">Cancel</button>
+                                                <button type="button" data-dismiss="modal" class="btn btn-success"
+                                                    (click)="edit(form)">Update</button>
                                             </div>
                                         </form>
                                     </div>
