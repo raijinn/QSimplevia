@@ -1,45 +1,49 @@
 <app-navigation></app-navigation>
-<div class="mx-auto">
+<div>
     <div class="row justify-content-center">
         <div class="col-5 mt-5 form">
             <p class="title">Account Settings</p>
             <div class="mx-5">
-                <!-- input fields -->
-                <div class="md-form my-4">
-                    <input mdbInput type="text" id="FirstName" class="form-control">
-                    <label for="form1" class="">First Name</label>
-                </div>
-                <div class="md-form my-4">
-                    <input mdbInput type="text" id="MiddleName" class="form-control">
-                    <label for="form1" class="">Middle Name</label>
-                </div>
-                <div class="md-form my-4">
-                    <input mdbInput type="text" id="LastName" class="form-control">
-                    <label for="form1" class="">Last Name</label>
-                </div>
-                <div class="md-form my-4">
-                    <i class="fas fa-envelope prefix"></i>
-                    <input mdbInput type="text" id="Email" class="form-control">
-                    <label for="form2">Email</label>
-                </div>
-                <div class="md-form my-4">
-                    <i class="fas fa-user prefix"></i>
-                    <input mdbInput type="text" id="Username" class="form-control">
-                    <label for="form2">Username</label>
-                </div>
-                <div class="md-form my-4">
-                    <i class="fas fa-lock prefix"></i>
-                    <input mdbInput type="text" id="Password" class="form-control">
-                    <label for="form2">Password</label>
-                </div>
-                <!-- save button -->
-                <div class="row my-4 justify-content-center">
-                    <button type="button" class="btn btn-outline-amber">Save Changes</button>
-                </div>
+                <form class="md-form" #admin="ngForm" (ngSubmit)="onSubmit(admin)">
+                    <div class="md-form my-4">
+                        <input mdbInput type="text" id="FirstName" class="form-control" placeholder="{{ adminAcc.FName }}" name="FName" #FName="ngModel" [(ngModel)]="admin.FName">
+                        <label for="form1" class="">First Name</label>
+                    </div>
+                    <div class="md-form my-4">
+                        <input mdbInput type="text" id="MiddleName" class="form-control"
+                            placeholder="{{ adminAcc.MName }}" name="MName" #MName="ngModel" [(ngModel)]="admin.MName">
+                        <label for="form1" class="">Middle Name</label>
+                    </div>
+                    <div class="md-form my-4">
+                        <input mdbInput type="text" id="LastName" class="form-control"
+                            placeholder="{{ adminAcc.LName }}" name="LName" #LName="ngModel" [(ngModel)]="admin.LName">
+                        <label for="form1" class="">Last Name</label>
+                    </div>
+                    <div class="md-form my-4">
+                        <i class="fas fa-envelope prefix"></i>
+                        <input mdbInput type="text" id="Email" class="form-control" placeholder="{{ adminAcc.Email }}"
+                            name="Email" #Email="ngModel" [(ngModel)]="admin.Email">
+                        <label for="form2">Email</label>
+                    </div>
+                    <div class="md-form my-4">
+                        <i class="fas fa-user prefix"></i>
+                        <input mdbInput type="text" id="Username" class="form-control"
+                            placeholder="{{ adminAcc.Username }}" name="Username" #Username="ngModel"
+                            [(ngModel)]="admin.Username">
+                        <label for="form2">Username</label>
+                    </div>
+                    <div class="md-form my-4">
+                        <i class="fas fa-lock prefix"></i>
+                        <input mdbInput type="password" id="Password" class="form-control" name="Password"
+                            #Password="ngModel" [(ngModel)]="admin.Password">
+                        <label for="form2">Password</label>
+                    </div>
+                    <!-- save button -->
+                    <div class="row my-4 justify-content-center">
+                        <button type="submit" class="btn btn-outline-amber">Save Changes</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
-
-<app-footer></app-footer>

@@ -1,16 +1,3 @@
-// ADMIN LOGIN(post)
-export class Users {
-    UserId: number;
-    Username: string;
-    Password: string;
-    FName: string;
-    MName: string;
-    LName: string;
-    IsAdmin: boolean;
-    Email: string;
-    DepartmentId: number;
-}
-
 // GET FOR WEB DQ
 export interface GDailyQueue {
     QueueId: number;
@@ -29,10 +16,8 @@ export interface GDepartments {
 
 // POST || PUT FOR DEPTS
 export class PSDepartments {
-    constructor(
-        DepartmentName: String,
-        Windows: number,
-    ) { }
+    DepartmentName: String;
+    Windows: number;
 }
 
 // GET FOR ANNOUNCEMENTS|EVENTS
@@ -41,7 +26,7 @@ export interface GAnnouncements {
     Description: string;
     EventType: boolean;
     CreatedAt: Date;
-    Image: Blob;
+    Image: Blob; 
 }
 
 // POST || PUT FOR ANNOUNCEMENTS|EVENTS
@@ -62,21 +47,21 @@ export interface GTeller {
     IsAdmin: boolean;
     Email: string;
     DepartmentId: number;
+    DepartmentName: string;
+}
+// LOGIN(post) | Teller Post
+export class Users {
+    UserId: number;
+    Username: string;
+    Password: string;
+    FName: string;
+    MName: string;
+    LName: string;
+    IsAdmin: boolean;
+    Email: string;
+    DepartmentId: number;
 }
 
-// POST || PUT FOR TELLERS
-export class PostTeller {
-    constructor(
-        FirstName: string,
-        MiddleName: string,
-        LastName: string,
-        Email: string,
-        Username: string,
-        Password: string,
-        IsAdmin: boolean,
-        Department: number
-    ) { }
-}
 
 
 

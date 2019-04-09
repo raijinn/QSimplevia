@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
-    document.body.style.paddingLeft = "";
+    document.body.style.paddingLeft = "0%";
   }
 
   _list: Users[];
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       MName: '',
       LName: '',
       Email: '',
-      IsAdmin: false,
+      IsAdmin: null,
       DepartmentId: null
     }
   }
@@ -46,11 +46,11 @@ export class LoginComponent implements OnInit {
         this.toastr.error('Email or Password is incorrect', 'Login Failed');
       }
       else if (this._list[0].IsAdmin === false) {
-        this.toastr.error('You are not an administrator', 'ACcess Denied');
+        this.toastr.error('You are not an administrator', 'Access Denied');
       }
       else {
-        this.toastr.success('Welcome, ' + this._list[0].FName, 'Log In Success');
-        this._router.navigate(['/dashboard']);
+        this.toastr.success('Welcome, ' + this._list[0].Username, 'Log In Success');
+        this._router.navigate(['/dashboard']);  
         localStorage.setItem('CurrentUser', JSON.stringify(this._list));
       }
       this.resetForm()

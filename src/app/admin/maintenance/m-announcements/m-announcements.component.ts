@@ -41,8 +41,8 @@ export class MAnnouncementsComponent implements OnInit {
 
   ngOnInit() {
     this._GetAnnounceService.getAnnouncement()
-      .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== true)  
-    );
+      .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== true)
+      );
   }
 
   resetForm(form?: NgForm) {
@@ -54,7 +54,6 @@ export class MAnnouncementsComponent implements OnInit {
 
   throwId(id: number, bDisabled) {
     this.eventId = id;
-    console.log(id)
   }
 
   onSubmit(form: NgForm) {
@@ -65,14 +64,13 @@ export class MAnnouncementsComponent implements OnInit {
     this._GetAnnounceService.addAnnouncement(form.value)
       .subscribe(
         data => this._GetAnnounceService.getAnnouncement()
-        .subscribe(data => this.announcements = data.filter),
+          .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== true)),
         error => console.error('Error!', error)
       );
     this.resetForm(form)
   }
 
   edit(form: NgForm) {
-    console.log(form.value)
     var index = this.imgURL.indexOf(',');
     var base64str = this.imgURL.slice(index + 1)
     form.value.EventType = false;
@@ -80,9 +78,9 @@ export class MAnnouncementsComponent implements OnInit {
     this._GetAnnounceService.editAnnouncement(this.eventId, form.value)
       .subscribe(
         data => this._GetAnnounceService.getAnnouncement()
-        .subscribe(data => this.announcements = data),
-        error => console.error('Error!', error)
-      );
+          .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== true),
+            error => console.error('Error!', error)
+          ));
     this.resetForm(form)
   }
   delete(id: number): void {

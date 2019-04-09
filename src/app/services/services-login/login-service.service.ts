@@ -11,13 +11,11 @@ export class LoginServiceService {
 
   readonly rootUrl = "http://localhost:50870/api/";
 
-
   constructor(private http: HttpClient) { }
 
-
   //post login function
-  postLogin(formData : Users){
-    return this.http.post(this.rootUrl+'PostLogin',formData);
-  } 
+  postLogin(formData: Users) {
+    return this.http.post(this.rootUrl + 'PostLogin', formData);
+  }
 
 }

@@ -11,8 +11,6 @@ export class GetAnnouncementDataService {
 
   readonly tempIP = "http://localhost:50870/api/";
 
-  passAnnounceForm: PSAnnouncements;
-
   constructor(private http: HttpClient) { }
 
   getAnnouncement(): Observable<GAnnouncements[]> {
@@ -31,8 +29,3 @@ export class GetAnnouncementDataService {
     return this.http.delete(this.tempIP + '/DeleteEvent' + '/' + id);
   }
 }
-
-
-// Description: string;
-// EventType: boolean;
-// Image: Blob;

@@ -1,95 +1,175 @@
 <app-navigation></app-navigation>
 <!-- Manage Announcements -->
-<div class="container pl-3 mt-5">
+<div class="container-fluid pl-3 mt-5 mr-0 pr-0">
     <div class="row">
         <div class="col add-announce p-3">
             <h2>Manage Tellers</h2>
-            <form class="md-form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
+            <form class="md-form" #tellerform="ngForm" (ngSubmit)="onSubmit(tellerform)">
                 <div class="form-row">
                     <div class="col">
-                        <div class="md-form">
-                            <label for="desc_a">First Name</label>
-                            <input mdbInput class="form-control" type="text" name="FirstName">
+                        <div class="md-form my-0">
+                            <label for="FName">First Name</label>
+                            <input mdbInput class="form-control" type="text" name="FName" #FName="ngModel"
+                                [(ngModel)]="passTeller.FName">
                         </div>
                     </div>
                     <div class="col">
-                        <div class="md-form">
-                            <label for="desc_a">Middle Name</label>
-                            <input mdbInput class="form-control" type="text" name="MIddleName">
+                        <div class="md-form my-0">
+                            <label for="MName">Middle Name</label>
+                            <input mdbInput class="form-control" type="text" name="MName" #MName="ngModel"
+                                [(ngModel)]="passTeller.MName">
                         </div>
                     </div>
                     <div class="col">
-                        <div class="md-form">
-                            <label for="desc_a">Last Name</label>
-                            <input mdbInput class="form-control" type="text" name="LastName">
+                        <div class="md-form my-0">
+                            <label for="LName">Last Name</label>
+                            <input mdbInput class="form-control" type="text" name="LName" #LName="ngModel"
+                                [(ngModel)]="passTeller.LName">
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-
+                <div class="md-form">
+                    <i class="fas fa-user prefix"></i>
+                    <label for="Username">Username</label>
+                    <input mdbInput class="form-control" type="text" name="Username" #Username="ngModel"
+                        [(ngModel)]="passTeller.Username">
+                </div>
+                <div class="md-form">
+                    <i class="fas fa-envelope prefix"></i>
+                    <label for="Email">Email</label>
+                    <input mdbInput class="form-control" type="text" name="Email" #Email="ngModel"
+                        [(ngModel)]="passTeller.Email">
+                </div>
+                <div class="md-form">
+                    <i class="fas fa-lock prefix"></i>
+                    <label for="Password">Password</label>
+                    <input mdbInput class="form-control" id="password" type="password" name="Password"
+                        #Username="ngModel" [(ngModel)]="passTeller.Password">
+                </div>
+                <div class="md-form mb-0">
+                    <input type="checkbox"
+                        onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'"> Show
+                    password
+                </div>
+                <div class="md-form mb-3">
+                    <h5>Select Department</h5>
+                    <select class="custom-select" name="DepartmentId" #DepartmentId="ngModel"
+                        [(ngModel)]="passTeller.DepartmentId">
+                        <option selected>---</option>
+                        <option *ngFor="let dept of depts"> {{ dept.DepartmentId + ' - ' + dept.DepartmentName }}
+                        </option>
+                    </select>
+                </div>
                 <!-- show pass in plaintext -->
-                <input type="checkbox"
-                    onchange="document.getElementById('password').type = this.checked ? 'text' : 'password'"> Show
-                password
+
 
                 <input class="btn btn-success float-right" type="submit" value="Add Teller">
-
             </form>
         </div>
 
 
         <!-- announcement table -->
-        <div class="col announcement pt-3 mx-1 ml-4">
-            <h4 class="text-center">Events</h4>
-            <table class="table container-fluid table-striped ">
+        <div class="col-7 announcement pt-3 ml-4">
+            <h4 class="text-center">Tellers</h4>
+            <table class="table container-fluid table-striped">
                 <thead>
                     <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Description</th>
-                        <th scope="col">CreatedAt</th>
-                        <th scope="col">Image Preview</th>
+                        <th scope="col">UserId</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Department</th>
                         <th colspan="2" class="text-center">Maintenance</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let announce of announcements; index as i">
-                        <td>{{ i+1 }}</td>
-                        <td>{{ announce.Description }}</td>
-                        <td>{{ announce.CreatedAt | date: 'medium' }}</td>
-                        <td><img class="img-thumbnail" src="data:image/jpeg;base64,{{ announce.Image }}" /></td>
+                    <tr *ngFor="let teller of anyTeller; index as i">
+                        <td>{{ teller.UserId }}</td>
+                        <td>{{ teller.Username }}</td>
+                        <td>{{ teller.LName + ', ' + teller.FName}}</td>
+                        <td>{{ teller.Email }}</td>
+                        <td>{{ teller.DepartmentName }}</td>
+
                         <td><button type="button" data-toggle="modal" data-target="#editAnnounceForm"
-                                class="btn btn-warning rounded" (click)="throwId(announce.EventId)">EDIT</button></td>
+                                class="btn btn-warning rounded" (click)="throwId(teller.UserId)">Edit</button></td>
                         <!-- lagyan confirmation modal  -->
                         <td><button type="button" class="btn btn-danger rounded"
-                                (click)="delete(announce.EventId)">DELETE</button></td>
+                                (click)="delete(teller.UserId)">Delete</button></td>
                         <div class="modal fade" id="editAnnounceForm" tabindex="-1" role="modal"
                             aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <!-- header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title w-100 font-weight-bold">Edit Announcement</h4>
+                                        <h4 class="modal-title w-100 font-weight-bold">Edit Teller Details</h4>
                                     </div>
                                     <!-- modal form -->
                                     <div class="modal-body mx-3" id="editAnnounceForm">
                                         <form class="md-form" #form="ngForm" novalidate>
                                             <!-- teller edit description -->
-
-
-
-
-
-
-
-
-
-
-
-
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="md-form my-0">
+                                                        <label for="FName">First Name</label>
+                                                        <input mdbInput class="form-control" type="text" name="FName"
+                                                            #FName="ngModel" [(ngModel)]="passTeller.FName">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="md-form my-0">
+                                                        <label for="MName">Middle Name</label>
+                                                        <input mdbInput class="form-control" type="text" name="MName"
+                                                            #MName="ngModel" [(ngModel)]="passTeller.MName">
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="md-form my-0">
+                                                        <label for="LName">Last Name</label>
+                                                        <input mdbInput class="form-control" type="text" name="LName"
+                                                            #LName="ngModel" [(ngModel)]="passTeller.LName">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="md-form">
+                                                <i class="fas fa-user prefix"></i>
+                                                <label for="Username">Username</label>
+                                                <input mdbInput class="form-control" type="text" name="Username"
+                                                    #Username="ngModel" [(ngModel)]="passTeller.Username">
+                                            </div>
+                                            <div class="md-form">
+                                                <i class="fas fa-envelope prefix"></i>
+                                                <label for="Email">Email</label>
+                                                <input mdbInput class="form-control" type="text" name="Email"
+                                                    #Email="ngModel" [(ngModel)]="passTeller.Email">
+                                            </div>
+                                            <div class="md-form">
+                                                <i class="fas fa-lock prefix"></i>
+                                                <label for="Password">Password</label>
+                                                <input mdbInput class="form-control" id="editpassword" type="password"
+                                                    name="Password" #Username="ngModel"
+                                                    [(ngModel)]="passTeller.Password">
+                                            </div>
+                                            <div class="md-form mb-0">
+                                                <input type="checkbox"
+                                                    onchange="document.getElementById('editpassword').type = this.checked ? 'text' : 'password'">
+                                                Show
+                                                password
+                                            </div>
+                                            <div class="md-form mb-3">
+                                                <h5>Select Department</h5>
+                                                <select class="custom-select" name="DepartmentId"
+                                                    #DepartmentId="ngModel" [(ngModel)]="passTeller.DepartmentId">
+                                                    <option selected>---</option>
+                                                    <option *ngFor="let dept of depts">
+                                                        {{ dept.DepartmentId + ' - ' + dept.DepartmentName }}</option>
+                                                </select>
+                                            </div>
+                                            <div class="modal-footer d-flex justify-content-end">
+                                                <button type="button" data-dismiss="modal" class="btn btn-secondary"
+                                                    aria-label="Close">Cancel</button>
+                                                <button type="button" data-dismiss="modal" class="btn btn-success"
+                                                    (click)="edit(form)">Update</button>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>
@@ -101,4 +181,3 @@
         </div>
     </div>
 </div>
-<app-footer></app-footer>

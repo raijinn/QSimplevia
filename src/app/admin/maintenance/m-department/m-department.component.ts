@@ -13,7 +13,7 @@ export class MDepartmentComponent implements OnInit {
  
   public dept: any = [];
   // data model for post/put? 
-  public passdept = new PSDepartments('', 0);
+  public passdept = new PSDepartments;
   // var for passing id into modal
   public tableid: number;
 

@@ -1,20 +1,23 @@
 <div class="login-container">
     <div class="row equal">
         <div class="col gen-trias">
-            <img class="mt-5" src="../../assets/img/48996026_561391414324513_3633871786472374272_n.png" width="300" height="300">
+            <img class="mt-5" src="../../assets/img/48996026_561391414324513_3633871786472374272_n.png" width="300"
+                height="300">
             <h2 class="text-light font-weight-bold mt-5">CITY OF <br> GENERAL TRIAS</h2>
         </div>
         <div class="col login">
             <form #form="ngForm" class="md-form p-5" autocomplete="on" (submit)="onSubmit(form)">
-                <p class="h2 mb-4 text-center">Sign in</p>
+                <p class="h2 mb-4 text-center">ADMIN</p>
                 <div class="md-form">
-                    <label for="">Email</label>
-                    <input mdbInput class="form-control mb-4" type="text" name="Email" #Email="ngModel" [(ngModel)]="service.formData.Email" required>
+                    <label for="Email">Email</label>
+                    <input mdbInput class="form-control mb-4" type="text" name="Email" #Email="ngModel"
+                        [(ngModel)]="service.formData.Email" required>
                 </div>
 
                 <div class="md-form">
-                    <label for="">Password</label>
-                    <input mdbInput class="form-control mb-4" type="password" name="Password" #Password="ngModel" [(ngModel)]="service.formData.Password" required>
+                    <label for="Password">Password</label>
+                    <input mdbInput class="form-control mb-4" type="password" name="Password" #Password="ngModel"
+                        [(ngModel)]="service.formData.Password" required>
                 </div>
 
                 <div class="d-flex flex-row-reverse">
@@ -23,7 +26,7 @@
                     </div>
                 </div>
 
-                <button class="btn btn-info btn-block my-4" type="submit" [disabled]="form.invalid">Sign in</button>
+                <button class="btn btn-info btn-block my-4" type="submit" [disabled]="form.invalid">Login</button>
             </form>
         </div>
     </div>

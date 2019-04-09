@@ -10,7 +10,7 @@
                     <i class="fas fa-envelope-open-text prefix"></i>
                     <label for="desc_a">Event Description</label>
                     <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description"
-                        #Description="ngModel" [(ngModel)]="_GetAnnounceService.passAnnounceForm" required></textarea>
+                        #Description required></textarea>
                 </div>
 
                 <!-- add image -->
@@ -67,8 +67,7 @@
                                                 <label for="desc_a">Announcement Description</label>
                                                 <textarea id="desc_a" class="md-textarea form-control" rows="3"
                                                     name="Description" #Description="ngModel"
-                                                    [(ngModel)]="_GetAnnounceService.passAnnounceForm"
-                                                    required></textarea>
+                                                    [(ngModel)]="AnnounceService.passAnnounceForm" required></textarea>
                                             </div>
 
                                             <!-- add image -->
@@ -100,4 +99,3 @@
         </div>
     </div>
 </div>
-<app-footer></app-footer>
