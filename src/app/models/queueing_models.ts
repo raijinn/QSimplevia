@@ -1,3 +1,5 @@
+import { Time } from "../../../node_modules/@angular/common";
+
 // GET FOR WEB DQ
 export interface GDailyQueue {
     QueueId: number;
@@ -24,16 +26,20 @@ export class PSDepartments {
 export interface GAnnouncements {
     EventId: number;
     Description: string;
+    Date: Date;
+    Time: Time;
+    Place: string;
     EventType: boolean;
     CreatedAt: Date;
-    Image: Blob; 
 }
 
 // POST || PUT FOR ANNOUNCEMENTS|EVENTS
 export class PSAnnouncements {
     Description: string;
+    Date: Date;
+    Time: Time;
+    Place: string;
     EventType: boolean;
-    Image: string;
 }
 
 //GET FOR TELLER

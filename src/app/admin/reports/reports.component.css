@@ -1,0 +1,15 @@
+.search {
+    background-color: #FFFAFA;
+    border-radius: 10px;
+    min-width: 400px;
+    max-width: 400px;
+    height: 50%;
+}
+
+.reports {
+    background-color: #FFFAFA;
+    border-radius: 10px;
+    height: 700px;
+    min-width: 700px;
+    overflow-x: hidden;
+}

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { GetAnnouncementDataService, } from '../../../services/services-webapi/GetAnnouncements/get-announcement-data.service'
+import { GetAnnouncementDataService } from '../../../services/services-webapi/GetAnnouncements/get-announcement-data.service';
 // data model
+import { PSAnnouncements } from '../../../models/queueing_models';
 import { NgForm } from '../../../../../node_modules/@angular/forms';
 
 @Component({
@@ -10,47 +11,22 @@ import { NgForm } from '../../../../../node_modules/@angular/forms';
 })
 export class MEventsComponent implements OnInit {
   //data model for get?x  
-  public announcements: any = [];
+  public events: any = [];
   // var for passing id into modal
+  public passEvents = new PSAnnouncements;
   public eventId: number;
-  // [start] file preview
-  // imgURL contains the converted baxse64string
-  public imgURL: any;
-  public imagePath;
-  public message: string;
-
-  preview(files) {
-    if (files.length === 0)
-      return;
-    var mimeType = files[0].type;
-    if (mimeType.match(/image\/*/) == null) {
-      this.message = "Only images are supported.";
-      return;
-    }
-    var reader = new FileReader();
-    this.imagePath = files;
-    reader.readAsDataURL(files[0]);
-    reader.onload = (_event) => {
-      this.imgURL = reader.result;
-
-    }
-
-  }
-  // [end] file preview
 
   constructor(private AnnounceService: GetAnnouncementDataService) { }
 
   ngOnInit() {
     this.AnnounceService.getAnnouncement()
-      .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== false)
+      .subscribe(data => this.events = data.filter(events => events.EventType !== false)
       );
   }
 
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();
-    this.imgURL = '';
-    this.imagePath = '';
 
   }
 
@@ -60,29 +36,22 @@ export class MEventsComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    var index = this.imgURL.indexOf(',');
-    var base64str = this.imgURL.slice(index + 1)
     form.value.EventType = true;
-    form.value.Image = base64str;
     this.AnnounceService.addAnnouncement(form.value)
       .subscribe(
         data => this.AnnounceService.getAnnouncement()
-          .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== false),
+          .subscribe(data => this.events = data.filter(events => events.EventType !== false),
             error => console.error('Error!', error)
           ));
     this.resetForm(form)
   }
 
   edit(form: NgForm) {
-
-    var index = this.imgURL.indexOf(',');
-    var base64str = this.imgURL.slice(index + 1)
     form.value.EventType = true;
-    form.value.Image = base64str;
     this.AnnounceService.editAnnouncement(this.eventId, form.value)
       .subscribe(
         data => this.AnnounceService.getAnnouncement()
-          .subscribe(data => this.announcements = data.filter(announcements => announcements.EventType !== false)),
+          .subscribe(data => this.events = data.filter(events => events.EventType !== false)),
         error => console.error('Error!', error)
       );
     this.resetForm(form)
@@ -90,7 +59,7 @@ export class MEventsComponent implements OnInit {
   delete(id: number): void {
     this.AnnounceService.delAnnouncement(id)
       .subscribe(
-        _ => this.announcements = this.announcements.filter(announcement => announcement.EventId !== id),
+        _ => this.events = this.events.filter(events => events.EventId !== id),
         error => console.log('error', error)
       )
   }

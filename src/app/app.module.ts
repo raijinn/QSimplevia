@@ -23,15 +23,12 @@ import { ToastrModule } from 'ngx-toastr';
 
 // charts
 import { ChartsModule } from 'ng2-charts';
-import { BarChartComponent } from './admin/reports/charts/bar-chart/bar-chart.component';
 // services
 import { AuthGuard } from './services/services-login/guard/auth.guard';
 import { NavigationComponent } from './navigation/navigation.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReportContentComponent } from './admin/report-content/report-content.component'
-
 
 @NgModule({
   declarations: [
@@ -40,7 +37,6 @@ import { ReportContentComponent } from './admin/report-content/report-content.co
     AccountSettingsAdminComponent,
     ReportsComponent,
     MonitorDisplayComponent,
-    BarChartComponent,
     LoginComponent,
     MDepartmentComponent,
     MAnnouncementsComponent,
@@ -49,7 +45,6 @@ import { ReportContentComponent } from './admin/report-content/report-content.co
     NavigationComponent,
     FooterComponent,
     PagenotfoundComponent,
-    ReportContentComponent
   ],
   imports: [
     BrowserModule,

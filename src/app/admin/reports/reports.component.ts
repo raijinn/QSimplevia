@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuditTrailDataService } from '../../services/services-webapi/GetAuditTrail/audit-trail-data.service';
+import { ReportsDataService } from '../../services/services-webapi/GetReports/reports-data.service';
 
 @Component({
   selector: 'app-reports',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private trails: AuditTrailDataService, private reports: ReportsDataService) { }
 
   ngOnInit() {
+    document.body.style.overflowY = 'scroll'; 
   }
 
+
 }
+ 

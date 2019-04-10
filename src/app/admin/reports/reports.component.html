@@ -1,34 +1,59 @@
 <app-navigation></app-navigation>
-<div class="container pl-5 rounded my-2">
-    <div class="row">
-        <!---->
-        <div class="col-md-12 pt-2 ml-4 m-2">
-            <ul class="nav nav-tabs nav-justify nav-fill" role="tablist">
-                <!--for loop ng tabs so ung backend neto nsa reportcomponent
-                -->
-                <li class="nav-item" *ngFor="let variable of uDept; index as i">
-                    <a class="nav-link" data-toggle="pill" href="#{{variable.DepartmentId}}">{{variable.DepartmentName}}</a>
-                </li>
-            </ul>
-            <div class="tab-content" *ngFor="let uwu of uDept; index as i">
-                <div *ngIf="i > 0; then active else regular"></div>
-                <ng-template #active>
 
-                    <div class="container-fluid tab-pane active">
-                        <app-report-content></app-report-content>
-                        <!--Hiniwalay ko kasi para lumabas ung active. di kasi lumalabas pag d active
-                            nsa reportcontent ung data d2. pede nman na wla na ung ngIf tanggalin mo nlang ung active kasi mag ooverlap sila
-                        -->
-                    </div>
-                </ng-template>
-                <ng-template #inactive>
-                    <div class="container-fluid tab-pane">
-                        <app-report-content></app-report-content>
-                    </div>
-                </ng-template>
+<div class="container-fluid rounded my-2">
+    <div class="row">
+        <div class="col-3 search pt-2 m-2">
+            <div class="md-form ">
+                <i class="fas fa-search prefix"></i>
+                <label for="Password">Search</label>
+                <input mdbInput class="form-control" id="editpassword" type="text">
             </div>
-            <!--Delete dis para d doble-->
-            <app-report-content></app-report-content>
+        </div>
+        <div class="col reports pt-2 ml-4 m-2">
+            <!-- lagay pills para select dept -->
+            <h4 class="text-center">Queue Records</h4>
+            <table class="table container-fluid table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">UserId</th>
+                        <th scope="col">Username</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3 search pt-2 m-2">
+            <div class="md-form ">
+                <i class="fas fa-search prefix"></i>
+                <label for="Password">Search</label>
+                <input mdbInput class="form-control" id="editpassword" type="text">
+            </div>
+        </div>
+        <div class="col reports pt-2 ml-4 m-2">
+            <h4 class="text-center">Audit Trail</h4>
+            <table class="table container-fluid table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">TrailId</th>
+                        <th scope="col">UserId</th>
+                        <th scope="col">User Activity</th>
+                        <th scope="col">CreatedAt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
