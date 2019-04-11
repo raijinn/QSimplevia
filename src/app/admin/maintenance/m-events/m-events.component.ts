@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '../../../../../node_modules/@angular/forms';
 import { GetAnnouncementDataService } from '../../../services/services-webapi/GetAnnouncements/get-announcement-data.service';
 // data model
 import { PSAnnouncements } from '../../../models/queueing_models';
-import { NgForm } from '../../../../../node_modules/@angular/forms';
+
 
 @Component({
   selector: 'app-m-events',

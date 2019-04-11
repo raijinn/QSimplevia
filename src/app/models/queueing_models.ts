@@ -27,7 +27,7 @@ export interface GAnnouncements {
     EventId: number;
     Description: string;
     Date: Date;
-    Time: Time;
+    Time: Date;
     Place: string;
     EventType: boolean;
     CreatedAt: Date;
@@ -42,7 +42,7 @@ export class PSAnnouncements {
     EventType: boolean;
 }
 
-//GET FOR TELLER
+//GET || POST || PUT FOR TELLER
 export interface GTeller {
     UserId: number;
     Username: string;
@@ -68,6 +68,23 @@ export class Users {
     DepartmentId: number;
 }
 
+// GET REPORTS
+export interface Reports {
+    ReportId: number;
+    DepartmentId: number;
+    DepartmentName: string;
+    Queue: number;
+    Date: Date;
+    WindowNum: number;
+}
 
+// GET AUDIT TRAIL
+export class Audits {
+    TrailId: number;
+    UserId: number;
+    Admin: string;
+    UserActivity: string;
+    CreatedAt: Date;
+}
 
 

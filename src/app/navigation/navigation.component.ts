@@ -10,11 +10,11 @@ export class NavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    document.body.style.paddingLeft = "20%";
+    document.body.style.paddingLeft = "18%";
   }
 
 
-  clearCurrentUser() {
-    localStorage.setItem("user-settings", "");
+  logout() {
+    localStorage.removeItem("CurrentUser");
   }
 }

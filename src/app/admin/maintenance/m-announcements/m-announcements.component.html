@@ -9,7 +9,8 @@
                 <div class="md-form">
                     <i class="fas fa-envelope-open-text prefix"></i>
                     <label for="desc_a">Announcement Description</label>
-                    <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description" #Description="ngModel" [(ngModel)]="_GetAnnounceService.passAnnounceForm" required></textarea>
+                    <input mdbInput id="desc_a" type="text" class="form-control" maxlength="255" name="Description"
+                        #Description="ngModel" [(ngModel)]="_GetAnnounceService.passAnnounceForm" required>
                 </div>
                 <input class="btn btn-success float-right" type="submit" value="ADD CONTENT">
             </form>
@@ -19,11 +20,11 @@
         <!-- announcement table -->
         <div class="col announcement pt-3 mx-1 ml-4">
             <h4 class="text-center">Announcements</h4>
-            <table class="table container-fluid table-striped ">
+            <table class="table table-striped ">
                 <thead>
                     <tr>
                         <th scope="col">Event Id</th>
-                        <th scope="col">Description</th>
+                        <th id="break" scope="col">Description</th>
                         <th scope="col">CreatedAt</th>
                         <th colspan="2" class="text-center">Maintenance</th>
                     </tr>
@@ -33,10 +34,13 @@
                         <td>{{ i+1 }}</td>
                         <td>{{ announce.Description }}</td>
                         <td>{{ announce.CreatedAt | date: 'medium' }}</td>
-                        <td><button type="button" data-toggle="modal" data-target="#editAnnounceForm" class="btn btn-warning rounded" (click)="throwId(announce.EventId)">EDIT</button></td>
+                        <td><button type="button" data-toggle="modal" data-target="#editAnnounceForm"
+                                class="btn btn-warning rounded" (click)="throwId(announce.EventId)">EDIT</button></td>
                         <!-- lagyan confirmation modal  -->
-                        <td><button type="button" class="btn btn-danger rounded" (click)="delete(announce.EventId)">DELETE</button></td>
-                        <div class="modal fade" id="editAnnounceForm" tabindex="-1" role="modal" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <td><button type="button" class="btn btn-danger rounded"
+                                (click)="delete(announce.EventId)">DELETE</button></td>
+                        <div class="modal fade" id="editAnnounceForm" tabindex="-1" role="modal"
+                            aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <!-- header -->
@@ -50,13 +54,18 @@
                                             <div class="md-form">
                                                 <i class="fas fa-envelope-open-text prefix"></i>
                                                 <label for="desc_a">Announcement Description</label>
-                                                <textarea id="desc_a" class="md-textarea form-control" rows="3" name="Description" #Description="ngModel" [(ngModel)]="_GetAnnounceService.passAnnounceForm" required></textarea>
+                                                <textarea id="desc_a" class="md-textarea form-control" rows="3"
+                                                    name="Description" #Description="ngModel"
+                                                    [(ngModel)]="_GetAnnounceService.passAnnounceForm"
+                                                    required></textarea>
                                             </div>
 
                                             <!-- base64 image pass to form -->
                                             <div class="modal-footer d-flex justify-content-end">
-                                                <button type="button" data-dismiss="modal" class="btn btn-secondary" aria-label="Close">Cancel</button>
-                                                <button type="button" data-dismiss="modal" class="btn btn-success" (click)="edit(form)">Update</button>
+                                                <button type="button" data-dismiss="modal" class="btn btn-secondary"
+                                                    aria-label="Close">Cancel</button>
+                                                <button type="button" data-dismiss="modal" class="btn btn-success"
+                                                    (click)="edit(form)">Update</button>
                                             </div>
                                         </form>
                                     </div>
