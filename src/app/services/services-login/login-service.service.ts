@@ -9,13 +9,13 @@ export class LoginServiceService {
 
   formData: Users;
 
-  readonly rootUrl = "http://localhost:50870/api/";
+  readonly rootUrl = "http://192.168.100.16:50870/api";
 
   constructor(private http: HttpClient) { }
 
   //post login function
   postLogin(formData: Users) {
-    return this.http.post(this.rootUrl + 'PostLogin', formData);
+    return this.http.post(this.rootUrl + '/PostLogin', formData);
   }
 
 }

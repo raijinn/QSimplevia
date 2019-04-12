@@ -87,4 +87,8 @@ export class Audits {
     CreatedAt: Date;
 }
 
+// GET DASHBOARD Count(*) Totals
+export interface TDashNum {
+    countNum: number;
+}
 

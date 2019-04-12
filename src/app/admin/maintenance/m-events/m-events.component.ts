@@ -4,7 +4,6 @@ import { GetAnnouncementDataService } from '../../../services/services-webapi/Ge
 // data model
 import { PSAnnouncements } from '../../../models/queueing_models';
 
-
 @Component({
   selector: 'app-m-events',
   templateUrl: './m-events.component.html',

@@ -1,15 +1,28 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {  } from '../../../models/queueing_models';
+import { TDashNum } from '../../../models/queueing_models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardDataService {
-  readonly tempIP = "http://localhost:50870/api/";
+  readonly tempIP = "http://192.168.100.16:50870/api";;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } 
+  getDaily(): Observable<TDashNum> {
+    return this.http.get<TDashNum>(this.tempIP + '/GetAllTransactions ')
+  }
 
-  putangina
+  getWeekly() {
+
+  }
+  getMonthly() {
+
+  }
+  getAllTimeTotal() {
+
+  }
+
+
 }

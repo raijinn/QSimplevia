@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '../../../../../node_modules/@angular/forms';
 import { DeptDataService } from '../../../services/services-webapi/GetDepartments/dept-data.service';
 import { GetDQdataService } from '../../../services/services-webapi/GetDailyQueue/get-dqdata.service';
 //data model
@@ -10,7 +11,7 @@ import { PSDepartments } from '../../../models/queueing_models';
   styleUrls: ['./m-department.component.css']
 })
 export class MDepartmentComponent implements OnInit {
- 
+
   public dept: any = [];
   // data model for post/put? 
   public passdept = new PSDepartments;
@@ -23,17 +24,22 @@ export class MDepartmentComponent implements OnInit {
     this._DeptService.getDeptData()
       .subscribe(data => this.dept = data);
   }
+  resetForm(form?: NgForm) {
+    if (form != null)
+      form.resetForm();
+  }
   throwId(id: number) {
     this.tableid = id;
   }
   // POST dept
-  onSubmit() {
+  onSubmit(DeptForm: NgForm) {
     this._DeptService.addDept(this.passdept)
       .subscribe(
         data => this._DeptService.getDeptData()
           .subscribe(data => this.dept = data),
         error => console.error('Error!', error)
       );
+    this.resetForm(DeptForm);
   }
   // PUT
   edit(): any {
