@@ -1,8 +1,8 @@
 <app-navigation></app-navigation>
 <!-- Manage Announcements -->
-<div class="container pl-3 mt-5">
+<div class="container pl-3 ml-5 mt-5">
     <div class="row">
-        <div class="col add-announce p-3">
+        <div class="col-1 add-announce p-3">
             <h2>Manage Announcements</h2>
             <form class="md-form" #form="ngForm" (ngSubmit)="onSubmit(form)" novalidate>
                 <!-- event description -->
@@ -18,7 +18,7 @@
 
 
         <!-- announcement table -->
-        <div class="col announcement pt-3 mx-1 ml-4">
+        <div class="col-4 announcement pt-3 mx-1 ml-4">
             <h4 class="text-center">Announcements</h4>
             <table class="table table-striped ">
                 <thead>

@@ -1,34 +1,35 @@
 <app-navigation></app-navigation>
 
-<div class="container-fluid">
+<div class="container-fluid mt-3">
     <div class="row pt-1 mt-3">
-        <div class="col-md-12">
+        <div class="col-md-10">
             <div class="card-deck">
                 <div class="card">
                     <div class="card-body">
-                        <h4>Today<span class="badge badge-dark badge-secondary float-right">Number</span></h4>
+                        <h4>Today<span class="badge badge-dark badge-secondary float-right">{{ daily }}</span></h4>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4>This Week<span class="badge badge-dark badge-secondary float-right">{{ weekly }}</span></h4>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        This Week<span class="badge badge-dark float-right">Number</span>
+                        <h4>This Month<span class="badge badge-dark badge-secondary float-right">{{ monthly }}</span></h4>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        This Month<span class="badge badge-dark float-right">Number</span>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        Total<span class="badge badge-dark float-right">Number</span>
+                        <h4>Total<span class="badge badge-dark badge-secondary float-right">{{ total }}</span></h4>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="row pt-3">
-        <div class="col-md">
+        <div class="col-md-10">
             <div class="card">
                 <div class="card-header py-1 mt-1">
                     <h4 class="font-weight-bold">Weekly Chart</h4>

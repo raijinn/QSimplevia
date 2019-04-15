@@ -10,7 +10,7 @@ export class NavigationComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    document.body.style.paddingLeft = "18%";
+    document.body.style.marginLeft = "17%";
   }
 
 

@@ -8,8 +8,8 @@ import { GAnnouncements, PSAnnouncements } from '../../../models/queueing_models
 })
 export class GetAnnouncementDataService {
   // EVENTS + ANNOUNCEMENTS ARE COMBINED
-
-  readonly tempIP = "http://192.168.100.16:50870/api";
+  readonly tempIP = "http://localhost:50870/api";
+  // readonly tempIP = "http://192.168.100.16:50870/api";
 
   constructor(private http: HttpClient) { }
 

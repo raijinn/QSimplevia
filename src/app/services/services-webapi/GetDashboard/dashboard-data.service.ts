@@ -7,22 +7,21 @@ import { TDashNum } from '../../../models/queueing_models';
   providedIn: 'root'
 })
 export class DashboardDataService {
-  readonly tempIP = "http://192.168.100.16:50870/api";;
+  readonly tempIP = "http://localhost:50870/api";
+  // readonly tempIP = "http://192.168.100.16:50870/api";
 
-  constructor(private http: HttpClient) { } 
-  getDaily(): Observable<TDashNum> {
-    return this.http.get<TDashNum>(this.tempIP + '/GetAllTransactions ')
+  constructor(private http: HttpClient) { }
+  getDaily(): Observable<TDashNum[]> {
+    return this.http.get<TDashNum[]>(this.tempIP + '/GetAllTransactions')
   }
 
-  getWeekly() {
-
+  getWeekly(): Observable<TDashNum[]> {
+    return this.http.get<TDashNum[]>(this.tempIP + '/GetWeeklyTrans')
   }
-  getMonthly() {
-
+  getMonthly(): Observable<TDashNum[]> {
+    return this.http.get<TDashNum[]>(this.tempIP + '/GetMonthlyTrans')
   }
-  getAllTimeTotal() {
-
+  getAllTimeTotal(): Observable<TDashNum[]> {
+    return this.http.get<TDashNum[]>(this.tempIP + '/GetTotalTrans')
   }
-
-
 }

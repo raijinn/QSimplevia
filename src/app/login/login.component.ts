@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.resetForm();
-    document.body.style.paddingLeft = "0%";
+    document.body.style.marginLeft = "0%";
   }
 
   _list: Users[];
