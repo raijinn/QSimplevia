@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ReportsDataService } from '../../services/services-webapi/GetReports/reports-data.service';
 import { TellerDataService } from '../../services/services-webapi/GetTellers/teller-data.service';
 import { Users } from '../../models/queueing_models';
 import { ToastrService } from 'ngx-toastr';
@@ -21,6 +22,11 @@ export class AccountSettingsAdminComponent implements OnInit {
   LName = this.current[0].LName;
   Email = this.current[0].Email;
 
+  public dt = new Date();
+  public dd = String(this.dt.getDate()).padStart(2, '0');
+  public mm = String(this.dt.getMonth() + 1).padStart(2, '0'); //January is 0!
+  public yyyy = this.dt.getFullYear();
+  public today = this.mm + '/' + this.dd + '/' + this.yyyy;
 
   //two-way bind variable
   public admin = new Users
@@ -34,7 +40,7 @@ export class AccountSettingsAdminComponent implements OnInit {
     Password: this.Password,
   }
 
-  constructor(private tellerservice: TellerDataService, private toastr: ToastrService) { }
+  constructor(private tellerservice: TellerDataService, private toastr: ToastrService, private _ReportService: ReportsDataService) { }
 
   ngOnInit() {
 
@@ -51,5 +57,11 @@ export class AccountSettingsAdminComponent implements OnInit {
         console.log(admin.value);
       }),
       error => console.error('Error!', error)
+    var audit = {
+      UserId: this.current[0].UserId,
+      UserActivity: 'Edited Personal Account Details for: ' + admin.value.LName + ', ' + admin.value.FName + ' ' + admin.value.MName + '\nAdmin ID: ' + this.UserId,
+      CreatedAt: this.today
+    }
+    this._ReportService.postTrail(audit).subscribe(data => this._ReportService.getTrail());
   }
 }

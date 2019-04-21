@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '../../../../../node_modules/@angular/forms';
 import { GetAnnouncementDataService } from '../../../services/services-webapi/GetAnnouncements/get-announcement-data.service';
+import { ReportsDataService } from '../../../services/services-webapi/GetReports/reports-data.service';
+
 // data model
 import { PSAnnouncements } from '../../../models/queueing_models';
 
@@ -16,7 +18,14 @@ export class MEventsComponent implements OnInit {
   public passEvents = new PSAnnouncements;
   public eventId: number;
 
-  constructor(private AnnounceService: GetAnnouncementDataService) { }
+  public dt = new Date();
+  public dd = String(this.dt.getDate()).padStart(2, '0');
+  public mm = String(this.dt.getMonth() + 1).padStart(2, '0'); //January is 0!
+  public yyyy = this.dt.getFullYear();
+  public today = this.mm + '/' + this.dd + '/' + this.yyyy;
+  public current = JSON.parse(localStorage.getItem('CurrentUser'));
+
+  constructor(private AnnounceService: GetAnnouncementDataService, private _ReportService: ReportsDataService) { }
 
   ngOnInit() {
     this.AnnounceService.getAnnouncement()
@@ -43,7 +52,13 @@ export class MEventsComponent implements OnInit {
           .subscribe(data => this.events = data.filter(events => events.EventType !== false),
             error => console.error('Error!', error)
           ));
-    this.resetForm(form)
+    var audit = {
+      UserId: this.current[0].UserId,
+      UserActivity: 'Added an Event: ' + form.value.Description,
+      CreatedAt: this.today
+    }
+    this._ReportService.postTrail(audit).subscribe(data => this._ReportService.getTrail());
+    this.resetForm(form);
   }
 
   edit(form: NgForm) {
@@ -54,6 +69,12 @@ export class MEventsComponent implements OnInit {
           .subscribe(data => this.events = data.filter(events => events.EventType !== false)),
         error => console.error('Error!', error)
       );
+    var audit = {
+      UserId: this.current[0].UserId,
+      UserActivity: 'Edited an Event: ' + form.value.Description+ ' \nEvent ID: ' + this.eventId,
+      CreatedAt: this.today
+    }
+    this._ReportService.postTrail(audit).subscribe(data => this._ReportService.getTrail());
     this.resetForm(form)
   }
   delete(id: number): void {
@@ -62,5 +83,11 @@ export class MEventsComponent implements OnInit {
         _ => this.events = this.events.filter(events => events.EventId !== id),
         error => console.log('error', error)
       )
+    var audit = {
+      UserId: this.current[0].UserId,
+      UserActivity:  'Deleted an Event: '+ 'EventID: ' + id,
+      CreatedAt: this.today
+    }
+    this._ReportService.postTrail(audit).subscribe(data => this._ReportService.getTrail());
   }
 }

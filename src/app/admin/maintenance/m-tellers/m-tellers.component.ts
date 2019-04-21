@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { DeptDataService } from '../../../services/services-webapi/GetDepartments/dept-data.service'
 import { TellerDataService } from '../../../services/services-webapi/GetTellers/teller-data.service';
+import { ReportsDataService } from '../../../services/services-webapi/GetReports/reports-data.service';
 import { Users } from '../../../models/queueing_models';
 
 
@@ -20,7 +21,15 @@ export class MTellersComponent implements OnInit {
 
   public tableid: number;
 
-  constructor(private _DeptService: DeptDataService, private _TellerService: TellerDataService) { }
+  public dt = new Date();
+  public dd = String(this.dt.getDate()).padStart(2, '0');
+  public mm = String(this.dt.getMonth() + 1).padStart(2, '0'); //January is 0!
+  public yyyy = this.dt.getFullYear();
+  public today = this.mm + '/' + this.dd + '/' + this.yyyy;
+  public current = JSON.parse(localStorage.getItem('CurrentUser'));
+
+
+  constructor(private _DeptService: DeptDataService, private _TellerService: TellerDataService, private _ReportService: ReportsDataService) { }
 
   ngOnInit() {
     this._DeptService.getDeptData()
@@ -48,6 +57,12 @@ export class MTellersComponent implements OnInit {
           ),
         error => console.error('Error!', error)
       )
+    var audit = {
+      UserId: this.current[0].UserId,
+      UserActivity: 'Added Teller: ' + tellerform.value.LName + ', ' + tellerform.value.FName + ' ' + tellerform.value.MName,
+      CreatedAt: this.today
+    }
+    this._ReportService.postTrail(audit).subscribe(data => this._ReportService.getTrail());
     tellerform.resetForm();
   }
 
@@ -62,6 +77,12 @@ export class MTellersComponent implements OnInit {
           ),
         error => console.error('Error!', error)
       )
+    var audit = {
+      UserId: this.current[0].UserId,
+      UserActivity: 'Edited Teller Details for: ' + form.value.LName + ', ' + form.value.FName + ' ' + form.value.MName + '\nTeller ID: ' + this.tableid, 
+      CreatedAt: this.today
+    }
+    this._ReportService.postTrail(audit).subscribe(data => this._ReportService.getTrail());
     form.resetForm();
   }
 
@@ -70,7 +91,21 @@ export class MTellersComponent implements OnInit {
       .subscribe(
         _ => this.anyTeller = this.anyTeller.filter(anyTeller => anyTeller.UserId !== id)
       ),
-      error => console.error('Error!', error)
+      error => console.error('Error!', error);
+    var audit = {
+      UserId: this.current[0].UserId,
+      UserActivity: 'Deleted an Teller Account: ' + 'Teller ID: ' + id,
+      CreatedAt: this.today
+    }
+    this._ReportService.postTrail(audit).subscribe(data => this._ReportService.getTrail());
   }
 }
 
+
+
+
+// var audit = {
+//   UserId: this.current[0].UserId,
+//   UserActivity: 'Edited Personal Account Details for: ' + admin.value.LName + ', ' + admin.value.FName + ' ' + admin.value.MName + '\nAdmin ID: ' + this.UserId,
+//   CreatedAt: this.today
+// }

@@ -73,7 +73,7 @@ export interface Reports {
     ReportId: number;
     DepartmentId: number;
     DepartmentName: string;
-    Queue: number;
+    QueueNumber: number;
     Date: Date;
     WindowNum: number;
 }
@@ -91,4 +91,3 @@ export class Audits {
 export interface TDashNum {
     countNum: number;
 }
-

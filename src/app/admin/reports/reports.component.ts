@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import { ReportsDataService } from '../../services/services-webapi/GetReports/reports-data.service';
+import Fuse from 'fuse.js';
 
 @Component({
   selector: 'app-reports',
@@ -12,64 +12,250 @@ export class ReportsComponent implements OnInit {
   public allreports: any = [];
   public breadcrumbs: any = [];
   public searchArgs: any;
-  public dateArg: Date = new Date("April 04, 2019 00:00:00");
   // search input type default 
   public inputType: string = "text";
-
+  public inputName: string; // for field specifics
+  public placeholder: string;
   constructor(private reports: ReportsDataService) { }
 
   ngOnInit() {
     document.body.style.overflowY = 'scroll';
     this.reports.getReports().subscribe(data => this.allreports = data);
-    // console.log(this.searchArgs)2020-04-11T00:00:00
     this.reports.getTrail().subscribe(data => this.breadcrumbs = data);
   }
 
   onSelect(event: any) {
-    // perhaps add a variable para maistore yung event.target.value para magamit sa search
-    if (event.target.value === "Department Name" || event.target.value === "Admin" || event.target.value === "User Activity") {
-      this.inputType = "text"
+    // reports
+    if (event.target.value === "Department Name") {
+      this.inputType = "text";
+      this.inputName = event.target.value;
+      this.placeholder = "";
+      console.log(this.inputType, this.inputName)
     }
-    else if (event.target.value === "Queue" || event.target.value === "Window Number" || event.target.value === "Admin ID") {
-      this.inputType = "number"
+    else if (event.target.value === "Queue") {
+      this.inputType = "number";
+      this.inputName = event.target.value;
+      this.placeholder = "";
+      console.log(this.inputType, this.inputName)
     }
-    else if (event.target.value === "Date" || event.target.value === "CreatedAt") {
-      this.inputType = "date"
+    else if (event.target.value === "Window Number") {
+      this.inputType = "number";
+      this.inputName = event.target.value;
+      this.placeholder = "";
+      console.log(this.inputType, this.inputName)
+    }
+    else if (event.target.value === "Date") {
+      this.inputType = "text";
+      this.inputName = event.target.value;
+      this.placeholder = "MM/DD/YYYY";
+      console.log(this.inputType, this.inputName)
+    }
+    // AUDIT!!!
+    else if (event.target.value === "Admin ID") {
+      this.inputType = "number";
+      this.inputName = event.target.value;
+      this.placeholder = "";
+      console.log(this.inputType, this.inputName)
+    }
+    else if (event.target.value === "Admin") {
+      this.inputType = "text";
+      this.inputName = event.target.value;
+      this.placeholder = "";
+      console.log(this.inputType, this.inputName)
+    }
+    else if (event.target.value == "Activity") {
+      this.inputType = "text";
+      this.inputName = event.target.value;
+      this.placeholder = "";
+      console.log(this.inputType, this.inputName)
+    }
+    else if (event.target.value === "Date") {
+      this.inputType = "text";
+      this.inputName = event.target.value;
+      this.placeholder = "MM/DD/YYYY";
+      console.log(this.inputType, this.inputName)
     }
   }
   onKey(event: any) {
     this.searchArgs = event.target.value;
-    this.dateArg = event.target.value;
   }
 
   searchReports() {
-    // lagay yung reset pag empty yung input box
-    // if else kailangan match dun sa search by yung finifilter mo ogag
-    // console.log(this.inputType+': '+ event.target.value);
-    if (this.inputType === "text") {
-      this.reports.getReports().subscribe(data => this.allreports = data.filter(allreports => allreports.DepartmentName === this.searchArgs));
-      console.log(this.allreports)
+    // by default lahat ng keys ay kasama sa parameters
+    // general
+    if (this.inputName === "Department Name") {
+      this.reports.getReports().subscribe(data => {
+        // fuse constructor
+        type ReportsFuse = {
+          DepartmentName: string;
+        };
+        // fuse data binding
+        var reports: ReportsFuse[] = data;
+        // fuse options | test muna lahat pag working tsaka iseparate by group
+        var options: Fuse.FuseOptions<ReportsFuse> = {
+          keys: ['DepartmentName']
+        }
+        // gawa ka options tas bind mo sa allreports
+        var fuse = new Fuse(reports, options);
+        var resFuse = fuse.search(this.searchArgs);
+        console.log(resFuse);
+        this.allreports = resFuse;
+      });
+      if (this.searchArgs.length == 0) {
+        this.reports.getReports().subscribe(data => this.allreports = data);
+      }
     }
-    else if (this.inputType === "number") {
-      this.reports.getReports().subscribe(data => this.allreports = data.filter(allreports => allreports.Queue === parseInt(this.searchArgs)));
-      console.log(this.allreports);
+    else if (this.inputName === "Queue") {
+      this.reports.getReports().subscribe(data => {
+        // fuse constructor
+        type ReportsFuse = {
+          QueueNumber: number;
+        };
+        var reports: ReportsFuse[] = data;
+        // fuse options | test muna lahat pag working tsaka iseparate by group
+        var options: Fuse.FuseOptions<ReportsFuse> = {
+          keys: ['QueueNumber']
+        }
+        // gawa ka options tas bind mo sa allreports
+        var fuse = new Fuse(reports, options);
+        var resFuse = fuse.search(this.searchArgs);
+        console.log(resFuse);
+        this.allreports = resFuse;
+      });
+      if (this.searchArgs.length == 0) {
+        this.reports.getReports().subscribe(data => this.allreports = data);
+      }
     }
-    else if (this.inputType === "date") {
-      this.reports.getReports().subscribe(data => this.allreports = data.filter(allreports => allreports.Date === this.dateArg));
-      console.log(this.dateArg);
+    else if (this.inputName === "Window Number") {
+      this.reports.getReports().subscribe(data => {
+        // fuse constructor
+        type ReportsFuse = {
+          WindowNum: number;
+        };
+        var reports: ReportsFuse[] = data;
+        // fuse options | test muna lahat pag working tsaka iseparate by group
+        var options: Fuse.FuseOptions<ReportsFuse> = {
+          keys: ['WindowNum']
+        }
+        // gawa ka options tas bind mo sa allreports
+        var fuse = new Fuse(reports, options);
+        var resFuse = fuse.search(this.searchArgs);
+        console.log(resFuse);
+        this.allreports = resFuse;
+      });
+      if (this.searchArgs.length == 0) {
+        this.reports.getReports().subscribe(data => this.allreports = data);
+      }
+    }
+    else if (this.inputName === "Date") {
+      this.reports.getReports().subscribe(data => {
+        // fuse constructor
+        type ReportsFuse = {
+          Date: Date;
+        };
+        var reports: ReportsFuse[] = data;
+        // fuse options | test muna lahat pag working tsaka iseparate by group
+        var options: Fuse.FuseOptions<ReportsFuse> = {
+          distance: 0,
+          keys: ['Date']
+        }
+        // gawa ka options tas bind mo sa allreports
+        var fuse = new Fuse(reports, options);
+        var resFuse = fuse.search(this.searchArgs);
+        console.log(resFuse);
+        this.allreports = resFuse;
+      });
+      if (this.searchArgs.length == 0) {
+        this.reports.getReports().subscribe(data => this.allreports = data);
+      }
     }
   }
 
   searchAudit() {
-    //pakifilter gamit yung query pliz along with onkeyup
-    if (this.inputType === "text") {
-      this.reports.getTrail().subscribe(data => this.breadcrumbs = data.filter(breadcrumbs => breadcrumbs.UserActivity === this.searchArgs));
+    if (this.inputName === "Admin ID") {
+      this.reports.getTrail().subscribe(data => {
+        // fuse constructor
+        type TrailFuse = {
+          UserId: number;
+        };
+        var reports: TrailFuse[] = data;
+        // fuse options | test muna lahat pag working tsaka iseparate by group
+        var options: Fuse.FuseOptions<TrailFuse> = {
+          keys: ['UserId']
+        }
+        // gawa ka options tas bind mo sa breadcrumbs
+        var fuse = new Fuse(reports, options);
+        var resFuse = fuse.search(this.searchArgs);
+        console.log(resFuse);
+        this.breadcrumbs = resFuse;
+      });
+      if (this.searchArgs.length == 0) {
+        this.reports.getTrail().subscribe(data => this.breadcrumbs = data);
+      }
     }
-    else if (this.inputType === "number") {
-      this.reports.getTrail().subscribe(data => this.breadcrumbs = data.filter(breadcrumbs => breadcrumbs.UserActivity === this.searchArgs));
-      console.log(this.allreports);
+    else if (this.inputName === "Admin") {
+      this.reports.getTrail().subscribe(data => {
+        // fuse constructor
+        type TrailFuse = {
+          Admin: string;
+        };
+        var reports: TrailFuse[] = data;
+        // fuse options | test muna lahat pag working tsaka iseparate by group
+        var options: Fuse.FuseOptions<TrailFuse> = {
+          keys: ['Admin']
+        }
+        // gawa ka options tas bind mo sa breadcrumbs
+        var fuse = new Fuse(reports, options);
+        var resFuse = fuse.search(this.searchArgs);
+        console.log(resFuse);
+        this.breadcrumbs = resFuse;
+      });
+      if (this.searchArgs.length == 0) {
+        this.reports.getTrail().subscribe(data => this.breadcrumbs = data);
+      }
     }
-
+    else if (this.inputName === "Activity") {
+      this.reports.getTrail().subscribe(data => {
+        // fuse constructor
+        type TrailFuse = {
+          UserActivity: string;
+        };
+        var reports: TrailFuse[] = data;
+        // fuse options | test muna lahat pag working tsaka iseparate by group
+        var options: Fuse.FuseOptions<TrailFuse> = {
+          keys: ['UserActivity']
+        }
+        // gawa ka options tas bind mo sa breadcrumbs
+        var fuse = new Fuse(reports, options);
+        var resFuse = fuse.search(this.searchArgs);
+        console.log(resFuse);
+        this.breadcrumbs = resFuse;
+      });
+      if (this.searchArgs.length == 0) {
+        this.reports.getTrail().subscribe(data => this.breadcrumbs = data);
+      }
+    }
+    else if (this.inputName === "Date") {
+      this.reports.getTrail().subscribe(data => {
+        // fuse constructor
+        type TrailFuse = {
+          CreatedAt: Date;
+        };
+        var reports: TrailFuse[] = data;
+        // fuse options | test muna lahat pag working tsaka iseparate by group
+        var options: Fuse.FuseOptions<TrailFuse> = {
+          distance: 0,
+          keys: ['CreatedAt']
+        }
+        // gawa ka options tas bind mo sa breadcrumbs
+        var fuse = new Fuse(reports, options);
+        var resFuse = fuse.search(this.searchArgs);
+        console.log(resFuse);
+        this.breadcrumbs = resFuse;
+      });
+      if (this.searchArgs.length == 0) {
+        this.reports.getTrail().subscribe(data => this.breadcrumbs = data);
+      }
+    }
   }
-
 }

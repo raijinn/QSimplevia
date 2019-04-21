@@ -18,4 +18,8 @@ export class ReportsDataService {
   getTrail(): Observable<Audits[]>{
     return this.http.get<Audits[]>(this.tempIP + '/GetAuditTrail');
   }
+
+  postTrail(Trail: any): Observable<Audits[]> {
+    return this.http.post<Audits[]>(this.tempIP + '/PostAuditTrail', Trail)
+  }
 }
