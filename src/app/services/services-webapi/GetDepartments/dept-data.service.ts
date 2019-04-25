@@ -12,6 +12,10 @@ export class DeptDataService {
   //instantiate ng http client
   constructor(private http: HttpClient) { }
   
+  getDeptNames(): Observable<GDepartments[]>{
+    return this.http.get<GDepartments[]>(this.tempIP + '/GetDeptNames')
+  }
+
   getDeptData(): Observable<GDepartments[]>{
     return this.http.get<GDepartments[]>(this.tempIP + '/GetDepartments');
   }

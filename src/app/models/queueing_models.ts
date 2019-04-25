@@ -10,7 +10,7 @@ export interface GDailyQueue {
 }
 
 // GET FOR DEPARTMENTS
-export interface GDepartments {
+export class GDepartments {
     DepartmentId: number;
     DepartmentName: String;
     Windows: number;

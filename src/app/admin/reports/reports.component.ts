@@ -90,7 +90,7 @@ export class ReportsComponent implements OnInit {
           DepartmentName: string;
         };
         // fuse data binding
-        var reports: ReportsFuse[] = data;
+        var reports: ReportsFuse[] = data; 
         // fuse options | test muna lahat pag working tsaka iseparate by group
         var options: Fuse.FuseOptions<ReportsFuse> = {
           keys: ['DepartmentName']

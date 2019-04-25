@@ -47,6 +47,7 @@ export class MTellersComponent implements OnInit {
 
 
   onSubmit(tellerform: NgForm) {
+    tellerform.value.IsAdmin = false;
     var index = tellerform.value.DepartmentId.indexOf(' ');
     var sliceDept = tellerform.value.DepartmentId.slice(0, index)
     tellerform.value.DepartmentId = sliceDept;
@@ -67,6 +68,7 @@ export class MTellersComponent implements OnInit {
   }
 
   edit(form: NgForm) {
+    form.value.IsAdmin = false;
     var index = form.value.DepartmentId.indexOf(' ');
     var sliceDept = form.value.DepartmentId.slice(0, index)
     form.value.DepartmentId = sliceDept;

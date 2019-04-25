@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DashboardDataService } from '../../services/services-webapi/GetDashboard/dashboard-data.service'
-import { formatDate } from '@angular/common';
+import { DashboardDataService } from '../../services/services-webapi/GetDashboard/dashboard-data.service';
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -17,8 +18,7 @@ export class DashboardComponent implements OnInit {
   constructor(private dash: DashboardDataService) { }
 
   ngOnInit() {
-
- 
+    
   }
 
 }

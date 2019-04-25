@@ -12,16 +12,15 @@ export class DashboardDataService {
 
   constructor(private http: HttpClient) { }
   getDaily(): Observable<TDashNum[]> {
-    return this.http.get<TDashNum[]>(this.tempIP + '/GetDailyTrans')
+    return this.http.get<TDashNum[]>(this.tempIP + '/GetDailyTrans');
   }
   getWeekly(): Observable<TDashNum[]> {
-
     return this.http.get<TDashNum[]>(this.tempIP + '/GetWeeklyTrans');
   }
   getMonthly(): Observable<TDashNum[]> {
-    return this.http.get<TDashNum[]>(this.tempIP + '/GetMonthlyTrans')
+    return this.http.get<TDashNum[]>(this.tempIP + '/GetMonthlyTrans');
   }
   getAllTimeTotal(): Observable<TDashNum[]> {
-    return this.http.get<TDashNum[]>(this.tempIP + '/GetTotalTrans')
+    return this.http.get<TDashNum[]>(this.tempIP + '/GetTotalTrans');
   }
 }

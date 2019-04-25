@@ -33,7 +33,7 @@
                     <tr *ngFor="let announce of announcements; index as i">
                         <td>{{ i+1 }}</td>
                         <td>{{ announce.Description }}</td>
-                        <td>{{ announce.CreatedAt | date: 'medium' }}</td>
+                        <td>{{ announce.CreatedAt | date: 'short' }}</td>
                         <td><button type="button" data-toggle="modal" data-target="#editAnnounceForm"
                                 class="btn btn-warning rounded" (click)="throwId(announce.EventId)">EDIT</button></td>
                         <!-- lagyan confirmation modal  -->
