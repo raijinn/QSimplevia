@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { TDashNum } from '../../../models/queueing_models';
+import { TDashNum, TDashDate } from '../../../models/queueing_models';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +14,11 @@ export class DashboardDataService {
   getDaily(): Observable<TDashNum[]> {
     return this.http.get<TDashNum[]>(this.tempIP + '/GetDailyTrans');
   }
-  getWeekly(): Observable<TDashNum[]> {
-    return this.http.get<TDashNum[]>(this.tempIP + '/GetWeeklyTrans');
+  getWeekly(day: TDashDate) {
+    return this.http.post(this.tempIP + '/GetWeeklyTrans', day);
   }
-  getMonthly(): Observable<TDashNum[]> {
-    return this.http.get<TDashNum[]>(this.tempIP + '/GetMonthlyTrans');
+  getMonthly(day: TDashDate) {
+    return this.http.post(this.tempIP + '/GetMonthlyTrans', day);
   }
   getAllTimeTotal(): Observable<TDashNum[]> {
     return this.http.get<TDashNum[]>(this.tempIP + '/GetTotalTrans');

@@ -31,18 +31,10 @@ export class BarChartComponent implements OnInit {
     // get every monday, check and assign it to each week 
     this._deptService.getDeptNames()
       .subscribe(data => this.deptlabels = data);
-    this._dashboardService.getWeekly().subscribe(data => this.weeklydata = data); 
+    // this._dashboardService.getWeekly().subscribe(data => this.weeklydata = data); 
     // set mo per label tapos insert yung limang data into 
     var weekly = document.getElementById("deptchart")
-    this.addData(weekly);
+  
   }
 
-  // addchartdata(chart, data label, dataset)
-  addData(chart) {
-    chart.data.labels.push(this.deptlabels);
-    chart.data.datasets.forEach((dataset) => {
-      dataset.data.push(this.weeklydata);
-    });
-    chart.update();
-  }
 }

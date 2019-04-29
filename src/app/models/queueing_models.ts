@@ -91,3 +91,6 @@ export class Audits {
 export interface TDashNum {
     countNum: number;
 }
+export interface TDashDate {
+    dateRec: Date;
+}
