@@ -6,23 +6,26 @@
             <div class="card-deck">
                 <div class="card">
                     <div class="card-body">
-                        <h4>Today<span class="badge badge-dark badge-secondary float-right" *ngFor="let d of daily">{{ d.Transactions }}</span></h4>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <h4>This Week<span class="badge badge-dark badge-secondary float-right"></span></h4>
+                        <h4>Today<span class="badge badge-dark badge-secondary float-right"
+                                *ngFor="let d of daily">{{ d.Transactions }}</span></h4>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h4>This Month<span class="badge badge-dark badge-secondary float-right"></span></h4>
+                        <h4>This Week<span class="badge badge-dark badge-secondary float-right"
+                                *ngFor="let w of weekly">{{ w.Transactions }}</span></h4>
                     </div>
                 </div>
                 <div class="card">
                     <div class="card-body">
-                        <h4>Total<span class="badge badge-dark badge-secondary float-right" *ngFor="let t of total">{{ t.Transactions }}</span></h4>
+                        <h4>This Month<span class="badge badge-dark badge-secondary float-right"
+                                *ngFor="let m of monthly">{{ m.Transactions }}</span></h4>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <h4>Total<span class="badge badge-dark badge-secondary float-right"
+                                *ngFor="let t of total">{{ t.Transactions }}</span></h4>
                     </div>
                 </div>
             </div>

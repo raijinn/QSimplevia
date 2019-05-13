@@ -2,23 +2,11 @@ Current>
 
 Remaining Task>
 Dashboard - hub
-	total trans, deptrafficChart(comparative), mini queue feed
-maintenance
-	teller testing
-reports
-	data binding
-	search by http filtering
-acc-settings
-	update service
-audit trail
-	post every data interaction + testing
+	total trans, deptrafficChart(comparative)
 use toastr for data entry confirmation
-
 monitor design
 	per dept + window num sa queue block
 
-!form validation
-!route guards
+!form submit disable
 
-logout(BasicHttpAuth)
 !!!media queries!!!

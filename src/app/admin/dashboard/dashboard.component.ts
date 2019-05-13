@@ -12,7 +12,6 @@ import moment from 'moment';
 })
 export class DashboardComponent implements OnInit {
 
-
   public daily: any;
   public weekly: any; // POST
   public monthly: any; // POST
@@ -21,27 +20,39 @@ export class DashboardComponent implements OnInit {
   constructor(private dash: DashboardDataService) { }
 
   ngOnInit() {
-
-    console.log(this.getMonday());
-    this.dash.getDaily()
-      .subscribe(data => this.daily = data);
-    // parse string to date
-
-    var form = <NgForm>{
+    //submits date into a form
+    var monday = <NgForm>{
       value: {
         Date: this.getMonday()
       }
     };
-    this.dash.getWeekly(form.value)
+    var month = <NgForm>{
+      value: {
+        Date: this.getCurrentMonth()
+      }
+    }
+    console.log(this.getMonday());
+    console.log(this.getCurrentMonth());
+
+    this.dash.getDaily()
+      .subscribe(data => this.daily = data);
+
+    this.dash.getWeekly(monday.value)
       .subscribe(data => this.weekly = data)
+
+    this.dash.getMonthly(month.value)
+      .subscribe(data => this.monthly = data)
 
     this.dash.getAllTimeTotal()
       .subscribe(data => this.total = data);
   }
 
 
-
-
+  getCurrentMonth() {
+    var d = new Date();
+    return (d.getMonth()+1) + "/" + d.getFullYear()
+  }
+  
   getMonday() {
     var d = new Date();
     var day = d.getDay(),
